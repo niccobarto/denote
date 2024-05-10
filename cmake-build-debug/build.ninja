@@ -81,6 +81,22 @@ build CMakeFiles/denote.dir/NewNoteDialog.cpp.obj: CXX_COMPILER__denote_unscanne
   OBJECT_DIR = CMakeFiles\denote.dir
   OBJECT_FILE_DIR = CMakeFiles\denote.dir
 
+build CMakeFiles/denote.dir/Note.cpp.obj: CXX_COMPILER__denote_unscanned_Debug D$:/OneDrive/UNIFI/Lab.$ Programmazione/denote/Note.cpp || cmake_object_order_depends_target_denote
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\denote.dir\Note.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem "D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/include" -isystem D:/Qt/6.7.0/mingw_64/include/QtCore -isystem D:/Qt/6.7.0/mingw_64/include -isystem D:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.7.0/mingw_64/include/QtGui -isystem D:/Qt/6.7.0/mingw_64/include/QtWidgets
+  OBJECT_DIR = CMakeFiles\denote.dir
+  OBJECT_FILE_DIR = CMakeFiles\denote.dir
+
+build CMakeFiles/denote.dir/NoteManager.cpp.obj: CXX_COMPILER__denote_unscanned_Debug D$:/OneDrive/UNIFI/Lab.$ Programmazione/denote/NoteManager.cpp || cmake_object_order_depends_target_denote
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\denote.dir\NoteManager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem "D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/include" -isystem D:/Qt/6.7.0/mingw_64/include/QtCore -isystem D:/Qt/6.7.0/mingw_64/include -isystem D:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.7.0/mingw_64/include/QtGui -isystem D:/Qt/6.7.0/mingw_64/include/QtWidgets
+  OBJECT_DIR = CMakeFiles\denote.dir
+  OBJECT_FILE_DIR = CMakeFiles\denote.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target denote
@@ -89,7 +105,7 @@ build CMakeFiles/denote.dir/NewNoteDialog.cpp.obj: CXX_COMPILER__denote_unscanne
 #############################################
 # Link the executable denote.exe
 
-build denote.exe: CXX_EXECUTABLE_LINKER__denote_Debug CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj CMakeFiles/denote.dir/main.cpp.obj CMakeFiles/denote.dir/basewindow.cpp.obj CMakeFiles/denote.dir/NewNoteDialog.cpp.obj | D$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a D$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a || denote_autogen denote_autogen_timestamp_deps
+build denote.exe: CXX_EXECUTABLE_LINKER__denote_Debug CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj CMakeFiles/denote.dir/main.cpp.obj CMakeFiles/denote.dir/basewindow.cpp.obj CMakeFiles/denote.dir/NewNoteDialog.cpp.obj CMakeFiles/denote.dir/Note.cpp.obj CMakeFiles/denote.dir/NoteManager.cpp.obj | D$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a D$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a || denote_autogen denote_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = D:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a  D:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a  D:/Qt/6.7.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\denote.dir
@@ -148,7 +164,7 @@ build denote_autogen/timestamp denote_autogen/mocs_compilation.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles\denote_autogen_timestamp_deps
 
-build CMakeFiles/denote_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/denote_autogen_timestamp_deps: phony D$:/Qt/6.7.0/mingw_64/./bin/moc.exe D$:/Qt/6.7.0/mingw_64/./bin/uic.exe
+build CMakeFiles/denote_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/denote_autogen_timestamp_deps: phony D$:/Qt/6.7.0/mingw_64/./bin/uic.exe D$:/Qt/6.7.0/mingw_64/./bin/moc.exe
 
 
 #############################################

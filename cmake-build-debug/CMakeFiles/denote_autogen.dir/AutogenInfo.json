@@ -229,6 +229,18 @@
 			null
 		],
 		[
+			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/Note.h",
+			"MU",
+			"EWIEGA46WW/moc_Note.cpp",
+			null
+		],
+		[
+			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NoteManager.h",
+			"MU",
+			"EWIEGA46WW/moc_NoteManager.cpp",
+			null
+		],
+		[
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/basewindow.h",
 			"MU",
 			"EWIEGA46WW/moc_basewindow.cpp",
@@ -308,6 +320,12 @@
 	[
 		[
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NewNoteDialog.cpp",
+			"MU",
+			null
+		],
+		[ "D:/OneDrive/UNIFI/Lab. Programmazione/denote/Note.cpp", "MU", null ],
+		[
+			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NoteManager.cpp",
 			"MU",
 			null
 		],

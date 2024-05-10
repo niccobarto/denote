@@ -15,7 +15,11 @@ find_package(Qt6 COMPONENTS
 
 add_executable(denote main.cpp
         basewindow.cpp
-        NewNoteDialog.cpp)
+        NewNoteDialog.cpp
+        Note.cpp
+        NoteManager.cpp
+
+)
 target_link_libraries(denote
         Qt::Core
         Qt::Gui
