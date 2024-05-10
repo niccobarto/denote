@@ -19,10 +19,14 @@ public:
     explicit BaseWindow(QWidget *parent = nullptr);
 
     ~BaseWindow() override;
-
+private slots:
+    //medoto connesso all'evento newnotebutton::clicked
+    void newNoteClicked();
 private:
     Ui::BaseWindow *ui;
+
 };
+
 
 
 #endif //DENOTE_BASEWINDOW_H
