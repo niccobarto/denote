@@ -223,6 +223,12 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/BaseWindow.h",
+			"MU",
+			"EWIEGA46WW/moc_BaseWindow.cpp",
+			null
+		],
+		[
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NewNoteDialog.h",
 			"MU",
 			"EWIEGA46WW/moc_NewNoteDialog.cpp",
@@ -238,12 +244,6 @@
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NoteManager.h",
 			"MU",
 			"EWIEGA46WW/moc_NoteManager.cpp",
-			null
-		],
-		[
-			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/basewindow.h",
-			"MU",
-			"EWIEGA46WW/moc_basewindow.cpp",
 			null
 		]
 	],
@@ -319,6 +319,11 @@
 	"SOURCES" : 
 	[
 		[
+			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/BaseWindow.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NewNoteDialog.cpp",
 			"MU",
 			null
@@ -326,11 +331,6 @@
 		[ "D:/OneDrive/UNIFI/Lab. Programmazione/denote/Note.cpp", "MU", null ],
 		[
 			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/NoteManager.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/OneDrive/UNIFI/Lab. Programmazione/denote/basewindow.cpp",
 			"MU",
 			null
 		],

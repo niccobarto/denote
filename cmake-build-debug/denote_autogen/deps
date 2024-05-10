@@ -241,9 +241,15 @@ denote_autogen/timestamp: \
 	D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/time.h \
 	D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
 	D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/BaseWindow.cpp \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/BaseWindow.h \
 	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/CMakeLists.txt \
-	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/basewindow.cpp \
-	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/basewindow.h \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/NewNoteDialog.cpp \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/NewNoteDialog.h \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/Note.cpp \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/Note.h \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/NoteManager.cpp \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/NoteManager.h \
 	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/CMakeFiles/3.28.1/CMakeCCompiler.cmake \
 	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake \
 	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/CMakeFiles/3.28.1/CMakeRCCompiler.cmake \
@@ -392,7 +398,9 @@ denote_autogen/timestamp: \
 	D:/Qt/6.7.0/mingw_64/include/QtGui/qtransform.h \
 	D:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
 	D:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+	D:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 	D:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+	D:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 	D:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
 	D:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
 	D:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -535,5 +543,6 @@ denote_autogen/timestamp: \
 	D:/Qt/6.7.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake \
 	D:/Qt/6.7.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
 	D:/Qt/6.7.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessTargets.cmake \
+	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/ui_files/NewNoteDialog.ui \
 	D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/ui_files/basewindow.ui \
 	D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/bin/cmake.exe

@@ -14,7 +14,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(denote main.cpp
-        basewindow.cpp
+        BaseWindow.cpp
         NewNoteDialog.cpp
         Note.cpp
         NoteManager.cpp

@@ -4,9 +4,9 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_BaseWindow.h" resolved
 
-#include "basewindow.h"
+#include "BaseWindow.h"
 #include "ui_files/ui_BaseWindow.h"
-
+#include "NewNoteDialog.h"
 
 BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
@@ -18,6 +18,12 @@ BaseWindow::BaseWindow(QWidget *parent) :
 
 BaseWindow::~BaseWindow() {
     delete ui;
+}
+
+void BaseWindow::newNoteClicked() {
+    NewNoteDialog createdialog(this); //come parent do this, ovvero la mia finestra principale basewindow
+    createdialog.exec();   //eseguo la finestra di dialogo
+
 }
 
 

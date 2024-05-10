@@ -19,7 +19,8 @@ public:
     explicit NewNoteDialog(QWidget *parent = nullptr);
 
     ~NewNoteDialog() override;
-
+private slots:
+    void noteCreationButtonClicked();
 private:
     Ui::NewNoteDialog *ui;
 };
