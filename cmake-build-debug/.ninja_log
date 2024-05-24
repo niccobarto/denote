@@ -1,22 +1,22 @@
 # ninja log v5
-16	170	7370496983041316	denote_autogen/timestamp	29019a3354cc9b85
-677	4189	7370496621251812	CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj	c653d22e5c35659d
-16	170	7370496983041316	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
-16	170	7370496983041316	denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
-679	4268	7370496622022139	CMakeFiles/denote.dir/main.cpp.obj	2d571ede4a52fa3f
-16	170	7370496983041316	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/timestamp	29019a3354cc9b85
-686	4433	7370496623663137	CMakeFiles/denote.dir/NewNoteDialog.cpp.obj	c5f0249f0d79cf0d
-2851	4143	7370497021062076	denote.exe	6b2b04264dced40c
-184	2851	7370497009824523	CMakeFiles/denote.dir/basewindow.cpp.obj	a50563c9c9178237
-7	594	7370498149222441	build.ninja	b4499ce8003f5be2
-689	3141	7370496610761431	CMakeFiles/denote.dir/Note.cpp.obj	3c8caf7307c8b2c0
-692	3246	7370496611806427	CMakeFiles/denote.dir/NoteManager.cpp.obj	2eda93b36626a39d
-8	606	7370498149222441	build.ninja	b4499ce8003f5be2
-26	195	7370498151118644	denote_autogen/timestamp	29019a3354cc9b85
-26	195	7370498151118644	denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
-26	195	7370498151118644	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/timestamp	29019a3354cc9b85
-26	195	7370498151118644	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
-195	2729	7370498177144551	CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj	c653d22e5c35659d
-198	2767	7370498177519537	CMakeFiles/denote.dir/main.cpp.obj	2d571ede4a52fa3f
-201	3275	7370498182589518	CMakeFiles/denote.dir/BaseWindow.cpp.obj	6ac90176f6f48fc3
-3275	3817	7370498186010050	denote.exe	83faac3496aa2a69
+43	1218	7370795516670894	denote_autogen/timestamp	bc681d753820e397
+1219	4637	7370795551986860	CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj	45826d8156af97a8
+43	1218	7370795516670894	denote_autogen/mocs_compilation.cpp	bc681d753820e397
+1224	4649	7370795552097096	CMakeFiles/denote.dir/main.cpp.obj	a1484520bc67e942
+1568	7037	7370794755810578	CMakeFiles/denote.dir/NewNoteDialog.cpp.obj	89d6331cc38d3c4d
+5448	6445	7370795566597362	denote.exe	370e87d23253e3af
+8	606	7380189069535024	build.ninja	b4499ce8003f5be2
+1457	4731	7370507938399756	CMakeFiles/denote.dir/Note.cpp.obj	4bc32c9aa316a1fa
+1462	4896	7370507940029707	CMakeFiles/denote.dir/NoteManager.cpp.obj	741d72b6ee82cf4d
+1230	5447	7370795560065300	CMakeFiles/denote.dir/BaseWindow.cpp.obj	eaa147199a475854
+13	1652	7380189287693441	denote_autogen/timestamp	29019a3354cc9b85
+13	1652	7380189287693441	denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
+13	1652	7380189287693441	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/timestamp	29019a3354cc9b85
+13	1652	7380189287693441	D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/denote_autogen/mocs_compilation.cpp	29019a3354cc9b85
+1664	3318	7380189304921312	CMakeFiles/denote.dir/Note.cpp.obj	3c8caf7307c8b2c0
+1667	3451	7380189306251564	CMakeFiles/denote.dir/NoteManager.cpp.obj	2eda93b36626a39d
+1655	4385	7380189315592963	CMakeFiles/denote.dir/main.cpp.obj	2d571ede4a52fa3f
+1652	4422	7380189315957972	CMakeFiles/denote.dir/denote_autogen/mocs_compilation.cpp.obj	c653d22e5c35659d
+1661	4604	7380189317772949	CMakeFiles/denote.dir/NewNoteDialog.cpp.obj	c5f0249f0d79cf0d
+1658	5137	7380189323117469	CMakeFiles/denote.dir/BaseWindow.cpp.obj	6ac90176f6f48fc3
+5138	6332	7380189327251350	denote.exe	83faac3496aa2a69

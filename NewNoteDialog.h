@@ -19,8 +19,12 @@ public:
     explicit NewNoteDialog(QWidget *parent = nullptr);
 
     ~NewNoteDialog() override;
-private slots:
+signals:
+    void noteConfirmed(QString name); //segnale per la conferma di creazione della nota
+
+    private slots:
     void noteCreationButtonClicked();
+
 private:
     Ui::NewNoteDialog *ui;
 };

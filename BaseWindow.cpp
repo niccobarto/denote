@@ -22,8 +22,14 @@ BaseWindow::~BaseWindow() {
 
 void BaseWindow::newNoteClicked() {
     NewNoteDialog createdialog(this); //come parent do this, ovvero la mia finestra principale basewindow
-    createdialog.exec();   //eseguo la finestra di dialogo
 
+    //connette il segnale proveniente dalla finestra di creazione allo slot createNote
+    connect(&createdialog,&NewNoteDialog::noteConfirmed,this,&BaseWindow::createNote);
+    createdialog.exec();   //eseguo la finestra di dialogo
+}
+
+void BaseWindow::createNote( QString name) {
+    manager->createNewNote(name);
 }
 
 

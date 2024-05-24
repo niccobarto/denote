@@ -1,25 +1,102 @@
 denote_autogen/timestamp: \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/bin/cmake.exe \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineRCCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCCompiler.cmake.in \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestRCCompiler.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake \
@@ -28,6 +105,8 @@ denote_autogen/timestamp: \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake \
+  D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Determine-CXX.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake \
   D:/JetBrains/CLion\ 2022.3.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -259,6 +338,7 @@ denote_autogen/timestamp: \
   D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/main.cpp \
   D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/ui_files/NewNoteDialog.ui \
   D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/ui_files/basewindow.ui \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/QString \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \

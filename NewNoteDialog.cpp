@@ -24,7 +24,7 @@ void NewNoteDialog::noteCreationButtonClicked() {
     if(ui->notetitlebox->text()=="")
         ui->errorcreationlabel->setVisible(true);
     else{
-
-        this->close(); //chiude la finestra di dialogo della creazione della nota
+        emit noteConfirmed(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra
+        close(); //chiude la finestra di dialogo della creazione della nota
     }
 }

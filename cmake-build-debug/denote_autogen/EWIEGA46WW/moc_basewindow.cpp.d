@@ -1,4 +1,4 @@
-D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/denote_autogen/EWIEGA46WW/moc_basewindow.cpp: D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/basewindow.h \
+D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/denote_autogen/EWIEGA46WW/moc_BaseWindow.cpp: D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/BaseWindow.h \
   D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/denote_autogen/moc_predefs.h \
   D:/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   D:/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
@@ -205,6 +205,9 @@ D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/cmake-build-debug/denote_autogen/E
   D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/time.h \
   D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   D:/JetBrains/CLion\ 2022.3.2/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
+  D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/Note.h \
+  D:/OneDrive/UNIFI/Lab.\ Programmazione/denote/NoteManager.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/Qstring \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \
