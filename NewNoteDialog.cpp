@@ -28,3 +28,17 @@ void NewNoteDialog::noteCreationButtonClicked() {
         close(); //chiude la finestra di dialogo della creazione della nota
     }
 }
+
+QLineEdit* NewNoteDialog::getNoteTitleBox() {
+    return ui->notetitlebox;
+}
+
+QLabel *NewNoteDialog::getErrorCreationLabel() {
+    return ui->errorcreationlabel;
+}
+
+QPushButton *NewNoteDialog::getNoteCreationButton() {
+    return ui->notecreationbutton;
+}
+
+

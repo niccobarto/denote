@@ -6,25 +6,45 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-
 find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Test
         REQUIRED)
 
-add_executable(denote main.cpp
+# Eseguibile principale
+add_executable(denote
+        main.cpp
         BaseWindow.cpp
         NewNoteDialog.cpp
         Note.cpp
         NoteManager.cpp
-
 )
+
 target_link_libraries(denote
         Qt::Core
         Qt::Gui
         Qt::Widgets
 )
+
+# Eseguibile di test
+enable_testing()
+add_executable(denoteTests
+        TestNewNote.cpp
+        NewNoteDialog.cpp
+        Note.cpp
+        NoteManager.cpp
+)
+
+target_link_libraries(denoteTests
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt::Test
+)
+
+add_test(NAME TestNewNote COMMAND denoteTests)
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     set(DEBUG_SUFFIX)
@@ -39,18 +59,18 @@ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
         endif ()
     endif ()
     if (EXISTS "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll")
-        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        add_custom_command(TARGET denote POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E make_directory
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
-        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                "$<TARGET_FILE_DIR:denote>/plugins/platforms/")
+        add_custom_command(TARGET denote POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy
                 "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+                "$<TARGET_FILE_DIR:denote>/plugins/platforms/")
     endif ()
-    foreach (QT_LIB Core Gui Widgets)
-        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    foreach (QT_LIB Core Gui Widgets Test)
+        add_custom_command(TARGET denote POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy
                 "${QT_INSTALL_PATH}/bin/Qt6${QT_LIB}${DEBUG_SUFFIX}.dll"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
-    endforeach (QT_LIB)
+                "$<TARGET_FILE_DIR:denote>")
+    endforeach ()
 endif ()

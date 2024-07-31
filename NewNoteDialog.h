@@ -6,8 +6,8 @@
 #define DENOTE_NEWNOTEDIALOG_H
 
 #include <QDialog>
-
-
+#include <QLineEdit>
+#include <QLabel>
 QT_BEGIN_NAMESPACE
 namespace Ui { class NewNoteDialog; }
 QT_END_NAMESPACE
@@ -18,7 +18,14 @@ Q_OBJECT
 public:
     explicit NewNoteDialog(QWidget *parent = nullptr);
 
+    //getter per test
+    QLineEdit* getNoteTitleBox();
+    QLabel* getErrorCreationLabel();
+    QPushButton* getNoteCreationButton();
+
+
     ~NewNoteDialog() override;
+
 signals:
     void noteConfirmed(QString name); //segnale per la conferma di creazione della nota
 
