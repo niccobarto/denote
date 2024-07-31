@@ -17,9 +17,13 @@ public:
 
     }
     void createNewNote(QString& name);
+    list<Note> getNoteList(){
+        return notelist;
+    }
     Note getLatestNoteCreated(){
         return notelist.back();
     }
+
 private:
     list<Note> notelist;
 
