@@ -7,6 +7,7 @@
 
     #include <QMainWindow>
     #include "NoteManager.h"
+    #include <QListWidget>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
@@ -18,6 +19,7 @@
     public:
         explicit BaseWindow(QWidget *parent = nullptr);
 
+
         ~BaseWindow() override;
     signals:
 
@@ -25,6 +27,7 @@
         //medoto connesso all'evento newnotebutton::clicked
         void newNoteClicked();
         void createNote( QString name);
+        void openNote(QListWidgetItem* n);
 
     private:
         Ui::BaseWindow *ui;

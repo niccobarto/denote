@@ -10,9 +10,16 @@ using namespace std;
 class Note {
 public:
     Note(QString n):name(n){};
+
+    QString& getName() {
+        return name;
+    }
+    QString& getText() {
+        return text;
+    }
 private:
     QString name;
-    string text="";
+    QString text="";
 
 };
 

@@ -18,7 +18,7 @@ Q_OBJECT
 public:
     explicit NewNoteDialog(QWidget *parent = nullptr);
 
-    //getter per test
+    //getter per i test
     QLineEdit* getNoteTitleBox();
     QLabel* getErrorCreationLabel();
     QPushButton* getNoteCreationButton();

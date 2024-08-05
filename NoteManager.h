@@ -17,8 +17,16 @@ public:
 
     }
     void createNewNote(QString& name);
+    void deleteNote(QString& name);
+
     list<Note> getNoteList(){
         return notelist;
+    }
+    Note getNote(QString name){
+        for(Note note: notelist){
+            if(note.getName()==name)
+                return note;
+        }
     }
     Note getLatestNoteCreated(){
         return notelist.back();
