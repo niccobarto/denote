@@ -12,6 +12,7 @@ class TestNewNote:public QObject {
 private slots:
 
     void testEmptyName(); //test in caso di nota senza nome
+    void testNoteCreation();
 private:
     NewNoteDialog* dialog;
 

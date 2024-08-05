@@ -23,12 +23,12 @@
 
     private slots:
         //medoto connesso all'evento newnotebutton::clicked
-        void createNote( QString name);
         void newNoteClicked();
+        void createNote( QString name);
+
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
-
     };
 
 

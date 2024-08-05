@@ -21,7 +21,7 @@ NewNoteDialog::~NewNoteDialog() {
 }
 
 void NewNoteDialog::noteCreationButtonClicked() {
-    if(ui->notetitlebox->text()=="")
+    if(ui->notetitlebox->text().isEmpty())
         ui->errorcreationlabel->setVisible(true);
     else{
         emit noteConfirmed(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra
