@@ -15,12 +15,15 @@ BaseWindow::BaseWindow(QWidget *parent) :
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);
     connect(ui->notelist,&QListWidget::itemDoubleClicked,this,&BaseWindow::openNote);
+    connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
 }
 
 BaseWindow::~BaseWindow() {
     delete ui;
 }
 
+
+//SLOTS
 void BaseWindow::newNoteClicked() {
     NewNoteDialog createDialog(this); //come "parent" metto this, ovvero la mia finestra principale basewindow
 
@@ -35,8 +38,14 @@ void BaseWindow::createNote( QString name) {
 }
 
 void BaseWindow::openNote(QListWidgetItem* n) {
-    Note selected=manager->getNote(n->text());
-    ui->noteeditor->setText(selected.getText());
+    current=manager->getNote(n->text());
+    ui->noteeditor->setText(current->getText());
+}
+
+void BaseWindow::save() {
+     if(current!= nullptr){
+         manager->saveNote(current->getName(),ui->noteeditor->toPlainText());
+     }
 }
 
 

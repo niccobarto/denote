@@ -17,6 +17,9 @@ public:
     QString& getText() {
         return text;
     }
+    QString& setText(QString text){
+        this->text=text;
+    }
 private:
     QString name;
     QString text="";

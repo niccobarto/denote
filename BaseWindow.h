@@ -28,10 +28,12 @@
         void newNoteClicked();
         void createNote( QString name);
         void openNote(QListWidgetItem* n);
+        void save(); //Todo: crash al salvataggio
 
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
+        Note* current=nullptr;
     };
 
 

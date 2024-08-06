@@ -19,22 +19,17 @@ public:
     void createNewNote(QString& name);
     void deleteNote(QString& name);
 
-    list<Note> getNoteList(){
+    list<Note*> getNoteList(){
         return notelist;
     }
-    Note getNote(QString name){
-        for(Note note: notelist){
-            if(note.getName()==name)
-                return note;
-        }
-    }
-    Note getLatestNoteCreated(){
+    Note* getNote(const QString& name);
+    void saveNote(const QString& name,const QString& text);
+    Note* getLatestNoteCreated(){
         return notelist.back();
     }
 
 private:
-    list<Note> notelist;
-
+    list<Note*> notelist;
 };
 
 
