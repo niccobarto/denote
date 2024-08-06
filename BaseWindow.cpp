@@ -44,7 +44,7 @@ void BaseWindow::openNote(QListWidgetItem* n) {
 
 void BaseWindow::save() {
      if(current!= nullptr){
-         manager->saveNote(current->getName(),ui->noteeditor->toPlainText());
+         manager->saveNote(current->getName(),ui->noteeditor->toHtml());
      }
 }
 

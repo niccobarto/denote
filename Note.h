@@ -17,8 +17,8 @@ public:
     QString& getText() {
         return text;
     }
-    QString& setText(QString text){
-        this->text=text;
+    void setText(const QString& txt){
+        text=txt;
     }
 private:
     QString name;
