@@ -16,11 +16,14 @@
   <widget class="QPushButton" name="notecreationbutton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>140</y>
+     <x>140</x>
+     <y>150</y>
      <width>75</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(0, 85, 0)</string>
    </property>
    <property name="text">
     <string>CREA</string>
@@ -29,10 +32,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>90</y>
-     <width>41</width>
-     <height>16</height>
+     <width>51</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -41,7 +44,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Titolo:</string>
+    <string>Nome:</string>
    </property>
   </widget>
   <widget class="QLabel" name="errorcreationlabel">
@@ -65,7 +68,7 @@
     <string notr="true">color:red;</string>
    </property>
    <property name="text">
-    <string>ERRORE. Devi inserire un titolo</string>
+    <string>ERRORE. Devi inserire un nome</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="notetitlebox">
@@ -81,7 +84,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>120</x>
      <y>30</y>
      <width>121</width>
      <height>31</height>
@@ -90,6 +93,7 @@
    <property name="font">
     <font>
      <pointsize>13</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">

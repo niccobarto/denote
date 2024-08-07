@@ -23,7 +23,6 @@ public:
     QLabel* getErrorCreationLabel();
     QPushButton* getNoteCreationButton();
 
-
     ~NewNoteDialog() override;
 
 signals:
