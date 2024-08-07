@@ -24,11 +24,13 @@
     signals:
 
     private slots:
-        //medoto connesso all'evento newnotebutton::clicked
-        void newNoteClicked();
-        void createNote( QString name);
+
+        void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
+        void createNote(QString name);
         void openNote(QListWidgetItem* n);
         void save();
+        void deleteNoteClicked();
+        void deleteNote();
 
     private:
         Ui::BaseWindow *ui;

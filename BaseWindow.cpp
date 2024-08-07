@@ -7,6 +7,7 @@
 #include "BaseWindow.h"
 #include "ui_files/ui_BaseWindow.h"
 #include "NewNoteDialog.h"
+#include "DeleteNoteDialog.h"
 
 BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
@@ -16,6 +17,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);
     connect(ui->notelist,&QListWidget::itemDoubleClicked,this,&BaseWindow::openNote);
     connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
+    connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
 }
 
 BaseWindow::~BaseWindow() {
@@ -25,11 +27,11 @@ BaseWindow::~BaseWindow() {
 
 //SLOTS
 void BaseWindow::newNoteClicked() {
-    NewNoteDialog createDialog(this); //come "parent" metto this, ovvero la mia finestra principale basewindow
+    NewNoteDialog createdialog(this); //come "parent" metto this, ovvero la mia finestra principale basewindow
 
     //connette il "signal" proveniente dalla finestra di creazione allo slot createNote
-    connect(&createDialog, &NewNoteDialog::noteConfirmed, this, &BaseWindow::createNote);
-    createDialog.exec();   //eseguo la finestra di dialogo
+    connect(&createdialog, &NewNoteDialog::noteConfirmed, this, &BaseWindow::createNote);
+    createdialog.exec();   //eseguo la finestra di dialogo
 }
 
 void BaseWindow::createNote( QString name) {
@@ -48,6 +50,26 @@ void BaseWindow::save() {
      if(current!= nullptr){
          manager->saveNote(current->getName(),ui->noteeditor->toHtml());
      }
+}
+
+void BaseWindow::deleteNoteClicked() {
+    if(current!= nullptr){
+        DeleteNoteDialog deletedialog(this);
+        connect(&deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);
+        deletedialog.exec();
+    }
+
+}
+
+void BaseWindow::deleteNote() {
+    manager->deleteNote(current->getName());
+    QListWidgetItem* notedeleted=ui->notelist->findItems(current->getName(), Qt::MatchExactly).value(0);
+    if(notedeleted){
+        ui->notelist->takeItem(ui->notelist->row(notedeleted));
+        delete notedeleted;
+        current= nullptr;
+        ui->currentnotelabel->setText("Nessuna nota aperta");
+    }
 }
 
 

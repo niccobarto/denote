@@ -6,7 +6,8 @@
 #define DENOTE_DELETENOTEDIALOG_H
 
 #include <QDialog>
-
+#include <QLineEdit>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class DeleteNoteDialog; }
@@ -19,7 +20,11 @@ public:
     explicit DeleteNoteDialog(QWidget *parent = nullptr);
 
     ~DeleteNoteDialog() override;
-
+    signals:
+    void confirmDelete();
+private slots:
+    void confirmClicked();
+    void cancelClicked();
 private:
     Ui::DeleteNoteDialog *ui;
 };

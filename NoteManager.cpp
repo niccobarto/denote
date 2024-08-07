@@ -22,3 +22,11 @@ void NoteManager::saveNote(const QString& name, const QString& text) {
             note->setText(text);
     }
 }
+
+void NoteManager::deleteNote(QString &name) {
+    std::list<Note*>::iterator it;
+    for(it=notelist.begin();it !=notelist.end();it++){
+        if((*it)->getName()==name)
+            notelist.erase(it);
+    }
+}
