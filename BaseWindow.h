@@ -7,7 +7,9 @@
 
     #include <QMainWindow>
     #include "NoteManager.h"
+    #include "Note.h"
     #include <QListWidget>
+#include <QPushButton>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
@@ -18,19 +20,29 @@
 
     public:
         explicit BaseWindow(QWidget *parent = nullptr);
-
-
         ~BaseWindow() override;
+
+        //getter per i test
+        QPushButton* getNewNoteButton();
+        list<Note*> getNotes(){
+            return manager->getNoteList();
+        }
     signals:
 
     private slots:
 
         void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
-        void createNote(QString name);
+
         void openNote(QListWidgetItem* n);
         void save();
         void deleteNoteClicked();
         void deleteNote();
+public slots:
+    /*
+     pubblico poiché deve essere usato dai test per connetterlo nel test
+     ad un segnale emesso da un NewNoteDialog fantoccio
+     */
+        void createNote(QString name);
 
     private:
         Ui::BaseWindow *ui;

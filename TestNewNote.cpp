@@ -6,14 +6,14 @@
 #include <QSignalSpy>
 void TestNewNote::testEmptyName() {
 
-    dialog=new NewNoteDialog;
+    dialog=new NewNoteDialog();
     QLineEdit* input=dialog->getNoteTitleBox();
     QLabel* errorlabel=dialog->getErrorCreationLabel();
 
     QWidget* newnotebutton= reinterpret_cast<QWidget *>(dialog->getNoteCreationButton());
     /*
     QWidget* newnotebutton=dialog->getNoteCreationButton();
-     Todo: preferirei questa versione (riga 14) rispetto all'istruzione prededente (riga 12),
+     Todo: preferirei questa versione (riga 15) rispetto all'istruzione prededente (riga 13),
          ma nonostante QPushButton derivi da QWidget, viene dato un errore
          "Cannot initialize a variable of type 'QWidget *' with an rvalue of type 'QPushButton *'.
          La soluzione adottata nella riga 12 era consigliata ma non da me capita
@@ -27,7 +27,7 @@ void TestNewNote::testEmptyName() {
 }
 
 void TestNewNote::testNoteCreation() {
-    dialog=new NewNoteDialog;
+    dialog=new NewNoteDialog(base);
     QLineEdit* input=dialog->getNoteTitleBox();
     QLabel* errorlabel=dialog->getErrorCreationLabel();
     QWidget* newnotebutton= reinterpret_cast<QWidget *>(dialog->getNoteCreationButton()); //Todo: stesse considerazioni del Todo precedente
@@ -55,7 +55,30 @@ void TestNewNote::testNoteCreation() {
      Con sinalsdialog.at(0) prendiamo il primo QVariant (e l'unico) che è proprio il nome
      della nuova nota e lo compariamo al nome inserito nella simulazione precedente
     */
+
+    /*
+      VERIFICA CHE LA NOTA INSERITA NELLA LISTA SIA CON IL NOME INSERITO.
+      PRESO QUESTA DECISIONE PERCHE' NON RIUSCITO A GESTIRE LA SIMULAZIONE DELLA SCELTA DEL NOME
+      UTILIZZANDO DIRETTAMENTE IL NewNoteDialog GENERATO DA base AL CLICCAGGIO DEL
+      PULSANTE "newnotebutton"
+
+     */
+
+    connect(dialog, &NewNoteDialog::noteConfirmed, base, &BaseWindow::createNote); //connessione slot creatioNote a NewNoteDialog fantoccio
+    emit dialog->noteConfirmed(signalsdialog.at(0).toString());
+    list<Note*> notes=base->getNotes();
+    bool found=false;
+    for(Note* n:notes){
+        if(n->getName()==signalsdialog.at(0).toString())
+            found=true;
+    }
+    QVERIFY(found);
 }
 
-QTEST_MAIN(TestNewNote)
-//#include "TestNewNote.moc"
+void TestNewNote::initTestCase() {
+    base=new BaseWindow();
+}
+
+#include "TestNewNote.moc"
+//QTEST_MAIN(TestNewNote)
+

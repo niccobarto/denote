@@ -20,6 +20,8 @@ add_executable(denote
         NewNoteDialog.cpp
         Note.cpp
         NoteManager.cpp
+        DeleteNoteDialog.cpp
+        DeleteNoteDialog.h
 )
 
 target_link_libraries(denote
@@ -31,10 +33,14 @@ target_link_libraries(denote
 # Eseguibile di test
 enable_testing()
 add_executable(denoteTests
+        main_tests.cpp
         TestNewNote.cpp
         NewNoteDialog.cpp
         Note.cpp
         NoteManager.cpp
+        BaseWindow.cpp
+        DeleteNoteDialog.cpp
+
 )
 
 target_link_libraries(denoteTests
