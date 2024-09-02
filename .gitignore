@@ -1,2 +1,3 @@
 /Il mio TUTORIAL QT.docx
 /cmake-build-debug/
+git rm -r --cached cmake-build-debug/

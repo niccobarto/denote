@@ -1,5 +1,0 @@
-D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/CMakeFiles/denote.dir
-D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/CMakeFiles/denote_autogen_timestamp_deps.dir
-D:/OneDrive/UNIFI/Lab. Programmazione/denote/cmake-build-debug/CMakeFiles/denote_autogen.dir
