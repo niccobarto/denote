@@ -26,10 +26,11 @@ public:
     ~NewNoteDialog() override;
 
 signals:
-    void noteConfirmed(QString name); //segnale per la conferma di creazione della nota
+    void newNoteNameInsert(QString name); //segnale per la conferma di creazione della nota
 
     private slots:
     void noteCreationButtonClicked();
+    void receiveCreationConfirm(bool found);
 
 private:
     Ui::NewNoteDialog *ui;

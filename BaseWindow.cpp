@@ -30,13 +30,16 @@ void BaseWindow::newNoteClicked() {
     NewNoteDialog createdialog(this); //come "parent" metto this, ovvero la mia finestra principale basewindow
 
     //connette il "signal" proveniente dalla finestra di creazione allo slot createNote
-    connect(&createdialog, &NewNoteDialog::noteConfirmed, this, &BaseWindow::createNote);
+    connect(&createdialog, &NewNoteDialog::newNoteNameInsert, this, &BaseWindow::createNote);
     createdialog.exec();   //eseguo la finestra di dialogo
 }
 
 void BaseWindow::createNote( QString name) {
-    manager->createNewNote(name);
-    ui->notelist->addItem(name);
+    bool found=manager->createNewNote(name);
+     if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al notelist
+         ui->notelist->addItem(name);
+    emit creationConfirm(found); //invia segnale di creationConfirm con il risultato dell'operazione
+
 }
 
 void BaseWindow::openNote(QListWidgetItem* n) {

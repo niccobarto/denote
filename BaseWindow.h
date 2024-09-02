@@ -31,7 +31,8 @@
         list<Note*> getNotes(){
             return manager->getNoteList();
         }
-    signals:
+     signals:
+        void creationConfirm(bool found);
 
     private slots:
 

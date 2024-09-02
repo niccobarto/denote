@@ -12,18 +12,18 @@ using namespace std;
 
 
 class NoteManager {
-public:
-    NoteManager(){
 
-    }
-    void createNewNote(QString& name);
+public:
+
+    bool createNewNote(QString& name);
     void deleteNote(QString& name);
+    void saveNote(const QString& name,const QString& text);
 
     list<Note*> getNoteList(){
         return notelist;
     }
     Note* getNote(const QString& name);
-    void saveNote(const QString& name,const QString& text);
+
     Note* getLatestNoteCreated(){
         return notelist.back();
     }

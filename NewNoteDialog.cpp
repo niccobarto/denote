@@ -6,12 +6,11 @@
 
 #include "NewNoteDialog.h"
 #include "ui_files/ui_NewNoteDialog.h"
-
+#include "BaseWindow.h"
 
 NewNoteDialog::NewNoteDialog(QWidget *parent) :
         QDialog(parent), ui(new Ui::NewNoteDialog) {
     ui->setupUi(this);
-    ui->errorcreationlabel->setVisible(false); //ToDo setto l'invisibilità qui perché non sono riuscito a farlo direttamente da qtCreator. Da cambiare pià avanti
     //metodo che connette il pulsante di conferma di creazione con il suo metodo associato
     connect(ui->notecreationbutton,&QPushButton::clicked,this,&NewNoteDialog::noteCreationButtonClicked);
 }
@@ -22,13 +21,20 @@ NewNoteDialog::~NewNoteDialog() {
 
 void NewNoteDialog::noteCreationButtonClicked() {
     if(ui->notetitlebox->text().isEmpty())
-        ui->errorcreationlabel->setVisible(true);
+        ui->errorcreationlabel->setText("ERRORE: Devi inserire un nome");
     else{
-        emit noteConfirmed(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra
-        close(); //chiude la finestra di dialogo della creazione della nota
+        BaseWindow* b= dynamic_cast<BaseWindow*>(this->parent());
+        connect(b, &BaseWindow::creationConfirm, this, &NewNoteDialog::receiveCreationConfirm);
+        emit newNoteNameInsert(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra
     }
 }
+void NewNoteDialog::receiveCreationConfirm(bool found) {
+    if(!found) //Se !found==true Nota creata correttamente
+        close(); //chiude la finestra di dialogo della creazione della nota
+    else
+        ui->errorcreationlabel->setText("ERRORE: Nome già usato");
 
+}
 QLineEdit* NewNoteDialog::getNoteTitleBox() {
     return ui->notetitlebox;
 }
@@ -40,5 +46,6 @@ QLabel *NewNoteDialog::getErrorCreationLabel() {
 QPushButton *NewNoteDialog::getNoteCreationButton() {
     return ui->notecreationbutton;
 }
+
 
 

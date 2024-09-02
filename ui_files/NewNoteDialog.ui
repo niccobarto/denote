@@ -68,7 +68,7 @@
     <string notr="true">color:red;</string>
    </property>
    <property name="text">
-    <string>ERRORE. Devi inserire un nome</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="notetitlebox">

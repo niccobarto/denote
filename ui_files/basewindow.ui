@@ -17,7 +17,7 @@
    <widget class="QListWidget" name="notelist">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>550</x>
       <y>70</y>
       <width>331</width>
       <height>171</height>
@@ -32,8 +32,8 @@
    <widget class="QPushButton" name="newnotebutton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>80</y>
+      <x>130</x>
+      <y>70</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -77,13 +77,13 @@
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string/>
     </property>
     <widget class="QSpinBox" name="sizechanger">
      <property name="geometry">
       <rect>
        <x>620</x>
-       <y>30</y>
+       <y>20</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -92,8 +92,8 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>30</y>
+       <x>490</x>
+       <y>20</y>
        <width>121</width>
        <height>31</height>
       </rect>
@@ -154,7 +154,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="geometry">
       <rect>
        <x>730</x>
-       <y>30</y>
+       <y>20</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -187,7 +187,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>660</x>
       <y>30</y>
       <width>111</width>
       <height>41</height>
@@ -209,8 +209,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </property>
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>-20</y>
+      <x>320</x>
+      <y>-10</y>
       <width>230</width>
       <height>81</height>
      </rect>
@@ -231,7 +231,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="deletenotebutton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>130</x>
       <y>200</y>
       <width>111</width>
       <height>31</height>
@@ -256,8 +256,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="uploadnotebutton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>140</y>
+      <x>130</x>
+      <y>130</y>
       <width>111</width>
       <height>31</height>
      </rect>
