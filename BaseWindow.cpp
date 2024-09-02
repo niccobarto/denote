@@ -68,8 +68,16 @@ void BaseWindow::deleteNote() {
         ui->notelist->takeItem(ui->notelist->row(notedeleted));
         delete notedeleted;
         current= nullptr;
+        ui->noteeditor->clear();
+        ui->noteeditor->setDisabled(true);
         ui->currentnotelabel->setText("Nessuna nota aperta");
     }
+}
+
+
+//getter per i test
+QPushButton *BaseWindow::getNewNoteButton() {
+    return ui->newnotebutton;
 }
 
 

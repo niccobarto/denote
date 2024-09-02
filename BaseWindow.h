@@ -17,7 +17,11 @@
 
     class BaseWindow : public QMainWindow {
     Q_OBJECT
-
+    friend class TestNewNote;
+    /*
+      In questo modo posso permettere al TestNewNote di simulare un inserimento
+      di nome
+     */
     public:
         explicit BaseWindow(QWidget *parent = nullptr);
         ~BaseWindow() override;
@@ -37,13 +41,7 @@
         void save();
         void deleteNoteClicked();
         void deleteNote();
-public slots:
-    /*
-     pubblico poiché deve essere usato dai test per connetterlo nel test
-     ad un segnale emesso da un NewNoteDialog fantoccio
-     */
         void createNote(QString name);
-
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
