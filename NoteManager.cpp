@@ -27,10 +27,9 @@ Note* NoteManager::getNote(const QString& name) {
 }
 
 void NoteManager::saveNote(const QString& name, const QString& text) {
-    for(Note* note: notelist){
-        if(note->getName()==name)
-            note->setText(text);
-    }
+    Note* selected=getNote(name);
+    if(selected!=nullptr)
+        selected->setText(text);
 }
 
 void NoteManager::deleteNote(QString &name) {
@@ -40,7 +39,5 @@ void NoteManager::deleteNote(QString &name) {
             notelist.erase(it);
             break;
         }
-
-
     }
 }
