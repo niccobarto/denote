@@ -17,7 +17,7 @@
 
     class BaseWindow : public QMainWindow {
     Q_OBJECT
-    friend class TestNewNote;
+    friend class TestBaseWindow;
     /*
       In questo modo posso permettere al TestNewNote di simulare un inserimento
       di nome
@@ -26,8 +26,10 @@
         explicit BaseWindow(QWidget *parent = nullptr);
         ~BaseWindow() override;
 
-        //getter per i test
+        //metodi per tests
         QPushButton* getNewNoteButton();
+        list<QString> getListWidgetNames();
+        bool isInNameListWidget(QString& name);
         list<Note*> getNotes(){
             return manager->getNoteList();
         }

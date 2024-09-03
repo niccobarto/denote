@@ -15,7 +15,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     ui->noteeditor->setDisabled(true);
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);
-    connect(ui->notelist,&QListWidget::itemDoubleClicked,this,&BaseWindow::openNote);
+    connect(ui->namelistwidget, &QListWidget::itemDoubleClicked, this, &BaseWindow::openNote);
     connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
 }
@@ -36,8 +36,8 @@ void BaseWindow::newNoteClicked() {
 
 void BaseWindow::createNote( QString name) {
     bool found=manager->createNewNote(name);
-     if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al notelist
-         ui->notelist->addItem(name);
+     if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
+         ui->namelistwidget->addItem(name);
     emit creationConfirm(found); //invia segnale di creationConfirm con il risultato dell'operazione
 
 }
@@ -66,9 +66,9 @@ void BaseWindow::deleteNoteClicked() {
 
 void BaseWindow::deleteNote() {
     manager->deleteNote(current->getName());
-    QListWidgetItem* notedeleted=ui->notelist->findItems(current->getName(), Qt::MatchExactly).value(0);
+    QListWidgetItem* notedeleted=ui->namelistwidget->findItems(current->getName(), Qt::MatchExactly).value(0);
     if(notedeleted){
-        ui->notelist->takeItem(ui->notelist->row(notedeleted));
+        ui->namelistwidget->takeItem(ui->namelistwidget->row(notedeleted));
         delete notedeleted;
         current= nullptr;
         ui->noteeditor->clear();
@@ -76,11 +76,25 @@ void BaseWindow::deleteNote() {
         ui->currentnotelabel->setText("Nessuna nota aperta");
     }
 }
-
-
 //getter per i test
 QPushButton *BaseWindow::getNewNoteButton() {
     return ui->newnotebutton;
+}
+
+list<QString> BaseWindow::getListWidgetNames() {
+    list<QString> names;
+    for (int i = 0; i < ui->namelistwidget->count(); ++i)
+        names.push_back(ui->namelistwidget->item(i)->text());
+    return names;
+}
+
+bool BaseWindow::isInNameListWidget(QString& name) {
+    list<QString> namesinlistwidget=getListWidgetNames();
+    for (QString n: namesinlistwidget) {
+        if(n==name)
+            return true;
+    }
+    return false;
 }
 
 
