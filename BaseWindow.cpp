@@ -13,11 +13,14 @@ BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
     ui->setupUi(this);
     ui->noteeditor->setDisabled(true);
+    ui->sizechanger->setDisabled(true);
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
+    ui->sizechanger->setValue(ui->noteeditor->currentFont().pointSize());//Il valore iniziale in sizechanger è il font-size di noteeditor
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);
     connect(ui->namelistwidget, &QListWidget::itemDoubleClicked, this, &BaseWindow::openNote);
     connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
+    connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //collega il segnale selectionChanged allo slot isTextSelected
 }
 
 BaseWindow::~BaseWindow() {
@@ -77,6 +80,14 @@ void BaseWindow::deleteNote() {
     }
 }
 
+void BaseWindow::isTextSelected() {
+    if(ui->noteeditor->textCursor().selectedText()==nullptr)
+        ui->sizechanger->setDisabled(true); //Se non è selezionato nemmeno un carattere allora disabilità sizechanger
+    else
+        ui->sizechanger->setDisabled(false); //Se è selezionato almeno un carattere abilita sizechanger
+}
+
+
 //metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {
     list<QString> names;
@@ -107,5 +118,6 @@ QString BaseWindow::getCurrentNoteLabelText() {
 void BaseWindow::setTextForTest(const QString& name,const QString& text) {
     manager->saveNote(name, text);
 }
+
 
 
