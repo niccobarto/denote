@@ -16,7 +16,7 @@ private slots:
     void cleanupTestCase();
 private:
     BaseWindow* base;
-
+    QListWidgetItem* nameselected;
 
 };
 

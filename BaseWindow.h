@@ -18,21 +18,10 @@
     class BaseWindow : public QMainWindow {
     Q_OBJECT
     friend class TestBaseWindow;
-    /*
-      In questo modo posso permettere al TestNewNote di simulare un inserimento
-      di nome
-     */
+
     public:
         explicit BaseWindow(QWidget *parent = nullptr);
         ~BaseWindow() override;
-
-        //metodi per tests
-        QPushButton* getNewNoteButton();
-        list<QString> getListWidgetNames();
-        bool isInNameListWidget(QString& name);
-        list<Note*> getNotes(){
-            return manager->getNoteList();
-        }
      signals:
         void creationConfirm(bool found);
 
@@ -44,11 +33,20 @@
         void save();
         void deleteNoteClicked();
         void deleteNote();
-        void createNote(QString name);
+        void createNote(const QString& name);
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
         Note* current=nullptr;
+        //metodi per TestBaseWindow
+        list<QString> getListWidgetNames();
+        bool isInNameListWidget(const QString& name);
+        list<Note*> getNotes(){
+            return manager->getNoteList();
+        }
+        void setTextForTest(const QString& name,const QString& text);
+        QString getTextNoteSelected();
+        QString getCurrentNoteLabelText();
     };
 
 

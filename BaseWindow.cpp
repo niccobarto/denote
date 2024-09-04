@@ -34,7 +34,7 @@ void BaseWindow::newNoteClicked() {
     createdialog.exec();   //eseguo la finestra di dialogo
 }
 
-void BaseWindow::createNote( QString name) {
+void BaseWindow::createNote(const QString& name) {
     bool found=manager->createNewNote(name);
      if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
          ui->namelistwidget->addItem(name);
@@ -43,7 +43,7 @@ void BaseWindow::createNote( QString name) {
 }
 
 void BaseWindow::openNote(QListWidgetItem* n) {
-    current=manager->getNote(n->text());
+    current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
     ui->noteeditor->setDisabled(false);
     ui->currentnotelabel->setText(current->getName());
     ui->noteeditor->setText(current->getText());
@@ -76,11 +76,8 @@ void BaseWindow::deleteNote() {
         ui->currentnotelabel->setText("Nessuna nota aperta");
     }
 }
-//getter per i test
-QPushButton *BaseWindow::getNewNoteButton() {
-    return ui->newnotebutton;
-}
 
+//metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {
     list<QString> names;
     for (int i = 0; i < ui->namelistwidget->count(); ++i)
@@ -88,13 +85,27 @@ list<QString> BaseWindow::getListWidgetNames() {
     return names;
 }
 
-bool BaseWindow::isInNameListWidget(QString& name) {
+bool BaseWindow::isInNameListWidget(const QString& name) {
     list<QString> namesinlistwidget=getListWidgetNames();
     for (QString n: namesinlistwidget) {
         if(n==name)
             return true;
     }
     return false;
+}
+
+QString BaseWindow::getTextNoteSelected() {
+    if(current!= nullptr)
+        return current->getText();
+    return nullptr;
+}
+
+QString BaseWindow::getCurrentNoteLabelText() {
+    return ui->currentnotelabel->text();
+}
+
+void BaseWindow::setTextForTest(const QString& name,const QString& text) {
+    manager->saveNote(name, text);
 }
 
 

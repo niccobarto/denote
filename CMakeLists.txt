@@ -34,13 +34,13 @@ target_link_libraries(denote
 enable_testing()
 add_executable(denoteTests
         main_tests.cpp
-        TestNewNote.cpp
         NewNoteDialog.cpp
         Note.cpp
         NoteManager.cpp
         BaseWindow.cpp
         DeleteNoteDialog.cpp
-
+        TestNoteManager.cpp
+        TestBaseWindow.cpp
 )
 
 target_link_libraries(denoteTests
