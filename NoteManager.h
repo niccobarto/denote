@@ -15,8 +15,8 @@ class NoteManager {
 
 public:
 
-    bool createNewNote(QString& name);
-    void deleteNote(QString& name);
+    bool createNewNote(const QString& name);
+    void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
 
     list<Note*> getNoteList(){

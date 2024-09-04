@@ -3,7 +3,7 @@
 //
 
 #include "NoteManager.h"
-bool NoteManager::createNewNote(QString &name) {
+bool NoteManager::createNewNote(const QString &name) {
     bool found=false;
     for(Note* n:notelist){
         if(n->getName()==name){ //verifica se esiste già una nota con quel nome
@@ -32,7 +32,7 @@ void NoteManager::saveNote(const QString& name, const QString& text) {
         selected->setText(text);
 }
 
-void NoteManager::deleteNote(QString &name) {
+void NoteManager::deleteNote(const QString &name) {
     std::list<Note*>::iterator it;
     for(it=notelist.begin();it !=notelist.end();it++){
         if((*it)->getName()==name){
