@@ -22,6 +22,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
     connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //collega il segnale selectionChanged allo slot isTextSelected
     connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize);
+    connect(ui->uploadnotebutton,&QPushButton::clicked,this,&BaseWindow::loadNote);
 }
 
 BaseWindow::~BaseWindow() {
@@ -111,6 +112,30 @@ void BaseWindow::changeSelectedTextSize() {
     format.setFontPointSize(ui->sizechanger->value()); //imposto il pointsize del nuovo formato
     ui->noteeditor->textCursor().mergeCharFormat(format);
 }
+
+void BaseWindow::loadNote() {
+    QString filepath=QFileDialog::getOpenFileName(this,tr("Apri un file di testo"),"",tr("File di testo (*.txt)")); //In questo modo sarà possibile solo scegliere file .txt
+    if(!filepath.isEmpty() && filepath.contains("txt")){ //se ho effettivamente selezionato un file
+        QFile file(filepath); //creo un QFile associandolo dando il path del file
+        file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
+        QTextStream reader(&file); //con QTextStream posso leggere il contenuto
+        QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la path completa
+        QString name=f.fileName(); //Leggo il nome del file
+        QString text=reader.readAll(); //Leggo il file selezionato
+        file.close(); //chiudo il file
+        createNote(name); //creo la nota con il nome del file
+        QListWidgetItem* loadedwidgetitem=ui->namelistwidget->findItems(name, Qt::MatchExactly).at(0); //trovo il corrispettivo widgetItem
+        openNote(loadedwidgetitem); //apro la nota
+        ui->noteeditor->setText(text); //inserisco il testo nel noteeditor
+        save(); //salvo
+    }
+    else{
+        QMessageBox box;
+        box.setText("Scelta file non valida");
+        box.setWindowTitle("Errore scelta file");
+        box.exec();
+    }
+ }
 
 //metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {
