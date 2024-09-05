@@ -21,6 +21,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
     connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //collega il segnale selectionChanged allo slot isTextSelected
+    connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize);
 }
 
 BaseWindow::~BaseWindow() {
@@ -79,14 +80,37 @@ void BaseWindow::deleteNote() {
         ui->currentnotelabel->setText("Nessuna nota aperta");
     }
 }
-
-void BaseWindow::isTextSelected() {
-    if(ui->noteeditor->textCursor().selectedText()==nullptr)
+/*
+ * QTextCursor contiene una serie di informazioni che permettono di trattarlo come un "cursore fittizio". Lo si
+ * usa quindi per manipolare un testo in molti modi (come cancellare del testo selezionato, modificarlo, inserire altro
+ * testo nella posizione del cursore) o estrarre informazioni da esso (per esempio il font della carattere alla sinistra
+ * del cursore).
+*/
+ void BaseWindow::isTextSelected() {
+    ui->sizechanger->blockSignals(true);
+    if(ui->noteeditor->textCursor().selectedText()==nullptr){
         ui->sizechanger->setDisabled(true); //Se non è selezionato nemmeno un carattere allora disabilità sizechanger
-    else
+        QFont font=ui->noteeditor->textCursor().charFormat().font(); //Ottendo il font riferito alla posizione della barra verticale
+        ui->sizechanger->setValue(font.pointSize()); //Modifica comunque il valore in sizechanger in base al formato presente dove si posiziona la barra verticale
+    }
+    else{
         ui->sizechanger->setDisabled(false); //Se è selezionato almeno un carattere abilita sizechanger
+        QFont font=ui->noteeditor->textCursor().charFormat().font();//Ottengo il font del testo selezionato
+        //Se si seleziona del testo con DIFFERENTI pointSize(), si considera sempre la grandezza selezionata per ultima
+        ui->sizechanger->setValue(font.pointSize());
+    }
+    ui->sizechanger->blockSignals(false);
+    /*
+     Dato che sia in if che in esle settiamo un vuovo valore alla QSpinBox sizechanger,
+     disabilito temporaneamente i segnali della QSpinBox per evitare che venga chiamato
+     lo slot changeSelectedTextSize()
+    */
 }
-
+void BaseWindow::changeSelectedTextSize() {
+    QTextCharFormat format; //creo un nuovo formato
+    format.setFontPointSize(ui->sizechanger->value()); //imposto il pointsize del nuovo formato
+    ui->noteeditor->textCursor().mergeCharFormat(format);
+}
 
 //metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {

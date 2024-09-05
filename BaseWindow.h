@@ -35,6 +35,7 @@
         void deleteNote();
         void createNote(const QString& name);
         void isTextSelected();
+        void changeSelectedTextSize();
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
