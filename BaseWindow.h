@@ -9,7 +9,11 @@
     #include "NoteManager.h"
     #include "Note.h"
     #include <QListWidget>
-#include <QPushButton>
+    #include <QFileDialog>
+    #include <QFile>
+    #include <QTextStream>
+    #include <QMessageBox>
+    #include <QPushButton>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
@@ -36,6 +40,7 @@
         void createNote(const QString& name);
         void isTextSelected();
         void changeSelectedTextSize();
+        void loadNote();
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
