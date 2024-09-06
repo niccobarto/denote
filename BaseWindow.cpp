@@ -16,13 +16,13 @@ BaseWindow::BaseWindow(QWidget *parent) :
     ui->sizechanger->setDisabled(true);
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
     ui->sizechanger->setValue(ui->noteeditor->currentFont().pointSize());//Il valore iniziale in sizechanger è il font-size di noteeditor
-    connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);
+    connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);//associa il segnale clicked di newnotebutton allo slot newNoteClicked()
     connect(ui->namelistwidget, &QListWidget::itemDoubleClicked, this, &BaseWindow::openNote);
-    connect(ui->savebutton,&QPushButton::clicked,this,&BaseWindow::save);
+    connect(ui->savebutton,&QPushButton::clicked,this, &BaseWindow::saveClicked);//associa il segnale clicked di savebutton allo slot saveClicked()
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
-    connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //collega il segnale selectionChanged allo slot isTextSelected
-    connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize);
-    connect(ui->uploadnotebutton,&QPushButton::clicked,this,&BaseWindow::loadNote);
+    connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //associa il segnale selectionChanged allo slot isTextSelected
+    connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize); //associa il segnale valueChanged allo slot changeSelectedTextSize()
+    connect(ui->loadnotebutton,&QPushButton::clicked,this, &BaseWindow::loadNoteClicked); //associa il segnale clicked di uploadnotebutton allo slot loadNoteClicked()
 }
 
 BaseWindow::~BaseWindow() {
@@ -47,34 +47,35 @@ void BaseWindow::createNote(const QString& name) {
 
 }
 
-void BaseWindow::openNote(QListWidgetItem* n) {
+void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
     current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
     ui->noteeditor->setDisabled(false);
     ui->currentnotelabel->setText(current->getName());
     ui->noteeditor->setText(current->getText());
 }
 
-void BaseWindow::save() {
+void BaseWindow::saveClicked() {
      if(current!= nullptr){
          manager->saveNote(current->getName(),ui->noteeditor->toHtml());
      }
 }
 
 void BaseWindow::deleteNoteClicked() {
-    if(current!= nullptr){
-        DeleteNoteDialog deletedialog(this);
-        connect(&deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);
+    if(current!= nullptr){ //Cancella solo se è selezionata una nota
+        DeleteNoteDialog deletedialog(this); //Apri la finestra di dialogo per la conferma dell'eliminazione
+        connect(&deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);//Associa lo slot deleteNote() al segnale confirmDelete
         deletedialog.exec();
     }
 
 }
 
 void BaseWindow::deleteNote() {
-    manager->deleteNote(current->getName());
-    QListWidgetItem* notedeleted=ui->namelistwidget->findItems(current->getName(), Qt::MatchExactly).value(0);
+    QListWidgetItem* notedeleted=ui->namelistwidget->findItems(current->getName(), Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per eliminarlo poi dalla QListWidget
     if(notedeleted){
-        ui->namelistwidget->takeItem(ui->namelistwidget->row(notedeleted));
+        manager->deleteNote(current->getName()); //Elimina la nota utilizzando il nome del selezionato
+        ui->namelistwidget->takeItem(ui->namelistwidget->row(notedeleted)); //Elimina la nota dal QListWidget
         delete notedeleted;
+        //Deseleziona la nota
         current= nullptr;
         ui->noteeditor->clear();
         ui->noteeditor->setDisabled(true);
@@ -89,6 +90,11 @@ void BaseWindow::deleteNote() {
 */
  void BaseWindow::isTextSelected() {
     ui->sizechanger->blockSignals(true);
+     /*
+    Dato che sia in if che in esle settiamo un vuovo valore alla QSpinBox sizechanger,
+    disabilito temporaneamente i segnali della QSpinBox per evitare che venga chiamato
+    lo slot changeSelectedTextSize()
+   */
     if(ui->noteeditor->textCursor().selectedText()==nullptr){
         ui->sizechanger->setDisabled(true); //Se non è selezionato nemmeno un carattere allora disabilità sizechanger
         QFont font=ui->noteeditor->textCursor().charFormat().font(); //Ottendo il font riferito alla posizione della barra verticale
@@ -101,19 +107,14 @@ void BaseWindow::deleteNote() {
         ui->sizechanger->setValue(font.pointSize());
     }
     ui->sizechanger->blockSignals(false);
-    /*
-     Dato che sia in if che in esle settiamo un vuovo valore alla QSpinBox sizechanger,
-     disabilito temporaneamente i segnali della QSpinBox per evitare che venga chiamato
-     lo slot changeSelectedTextSize()
-    */
 }
 void BaseWindow::changeSelectedTextSize() {
     QTextCharFormat format; //creo un nuovo formato
     format.setFontPointSize(ui->sizechanger->value()); //imposto il pointsize del nuovo formato
-    ui->noteeditor->textCursor().mergeCharFormat(format);
+    ui->noteeditor->textCursor().mergeCharFormat(format); //Applico il nuovo formato al testo selezionato
 }
 
-void BaseWindow::loadNote() {
+void BaseWindow::loadNoteClicked() {
     QString filepath=QFileDialog::getOpenFileName(this,tr("Apri un file di testo"),"",tr("File di testo (*.txt)")); //In questo modo sarà possibile solo scegliere file .txt
     if(!filepath.isEmpty() && filepath.contains("txt")){ //se ho effettivamente selezionato un file
         QFile file(filepath); //creo un QFile associandolo dando il path del file
@@ -124,10 +125,10 @@ void BaseWindow::loadNote() {
         QString text=reader.readAll(); //Leggo il file selezionato
         file.close(); //chiudo il file
         createNote(name); //creo la nota con il nome del file
-        QListWidgetItem* loadedwidgetitem=ui->namelistwidget->findItems(name, Qt::MatchExactly).at(0); //trovo il corrispettivo widgetItem
+        QListWidgetItem* loadedwidgetitem=ui->namelistwidget->findItems(name, Qt::MatchExactly).at(0); //trovo il corrispettivo QListWidgetItem
         openNote(loadedwidgetitem); //apro la nota
         ui->noteeditor->setText(text); //inserisco il testo nel noteeditor
-        save(); //salvo
+        saveClicked(); //salvo
     }
     else{
         QMessageBox box;

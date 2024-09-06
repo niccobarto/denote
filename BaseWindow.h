@@ -34,13 +34,13 @@
         void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
 
         void openNote(QListWidgetItem* n);
-        void save();
+        void saveClicked();
         void deleteNoteClicked();
         void deleteNote();
         void createNote(const QString& name);
         void isTextSelected();
         void changeSelectedTextSize();
-        void loadNote();
+        void loadNoteClicked();
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();

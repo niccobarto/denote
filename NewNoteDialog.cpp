@@ -23,9 +23,9 @@ void NewNoteDialog::noteCreationButtonClicked() {
     if(ui->notetitlebox->text().isEmpty())
         ui->errorcreationlabel->setText("ERRORE: Devi inserire un nome");
     else{
-        BaseWindow* b= dynamic_cast<BaseWindow*>(this->parent());
-        connect(b, &BaseWindow::creationConfirm, this, &NewNoteDialog::receiveCreationConfirm);
-        emit newNoteNameInsert(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra
+        BaseWindow* father= dynamic_cast<BaseWindow*>(this->parent());
+        connect(father, &BaseWindow::creationConfirm, this, &NewNoteDialog::receiveCreationConfirm); //associa il segnale creationConfrm() emesso da father allo slot receiveCreationConfirm()
+        emit newNoteNameInsert(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra newNoteNameInsert e passando come parametro il nome scritto
     }
 }
 void NewNoteDialog::receiveCreationConfirm(bool found) {
