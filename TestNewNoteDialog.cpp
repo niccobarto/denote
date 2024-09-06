@@ -39,4 +39,5 @@ void TestNewNoteDialog::testValidNameInsert() {
 
 void TestNewNoteDialog::cleanupTestCase() {
  delete dialog;
+ delete father;
 }
