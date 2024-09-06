@@ -14,7 +14,7 @@ QT_END_NAMESPACE
 
 class NewNoteDialog : public QDialog {
 Q_OBJECT
-
+friend class TestNewNoteDialog;
 public:
     explicit NewNoteDialog(QWidget *parent = nullptr);
 

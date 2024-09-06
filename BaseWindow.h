@@ -7,6 +7,7 @@
 
     #include <QMainWindow>
     #include "NoteManager.h"
+    #include "NewNoteDialog.h"
     #include "Note.h"
     #include <QListWidget>
     #include <QFileDialog>
@@ -22,7 +23,7 @@
     class BaseWindow : public QMainWindow {
     Q_OBJECT
     friend class TestBaseWindow;
-
+    friend class TestNewNoteDialog;
     public:
         explicit BaseWindow(QWidget *parent = nullptr);
         ~BaseWindow() override;
@@ -42,9 +43,12 @@
         void changeSelectedTextSize();
         void loadNoteClicked();
     private:
+
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
         Note* current=nullptr;
+        NewNoteDialog* createdialog;
+
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);
@@ -54,6 +58,11 @@
         void setTextForTest(const QString& name,const QString& text);
         QString getTextNoteSelected();
         QString getCurrentNoteLabelText();
+
+        //metodi per TestNewNoteDialog
+        NewNoteDialog* getCreateDialog(){
+            return createdialog;
+        }
     };
 
 

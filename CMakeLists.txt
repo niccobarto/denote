@@ -41,6 +41,7 @@ add_executable(denoteTests
         DeleteNoteDialog.cpp
         TestNoteManager.cpp
         TestBaseWindow.cpp
+        TestNewNoteDialog.cpp
 )
 
 target_link_libraries(denoteTests

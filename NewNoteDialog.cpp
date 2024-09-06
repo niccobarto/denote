@@ -29,8 +29,10 @@ void NewNoteDialog::noteCreationButtonClicked() {
     }
 }
 void NewNoteDialog::receiveCreationConfirm(bool found) {
-    if(!found) //Se !found==true Nota creata correttamente
+    if(!found){
         close(); //chiude la finestra di dialogo della creazione della nota
+        //delete this; Todo: capire se è da inserire
+    } //Se !found==true Nota creata correttamente
     else
         ui->errorcreationlabel->setText("ERRORE: Nome già usato");
 
@@ -39,11 +41,11 @@ QLineEdit* NewNoteDialog::getNoteTitleBox() {
     return ui->notetitlebox;
 }
 
-QLabel *NewNoteDialog::getErrorCreationLabel() {
+QLabel* NewNoteDialog::getErrorCreationLabel() {
     return ui->errorcreationlabel;
 }
 
-QPushButton *NewNoteDialog::getNoteCreationButton() {
+QPushButton* NewNoteDialog::getNoteCreationButton() {
     return ui->notecreationbutton;
 }
 
