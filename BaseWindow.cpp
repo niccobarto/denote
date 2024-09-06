@@ -27,6 +27,9 @@ BaseWindow::BaseWindow(QWidget *parent) :
 
 BaseWindow::~BaseWindow() {
     delete ui;
+    delete current;
+    delete createdialog;
+    delete manager;
 }
 
 

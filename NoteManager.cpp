@@ -41,3 +41,8 @@ void NoteManager::deleteNote(const QString &name) {
         }
     }
 }
+
+NoteManager::~NoteManager() {
+    for(Note* n:notelist)
+        delete n;
+}

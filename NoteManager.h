@@ -27,7 +27,7 @@ public:
     Note* getLatestNoteCreated(){
         return notelist.back();
     }
-
+    ~NoteManager();
 private:
     list<Note*> notelist;
 };
