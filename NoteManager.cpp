@@ -2,20 +2,20 @@
 // Created by nicco on 10/05/2024.
 //
 
+#include <qfileinfo.h>
 #include "NoteManager.h"
 bool NoteManager::createNewNote(const QString &name) {
-    bool found=false;
-    for(Note* n:notelist){
-        if(n->getName()==name){ //verifica se esiste già una nota con quel nome
-            found=true;
-            break;
-        }
-    }
+    bool found= isNameUsed(name);
     if(!found){
         Note* n=new Note(name); //se non esiste già una nota con questo nome, crea una nuova nota
         notelist.push_back(n);
     }
     return found;
+}
+
+NoteManager::~NoteManager() {
+    for(Note* n:notelist)
+        delete n;
 }
 
 Note* NoteManager::getNote(const QString& name) {
@@ -42,7 +42,27 @@ void NoteManager::deleteNote(const QString &name) {
     }
 }
 
-NoteManager::~NoteManager() {
-    for(Note* n:notelist)
-        delete n;
+QString NoteManager::loadNote(const QString& filepath) {
+    QFile file(filepath); //creo un QFile associandolo dando il path del file
+    file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
+    QTextStream reader(&file); //con QTextStream posso leggere il contenuto
+    QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la path completa
+    QString name=f.fileName(); //Leggo il nome del file
+    QString text=reader.readAll(); //Leggo il file selezionato
+    file.close(); //chiudo il file
+    bool found=createNewNote(name);
+    Note* n= getNote(name);
+    n->setText(text);
+    if(!found)
+        return name;
+    return "";
+}
+
+
+bool NoteManager::isNameUsed(const QString &name) {
+    for(Note* n: notelist){
+        if(n->getName()==name)
+            return true;
+    }
+    return false;
 }

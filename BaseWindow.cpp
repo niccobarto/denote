@@ -85,6 +85,30 @@ void BaseWindow::deleteNote() {
         ui->currentnotelabel->setText("Nessuna nota aperta");
     }
 }
+
+void BaseWindow::loadNoteClicked() {
+    QString filepath=QFileDialog::getOpenFileName(this,tr("Apri un file di testo"),"",tr("File di testo (*.txt)")); //In questo modo sarà possibile solo scegliere file .txt
+    if(!filepath.isEmpty() && filepath.contains("txt")){ //se ho effettivamente selezionato un file
+        QString name=manager->loadNote(filepath);
+        if(name!=""){
+            ui->namelistwidget->addItem(name);
+            QListWidgetItem* loadedwidgetitem=ui->namelistwidget->findItems(name, Qt::MatchExactly).at(0); //trovo il corrispettivo QListWidgetItem
+            openNote(loadedwidgetitem); //apro la nota
+        }
+        else{
+            QMessageBox box;
+            box.setText("Il nome della nota è già utilizzato");
+            box.setWindowTitle("Errore scelta file");
+            box.exec();
+        }
+    }
+    else{
+        QMessageBox box;
+        box.setText("Scelta file non valida");
+        box.setWindowTitle("Errore scelta file");
+        box.exec();
+    }
+}
 /*
  * QTextCursor contiene una serie di informazioni che permettono di trattarlo come un "cursore fittizio". Lo si
  * usa quindi per manipolare un testo in molti modi (come cancellare del testo selezionato, modificarlo, inserire altro
@@ -117,29 +141,6 @@ void BaseWindow::changeSelectedTextSize() {
     ui->noteeditor->textCursor().mergeCharFormat(format); //Applico il nuovo formato al testo selezionato
 }
 
-void BaseWindow::loadNoteClicked() {
-    QString filepath=QFileDialog::getOpenFileName(this,tr("Apri un file di testo"),"",tr("File di testo (*.txt)")); //In questo modo sarà possibile solo scegliere file .txt
-    if(!filepath.isEmpty() && filepath.contains("txt")){ //se ho effettivamente selezionato un file
-        QFile file(filepath); //creo un QFile associandolo dando il path del file
-        file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
-        QTextStream reader(&file); //con QTextStream posso leggere il contenuto
-        QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la path completa
-        QString name=f.fileName(); //Leggo il nome del file
-        QString text=reader.readAll(); //Leggo il file selezionato
-        file.close(); //chiudo il file
-        createNote(name); //creo la nota con il nome del file
-        QListWidgetItem* loadedwidgetitem=ui->namelistwidget->findItems(name, Qt::MatchExactly).at(0); //trovo il corrispettivo QListWidgetItem
-        openNote(loadedwidgetitem); //apro la nota
-        ui->noteeditor->setText(text); //inserisco il testo nel noteeditor
-        saveClicked(); //salvo
-    }
-    else{
-        QMessageBox box;
-        box.setText("Scelta file non valida");
-        box.setWindowTitle("Errore scelta file");
-        box.exec();
-    }
- }
 
 //metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {
@@ -148,7 +149,6 @@ list<QString> BaseWindow::getListWidgetNames() {
         names.push_back(ui->namelistwidget->item(i)->text());
     return names;
 }
-
 bool BaseWindow::isInNameListWidget(const QString& name) {
     list<QString> namesinlistwidget=getListWidgetNames();
     for (QString n: namesinlistwidget) {

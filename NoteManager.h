@@ -7,6 +7,8 @@
 
 #include <list>
 #include "Note.h"
+#include <QTextStream>
+#include <QFile>
 
 using namespace std;
 
@@ -18,7 +20,9 @@ public:
     bool createNewNote(const QString& name);
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
+    QString loadNote(const QString& filepath);
 
+    bool isNameUsed(const QString& name);
     list<Note*> getNoteList(){
         return notelist;
     }
