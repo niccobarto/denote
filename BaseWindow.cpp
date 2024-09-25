@@ -18,7 +18,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     ui->sizechanger->setValue(ui->noteeditor->currentFont().pointSize());//Il valore iniziale in sizechanger è il font-size di noteeditor
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);//associa il segnale clicked di newnotebutton allo slot newNoteClicked()
     connect(ui->namelistwidget, &QListWidget::itemDoubleClicked, this, &BaseWindow::openNote);
-    connect(ui->savebutton,&QPushButton::clicked,this, &BaseWindow::saveClicked);//associa il segnale clicked di savebutton allo slot saveClicked()
+    connect(ui->noteeditor,&QTextEdit::textChanged,this, &BaseWindow::saveChanges);//associa il segnale di modifica del testo della nota allo slot saveChanges()
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
     connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //associa il segnale selectionChanged allo slot isTextSelected
     connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize); //associa il segnale valueChanged allo slot changeSelectedTextSize()
@@ -45,7 +45,6 @@ void BaseWindow::createNote(const QString& name) {
     bool found=manager->createNewNote(name);
      if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
          ui->namelistwidget->addItem(name);
-
      emit creationConfirm(found); //invia segnale di creationConfirm con il risultato dell'operazione
 
 }
@@ -57,7 +56,7 @@ void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa c
     ui->noteeditor->setText(current->getText());
 }
 
-void BaseWindow::saveClicked() {
+void BaseWindow::saveChanges() {
      if(current!= nullptr){
          manager->saveNote(current->getName(),ui->noteeditor->toHtml());
      }
@@ -124,7 +123,7 @@ void BaseWindow::loadNoteClicked() {
    */
     if(ui->noteeditor->textCursor().selectedText()==nullptr){
         ui->sizechanger->setDisabled(true); //Se non è selezionato nemmeno un carattere allora disabilità sizechanger
-        QFont font=ui->noteeditor->textCursor().charFormat().font(); //Ottendo il font riferito alla posizione della barra verticale
+        QFont font=ui->noteeditor->textCursor().charFormat().font(); //Ottengo il font riferito alla posizione della barra verticale
         ui->sizechanger->setValue(font.pointSize()); //Modifica comunque il valore in sizechanger in base al formato presente dove si posiziona la barra verticale
     }
     else{
@@ -151,7 +150,7 @@ list<QString> BaseWindow::getListWidgetNames() {
 }
 bool BaseWindow::isInNameListWidget(const QString& name) {
     list<QString> namesinlistwidget=getListWidgetNames();
-    for (QString n: namesinlistwidget) {
+    for(QString n: namesinlistwidget) {
         if(n==name)
             return true;
     }

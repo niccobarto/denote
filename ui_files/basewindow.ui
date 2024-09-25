@@ -14,12 +14,12 @@
    <string>BaseWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListWidget" name="notelist">
+   <widget class="QListWidget" name="namelistwidget">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>70</y>
-      <width>331</width>
+      <x>70</x>
+      <y>90</y>
+      <width>341</width>
       <height>171</height>
      </rect>
     </property>
@@ -32,7 +32,7 @@
    <widget class="QPushButton" name="newnotebutton">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>640</x>
       <y>70</y>
       <width>111</width>
       <height>31</height>
@@ -82,7 +82,7 @@
     <widget class="QSpinBox" name="sizechanger">
      <property name="geometry">
       <rect>
-       <x>620</x>
+       <x>710</x>
        <y>20</y>
        <width>91</width>
        <height>31</height>
@@ -92,7 +92,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>580</x>
        <y>20</y>
        <width>121</width>
        <height>31</height>
@@ -119,6 +119,7 @@
      <property name="font">
       <font>
        <pointsize>11</pointsize>
+       <kerning>true</kerning>
       </font>
      </property>
      <property name="html">
@@ -150,45 +151,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string>&quot;Nessuna nota aperta&quot;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="savebutton">
-     <property name="geometry">
-      <rect>
-       <x>730</x>
-       <y>20</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <italic>false</italic>
-       <bold>true</bold>
-       <underline>false</underline>
-       <strikeout>false</strikeout>
-      </font>
-     </property>
-     <property name="mouseTracking">
-      <bool>false</bool>
-     </property>
-     <property name="toolTip">
-      <string notr="true"/>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>SALVA</string>
-     </property>
-     <property name="icon">
-      <iconset theme="document-save"/>
-     </property>
-    </widget>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>30</y>
+      <x>70</x>
+      <y>20</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -209,8 +177,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>-10</y>
+      <x>350</x>
+      <y>-20</y>
       <width>230</width>
       <height>81</height>
      </rect>
@@ -231,8 +199,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="deletenotebutton">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>200</y>
+      <x>640</x>
+      <y>150</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -253,11 +221,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <iconset theme="application-exit"/>
     </property>
    </widget>
-   <widget class="QPushButton" name="uploadnotebutton">
+   <widget class="QPushButton" name="loadnotebutton">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>130</y>
+      <x>640</x>
+      <y>110</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -276,6 +244,148 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </property>
     <property name="icon">
      <iconset theme="folder-open"/>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="searchbar">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>60</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cerca...&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="favouritebutton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0,0,0)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset theme="emblem-favorite"/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="sortbox">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>60</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Ordina per</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Ordine alfabetico</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="favouritefilter">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>170</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filtra note preferite</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="lockedfilter">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>200</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filtra note bloccate</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lockbutton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>120</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0,0,0)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset theme="system-lock-screen"/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="renamebutton">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>190</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(95,158,160)</string>
+    </property>
+    <property name="text">
+     <string>RINOMINA</string>
+    </property>
+    <property name="icon">
+     <iconset theme="mail-message-new"/>
     </property>
    </widget>
   </widget>

@@ -35,7 +35,7 @@
         void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
 
         void openNote(QListWidgetItem* n);
-        void saveClicked();
+        void saveChanges();
         void deleteNoteClicked();
         void deleteNote();
         void createNote(const QString& name);

@@ -9,9 +9,7 @@
 #include "Note.h"
 #include <QTextStream>
 #include <QFile>
-
 using namespace std;
-
 
 class NoteManager {
 
