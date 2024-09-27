@@ -133,12 +133,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="currentnotelabel">
+    <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>20</y>
-       <width>261</width>
+       <width>141</width>
        <height>41</height>
       </rect>
      </property>
@@ -148,7 +148,23 @@ li.checked::marker { content: &quot;\2612&quot;; }
       </font>
      </property>
      <property name="text">
-      <string>&quot;Nessuna nota aperta&quot;</string>
+      <string>Nome nota aperta:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="currentnotetext">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>30</y>
+       <width>231</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>NESSUNA NOTA APERTA </string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -190,7 +206,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </font>
     </property>
     <property name="text">
-     <string>DE NOTE</string>
+     <string>DENOTE</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>

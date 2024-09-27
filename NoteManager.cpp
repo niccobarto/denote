@@ -11,7 +11,7 @@ bool NoteManager::createNewNote(const QString &name) {
         notelist.push_back(n);
         createNoteFile(n);
     }
-    return found;
+    return !found;
 }
 
 NoteManager::~NoteManager() {

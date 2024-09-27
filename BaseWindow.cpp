@@ -43,10 +43,10 @@ void BaseWindow::newNoteClicked() {
 }
 
 void BaseWindow::createNote(const QString& name) {
-    bool found=manager->createNewNote(name);
-     if(!found) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
+    bool result=manager->createNewNote(name);
+     if(result) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
          ui->namelistwidget->addItem(name);
-     emit creationConfirm(found); //invia segnale di creationConfirm con il risultato dell'operazione
+     emit creationConfirm(result); //invia segnale di creationConfirm con il risultato dell'operazione
 
 }
 
@@ -156,6 +156,7 @@ void BaseWindow::changeSelectedTextSize() {
     QTextCharFormat format; //creo un nuovo formato
     format.setFontPointSize(ui->sizechanger->value()); //imposto il pointsize del nuovo formato
     ui->noteeditor->textCursor().mergeCharFormat(format); //Applico il nuovo formato al testo selezionato
+    saveChanges();
 }
 
 
@@ -182,7 +183,7 @@ QString BaseWindow::getTextNoteSelected() {
 }
 
 QString BaseWindow::getCurrentNoteLabelText() {
-    return ui->currentnotetext->toHtml();
+    return ui->currentnotetext->text();
 }
 
 void BaseWindow::setTextForTest(const QString& name,const QString& text) {

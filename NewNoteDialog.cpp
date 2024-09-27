@@ -28,12 +28,12 @@ void NewNoteDialog::noteCreationButtonClicked() {
         emit newNoteNameInsert(ui->notetitlebox->text()); //emetti il segnale di conferma creazione finestra newNoteNameInsert e passando come parametro il nome scritto
     }
 }
-void NewNoteDialog::receiveCreationConfirm(bool found) {
-    if(!found){
+void NewNoteDialog::receiveCreationConfirm(bool result) {
+    if(result){
         close(); //chiude la finestra di dialogo della creazione della nota
-    } //Se !found==true Nota creata correttamente
+    } //Se result==true Nota creata correttamente
     else
-        ui->errorcreationlabel->setText("ERRORE: Nome già usato");
+        ui->errorcreationlabel->setText("ERRORE: Questo nome è già in uso");
 
 }
 QLineEdit* NewNoteDialog::getNoteTitleBox() {
