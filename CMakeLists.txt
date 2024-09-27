@@ -22,6 +22,7 @@ add_executable(denote
         NoteManager.cpp
         DeleteNoteDialog.cpp
         DeleteNoteDialog.h
+        RenameNoteDialog.cpp
 )
 
 target_link_libraries(denote

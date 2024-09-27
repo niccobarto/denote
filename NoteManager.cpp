@@ -66,3 +66,12 @@ bool NoteManager::isNameUsed(const QString &name) {
     }
     return false;
 }
+
+bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
+    bool found= isNameUsed(newname);
+    if(!found){
+        Note* n= getNote(oldname);
+        n->setName(newname);
+    }
+    return !found;
+}

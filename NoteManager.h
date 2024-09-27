@@ -19,6 +19,7 @@ public:
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
     QString loadNote(const QString& filepath);
+    bool renameNote(const QString& oldname,const QString &newname);
 
     bool isNameUsed(const QString& name);
     list<Note*> getNoteList(){

@@ -23,6 +23,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //associa il segnale selectionChanged allo slot isTextSelected
     connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize); //associa il segnale valueChanged allo slot changeSelectedTextSize()
     connect(ui->loadnotebutton,&QPushButton::clicked,this, &BaseWindow::loadNoteClicked); //associa il segnale clicked di uploadnotebutton allo slot loadNoteClicked()
+    connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
 }
 
 BaseWindow::~BaseWindow() {
@@ -52,7 +53,7 @@ void BaseWindow::createNote(const QString& name) {
 void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
     current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
     ui->noteeditor->setDisabled(false);
-    ui->currentnotelabel->setText(current->getName());
+    ui->currentnotetext->setText(current->getName());
     ui->noteeditor->setText(current->getText());
 }
 
@@ -81,8 +82,25 @@ void BaseWindow::deleteNote() {
         current= nullptr;
         ui->noteeditor->clear();
         ui->noteeditor->setDisabled(true);
-        ui->currentnotelabel->setText("Nessuna nota aperta");
+        ui->currentnotetext->setText("Nessuna nota aperta");
     }
+}
+
+void BaseWindow::renameNoteClicked() {
+    if(current!= nullptr){
+        RenameNoteDialog renamedialog(current->getName(),this);
+        connect(&renamedialog, &RenameNoteDialog::newNameInsert, this, &BaseWindow::renameNote);
+        renamedialog.exec();
+    }
+}
+void BaseWindow::renameNote(const QString &oldname,const QString &newname) {
+    bool result=manager->renameNote(oldname, newname);
+    if(result){
+        QListWidgetItem* noterenamed=ui->namelistwidget->findItems(oldname, Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per rinominarlo nella QListWidget
+        noterenamed->setText(newname);
+        ui->currentnotetext->setText(newname);
+    }
+    emit renameConfirm(result);
 }
 
 void BaseWindow::loadNoteClicked() {
@@ -164,7 +182,7 @@ QString BaseWindow::getTextNoteSelected() {
 }
 
 QString BaseWindow::getCurrentNoteLabelText() {
-    return ui->currentnotelabel->text();
+    return ui->currentnotetext->toHtml();
 }
 
 void BaseWindow::setTextForTest(const QString& name,const QString& text) {

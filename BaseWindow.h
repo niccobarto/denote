@@ -9,6 +9,7 @@
     #include "NoteManager.h"
     #include "NewNoteDialog.h"
     #include "Note.h"
+    #include "RenameNoteDialog.h"
     #include <QListWidget>
     #include <QFileDialog>
     #include <QFile>
@@ -28,20 +29,22 @@
         explicit BaseWindow(QWidget *parent = nullptr);
         ~BaseWindow() override;
      signals:
-        void creationConfirm(bool found);
+        void creationConfirm(bool result);
+        void renameConfirm(bool result);
 
     private slots:
 
         void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
-
-        void openNote(QListWidgetItem* n);
-        void saveChanges();
         void deleteNoteClicked();
-        void deleteNote();
+        void renameNoteClicked();
+        void loadNoteClicked();
         void createNote(const QString& name);
+        void deleteNote();
+        void openNote(QListWidgetItem* n);
+        void renameNote(const QString& name,const QString &newname);
+        void saveChanges();
         void isTextSelected();
         void changeSelectedTextSize();
-        void loadNoteClicked();
     private:
 
         Ui::BaseWindow *ui;
