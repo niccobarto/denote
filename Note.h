@@ -17,13 +17,27 @@ public:
     QString& getText() {
         return text;
     }
+
+    bool isFavourite() const {
+        return favourite;
+    }
+
+    bool isLocked() const {
+        return locked;
+    }
+
+    void setName(const QString &n) {
+        name = n;
+    }
+
     void setText(const QString& txt){
         text=txt;
     }
 private:
     QString name;
     QString text="";
-
+    bool favourite=false;
+    bool locked=false;
 };
 
 
