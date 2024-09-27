@@ -9,12 +9,13 @@
 #include "Note.h"
 #include <QTextStream>
 #include <QFile>
+#include <fstream>
+#include <iostream>
 using namespace std;
 
 class NoteManager {
 
 public:
-
     bool createNewNote(const QString& name);
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
@@ -33,6 +34,8 @@ public:
     ~NoteManager();
 private:
     list<Note*> notelist;
+    filesystem::path path="../notes";
+    void createNoteFile(Note* n);
 };
 
 
