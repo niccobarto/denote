@@ -21,7 +21,8 @@ public:
     void saveNote(const QString& name,const QString& text);
     QString loadNote(const QString& filepath);
     bool renameNote(const QString& oldname,const QString &newname);
-
+    void changeFavourite(const QString& name);
+    void changeBlocked(const QString& name);
     bool isNameUsed(const QString& name);
     list<Note*> getNoteList();
     Note* getNote(const QString& name);
@@ -29,6 +30,8 @@ public:
     ~NoteManager();
 private:
     list<Note*> notelist;
+    list<Note*> favouritenotes;
+    list<Note*> blockednotes;
     filesystem::path path="../notes";
     void createNoteFile(Note* n);
 };

@@ -72,6 +72,13 @@ bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
     return !found;
 }
 
+void NoteManager::changeFavourite(const QString &name) {
+
+}
+
+void NoteManager::changeBlocked(const QString &name) {
+
+}
 
 bool NoteManager::isNameUsed(const QString &name) {
     for(Note* n: notelist){
