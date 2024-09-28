@@ -10,6 +10,7 @@
     #include "NewNoteDialog.h"
     #include "Note.h"
     #include "RenameNoteDialog.h"
+    #include "DeleteNoteDialog.h"
     #include <QListWidget>
     #include <QFileDialog>
     #include <QFile>
@@ -51,6 +52,8 @@
         NoteManager* manager=new NoteManager();
         Note* current=nullptr;
         NewNoteDialog* createdialog;
+        DeleteNoteDialog* deletedialog;
+        RenameNoteDialog* renamedialog;
 
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();

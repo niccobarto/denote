@@ -28,11 +28,16 @@ void RenameNoteDialog::confirmRenameButtonClicked() {
         emit newNameInsert(oldname,ui->currentnotetext->text());
     }
 
+void RenameNoteDialog::cancelClicked() {
+    close();
+    delete this;
 }
 
 void RenameNoteDialog::receiveRenameConfirm(bool result) {
-    if(result)
+    if(result){
         close();
+        delete this;
+    }
     else{
         ui->errorlabel->setText("ERRORE: Questo nome già in uso");
     }

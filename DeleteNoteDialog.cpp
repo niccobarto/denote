@@ -22,8 +22,10 @@ DeleteNoteDialog::~DeleteNoteDialog() {
 void DeleteNoteDialog::confirmClicked() {
     emit confirmDelete();
     close();
+    delete this;
 }
 
 void DeleteNoteDialog::cancelClicked() {
     close();
+    delete this;
 }

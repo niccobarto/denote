@@ -31,6 +31,7 @@ void NewNoteDialog::noteCreationButtonClicked() {
 void NewNoteDialog::receiveCreationConfirm(bool result) {
     if(result){
         close(); //chiude la finestra di dialogo della creazione della nota
+        delete this;
     } //Se result==true Nota creata correttamente
     else
         ui->errorcreationlabel->setText("ERRORE: Questo nome è già in uso");

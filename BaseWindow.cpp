@@ -6,8 +6,6 @@
 
 #include "BaseWindow.h"
 #include "ui_files/ui_BaseWindow.h"
-#include "NewNoteDialog.h"
-#include "DeleteNoteDialog.h"
 
 BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
@@ -31,6 +29,8 @@ BaseWindow::~BaseWindow() {
     delete current;
     delete createdialog;
     delete manager;
+    delete deletedialog;
+    delete renamedialog;
 }
 
 
@@ -48,6 +48,14 @@ void BaseWindow::createNote(const QString& name) {
          ui->namelistwidget->addItem(name);
      emit creationConfirm(result); //invia segnale di creationConfirm con il risultato dell'operazione
 
+}
+
+void BaseWindow::deleteNoteClicked() {
+    if(current!= nullptr){ //Cancella solo se è selezionata una nota
+        deletedialog=new DeleteNoteDialog(this); //Apri la finestra di dialogo per la conferma dell'eliminazione
+        connect(deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);//Associa lo slot deleteNote() al segnale confirmDelete
+        deletedialog->exec();
+    }
 }
 
 void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
@@ -88,9 +96,9 @@ void BaseWindow::deleteNote() {
 
 void BaseWindow::renameNoteClicked() {
     if(current!= nullptr){
-        RenameNoteDialog renamedialog(current->getName(),this);
-        connect(&renamedialog, &RenameNoteDialog::newNameInsert, this, &BaseWindow::renameNote);
-        renamedialog.exec();
+        renamedialog=new RenameNoteDialog(current->getName(),this);
+        connect(renamedialog, &RenameNoteDialog::newNameInsert, this, &BaseWindow::renameNote);
+        renamedialog->exec();
     }
 }
 void BaseWindow::renameNote(const QString &oldname,const QString &newname) {
