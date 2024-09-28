@@ -14,17 +14,14 @@ bool NoteManager::createNewNote(const QString &name) {
     return !found;
 }
 
-NoteManager::~NoteManager() {
-    for(Note* n:notelist)
-        delete n;
-}
-
-Note* NoteManager::getNote(const QString& name) {
-    for(Note* note: notelist){
-        if(note->getName()==name)
-            return note;
+void NoteManager::deleteNote(const QString &name) {
+    std::list<Note*>::iterator it;
+    for(it=notelist.begin();it !=notelist.end();it++){
+        if((*it)->getName()==name){
+            notelist.erase(it);
+            break;
+        }
     }
-    return nullptr;
 }
 
 void NoteManager::saveNote(const QString& name, const QString& text) {
@@ -35,35 +32,19 @@ void NoteManager::saveNote(const QString& name, const QString& text) {
     notefile<<text.toStdString();
     string favourite,locked;
     std::ifstream file_lettura(path);
-
     std::getline(file_lettura, favourite);
     std::getline(file_lettura, locked);
     file_lettura.close();  // Chiudi il file dopo aver letto i parametri
-
-
     // Ora riapri il file in modalità scrittura per aggiornare solo il testo della nota
     std::ofstream file_scrittura(path);
-
     // Riscrivi i parametri
     file_scrittura << favourite << "\n";
     file_scrittura << locked << "\n";
-
     // Scrivi il nuovo testo della nota
     file_scrittura << "\"" << text.toStdString() << "\"\n";
-
     file_scrittura.close();  // Chiudi il file dopo la scrittura
     std::cout << "Nota aggiornata con successo in: " << path << std::endl;
 
-}
-
-void NoteManager::deleteNote(const QString &name) {
-    std::list<Note*>::iterator it;
-    for(it=notelist.begin();it !=notelist.end();it++){
-        if((*it)->getName()==name){
-            notelist.erase(it);
-            break;
-        }
-    }
 }
 
 QString NoteManager::loadNote(const QString& filepath) {
@@ -82,6 +63,15 @@ QString NoteManager::loadNote(const QString& filepath) {
     return "";
 }
 
+bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
+    bool found= isNameUsed(newname);
+    if(!found){
+        Note* n= getNote(oldname);
+        n->setName(newname);
+    }
+    return !found;
+}
+
 
 bool NoteManager::isNameUsed(const QString &name) {
     for(Note* n: notelist){
@@ -89,6 +79,23 @@ bool NoteManager::isNameUsed(const QString &name) {
             return true;
     }
     return false;
+}
+
+list<Note *> NoteManager::getNoteList() {
+    return notelist;
+}
+
+Note* NoteManager::getNote(const QString& name) {
+    for(Note* note: notelist){
+        if(note->getName()==name)
+            return note;
+    }
+    return nullptr;
+}
+
+NoteManager::~NoteManager() {
+    for(Note* n:notelist)
+        delete n;
 }
 
 void NoteManager::createNoteFile(Note *n) {
@@ -106,11 +113,3 @@ void NoteManager::createNoteFile(Note *n) {
     notefile<<n->getText().toStdString();
 }
 
-bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
-    bool found= isNameUsed(newname);
-    if(!found){
-        Note* n= getNote(oldname);
-        n->setName(newname);
-    }
-    return !found;
-}

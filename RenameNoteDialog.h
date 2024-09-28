@@ -18,8 +18,9 @@ public:
      explicit RenameNoteDialog(QString& name,QWidget *parent = nullptr);
     ~RenameNoteDialog();
 
-signals:
+    signals:
     void newNameInsert(const QString oldname,const QString &newname);
+
 private slots:
     void confirmRenameButtonClicked();
     void cancelClicked();

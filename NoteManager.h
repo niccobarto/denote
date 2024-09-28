@@ -23,14 +23,9 @@ public:
     bool renameNote(const QString& oldname,const QString &newname);
 
     bool isNameUsed(const QString& name);
-    list<Note*> getNoteList(){
-        return notelist;
-    }
+    list<Note*> getNoteList();
     Note* getNote(const QString& name);
 
-    Note* getLatestNoteCreated(){
-        return notelist.back();
-    }
     ~NoteManager();
 private:
     list<Note*> notelist;

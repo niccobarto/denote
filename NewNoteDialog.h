@@ -25,7 +25,7 @@ public:
 
     ~NewNoteDialog() override;
 
-signals:
+    signals:
     void newNoteNameInsert(QString name); //segnale per la conferma di creazione della nota
 
     private slots:

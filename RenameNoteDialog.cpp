@@ -27,12 +27,12 @@ void RenameNoteDialog::confirmRenameButtonClicked() {
         connect(father, &BaseWindow::renameConfirm, this, &RenameNoteDialog::receiveRenameConfirm); //associa il segnale creationConfrm() emesso da father allo slot receiveCreationConfirm()
         emit newNameInsert(oldname,ui->currentnotetext->text());
     }
+}
 
 void RenameNoteDialog::cancelClicked() {
     close();
     delete this;
 }
-
 void RenameNoteDialog::receiveRenameConfirm(bool result) {
     if(result){
         close();
@@ -44,6 +44,3 @@ void RenameNoteDialog::receiveRenameConfirm(bool result) {
 
 }
 
-void RenameNoteDialog::cancelClicked() {
-    close();
-}

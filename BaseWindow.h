@@ -36,13 +36,13 @@
     private slots:
 
         void newNoteClicked(); //SLOT connesso all'evento newnotebutton::clicked
-        void deleteNoteClicked();
-        void renameNoteClicked();
-        void loadNoteClicked();
         void createNote(const QString& name);
+        void deleteNoteClicked();
         void deleteNote();
         void openNote(QListWidgetItem* n);
+        void renameNoteClicked();
         void renameNote(const QString& name,const QString &newname);
+        void loadNoteClicked();
         void saveChanges();
         void isTextSelected();
         void changeSelectedTextSize();

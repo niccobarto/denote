@@ -58,28 +58,6 @@ void BaseWindow::deleteNoteClicked() {
     }
 }
 
-void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
-    current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
-    ui->noteeditor->setDisabled(false);
-    ui->currentnotetext->setText(current->getName());
-    ui->noteeditor->setText(current->getText());
-}
-
-void BaseWindow::saveChanges() {
-     if(current!= nullptr){
-         manager->saveNote(current->getName(),ui->noteeditor->toHtml());
-     }
-}
-
-void BaseWindow::deleteNoteClicked() {
-    if(current!= nullptr){ //Cancella solo se è selezionata una nota
-        DeleteNoteDialog deletedialog(this); //Apri la finestra di dialogo per la conferma dell'eliminazione
-        connect(&deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);//Associa lo slot deleteNote() al segnale confirmDelete
-        deletedialog.exec();
-    }
-
-}
-
 void BaseWindow::deleteNote() {
     QListWidgetItem* notedeleted=ui->namelistwidget->findItems(current->getName(), Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per eliminarlo poi dalla QListWidget
     if(notedeleted){
@@ -94,6 +72,13 @@ void BaseWindow::deleteNote() {
     }
 }
 
+void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
+    current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
+    ui->noteeditor->setDisabled(false);
+    ui->currentnotetext->setText(current->getName());
+    ui->noteeditor->setText(current->getText());
+}
+
 void BaseWindow::renameNoteClicked() {
     if(current!= nullptr){
         renamedialog=new RenameNoteDialog(current->getName(),this);
@@ -101,6 +86,7 @@ void BaseWindow::renameNoteClicked() {
         renamedialog->exec();
     }
 }
+
 void BaseWindow::renameNote(const QString &oldname,const QString &newname) {
     bool result=manager->renameNote(oldname, newname);
     if(result){
@@ -132,6 +118,12 @@ void BaseWindow::loadNoteClicked() {
         box.setText("Scelta file non valida");
         box.setWindowTitle("Errore scelta file");
         box.exec();
+    }
+}
+
+void BaseWindow::saveChanges() {
+    if(current!= nullptr){
+        manager->saveNote(current->getName(),ui->noteeditor->toHtml());
     }
 }
 /*
