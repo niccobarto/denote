@@ -2,3 +2,7 @@
 
 /cmake-build-debug/
 /Cose da implementare.txt
+/ui_files/ui_basewindow.h
+/ui_files/ui_DeleteNoteDialog.h
+/ui_files/ui_NewNoteDialog.h
+/ui_files/ui_RenameNoteDialog.h

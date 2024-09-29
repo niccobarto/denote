@@ -72,12 +72,20 @@ bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
     return !found;
 }
 
-void NoteManager::changeFavourite(const QString &name) {
-
+void NoteManager::changeFavouriteStatus(const QString &name) {
+    Note* n= getNote(name);
+    if(n->isFavourite())
+        n->changeFavourite(false);
+    else
+        n->changeFavourite(true);
 }
 
-void NoteManager::changeBlocked(const QString &name) {
-
+void NoteManager::changeBlockedStatus(const QString &name) {
+    Note* n= getNote(name);
+    if(n->isBlocked())
+        n->changeBlocked(false);
+    else
+        n->changeBlocked(true);
 }
 
 bool NoteManager::isNameUsed(const QString &name) {

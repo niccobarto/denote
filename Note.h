@@ -17,27 +17,20 @@ public:
     QString& getText() {
         return text;
     }
+    void changeFavourite(bool newstatus){ favourite=newstatus; }
+    void changeBlocked(bool newstatus){ blocked=newstatus; }
+    bool isFavourite() const { return favourite; }
 
-    bool isFavourite() const {
-        return favourite;
-    }
+    bool isBlocked() const { return blocked; }
 
-    bool isLocked() const {
-        return locked;
-    }
+    void setName(const QString &n) { name = n; }
 
-    void setName(const QString &n) {
-        name = n;
-    }
-
-    void setText(const QString& txt){
-        text=txt;
-    }
+    void setText(const QString& txt){ text=txt; }
 private:
     QString name;
     QString text="";
     bool favourite=false;
-    bool locked=false;
+    bool blocked=false;
 };
 
 
