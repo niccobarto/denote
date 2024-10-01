@@ -24,7 +24,8 @@ public:
     void changeFavouriteStatus(const QString& name);
     void changeBlockedStatus(const QString& name);
     bool isNameUsed(const QString& name);
-    list<Note*> getNoteList();
+    QStringList getSimilarNotes(const QString& searchtext);
+    QStringList getDefaultNoteList();
     Note* getNote(const QString& name);
 
     ~NoteManager();

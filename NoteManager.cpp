@@ -118,8 +118,21 @@ bool NoteManager::isNameUsed(const QString &name) {
     return false;
 }
 
-list<Note *> NoteManager::getNoteList() {
-    return notelist;
+QStringList NoteManager::getSimilarNotes(const QString &searchtext) {
+    QStringList similarnotes;
+    for(Note* n:notelist){
+        if(n->getName().contains(searchtext))
+            similarnotes.push_back(n->getName());
+    }
+    return similarnotes;
+}
+
+QStringList NoteManager::getDefaultNoteList() {
+    QStringList notenames;
+    for(Note* n:notelist){
+        notenames.push_back(n->getName());
+    }
+    return notenames;
 }
 
 Note* NoteManager::getNote(const QString& name) {
@@ -153,4 +166,5 @@ void NoteManager::createNoteFile(Note *n) {
         notefile<<"false\n";
     notefile<<n->getText().toStdString();
 }
+
 

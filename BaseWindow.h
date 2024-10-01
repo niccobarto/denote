@@ -48,6 +48,7 @@
         void saveChanges();
         void inTextSelectedCase();
         void changeSelectedTextSize();
+        void changedSearchBar();
     private:
 
         Ui::BaseWindow *ui;
@@ -61,9 +62,6 @@
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);
-        list<Note*> getNotes(){
-            return manager->getNoteList();
-        }
         void setTextForTest(const QString& name,const QString& text);
         QString getTextNoteSelected();
         QString getCurrentNoteLabelText();

@@ -26,6 +26,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
+    connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
 }
 
 BaseWindow::~BaseWindow() {
@@ -214,3 +215,16 @@ void BaseWindow::setDefault() { //Resetta il noteeditor
     ui->noteeditor->clear();
     ui->noteeditor->setDisabled(true);
     ui->currentnotetext->setText("Nessuna nota aperta");}
+
+void BaseWindow::changedSearchBar() {
+    QString searchtext=ui->searchbar->text();
+    ui->namelistwidget->clear();
+    if(searchtext==""){
+        QStringList notenames=manager->getDefaultNoteList();
+        ui->namelistwidget->addItems(notenames);
+    }
+    else{
+        QStringList similarnotesname=manager->getSimilarNotes(searchtext);
+        ui->namelistwidget->addItems(similarnotesname);
+    }
+}
