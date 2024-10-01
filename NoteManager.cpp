@@ -55,11 +55,12 @@ QString NoteManager::loadNote(const QString& filepath) {
     QString name=f.fileName(); //Leggo il nome del file
     QString text=reader.readAll(); //Leggo il file selezionato
     file.close(); //chiudo il file
-    bool found=createNewNote(name);
-    Note* n= getNote(name);
-    n->setText(text);
-    if(!found)
+    bool result=createNewNote(name);
+    if(result){
+        Note* n= getNote(name);
+        n->setText(text);
         return name;
+    }
     return "";
 }
 
