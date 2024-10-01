@@ -43,6 +43,8 @@
         void renameNoteClicked();
         void renameNote(const QString& name,const QString &newname);
         void loadNoteClicked();
+        void favouriteClicked();
+        void blockedClicked();
         void saveChanges();
         void isTextSelected();
         void changeSelectedTextSize();

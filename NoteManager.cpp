@@ -15,7 +15,7 @@ bool NoteManager::createNewNote(const QString &name) {
 }
 
 void NoteManager::deleteNote(const QString &name) {
-    std::list<Note*>::iterator it;
+    list<Note*>::iterator it;
     for(it=notelist.begin();it !=notelist.end();it++){
         if((*it)->getName()==name){
             notelist.erase(it);
@@ -72,20 +72,41 @@ bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
     return !found;
 }
 
-void NoteManager::changeFavouriteStatus(const QString &name) {
-    Note* n= getNote(name);
-    if(n->isFavourite())
-        n->changeFavourite(false);
-    else
-        n->changeFavourite(true);
+void NoteManager::changeFavouriteStatus(const QString& name) {
+    Note* selected= getNote(name);
+    if(selected->isFavourite()){ //Se la nota è preferita
+        selected->changeFavourite(false);//Rimuovila dai preferiti
+        list<Note*>::iterator it;
+        for(it=favouritenotes.begin();it !=favouritenotes.end();it++){
+            if((*it)->getName()==selected->getName()){
+                favouritenotes.erase(it); //Rimuovila dalla lista di preferiti
+                break;
+            }
+        }
+    }
+    else{
+        selected->changeFavourite(true); //Altrimenti rendila preferita
+        favouritenotes.push_back(selected); //Inseriscila nella lista dei preferiti
+    }
 }
 
-void NoteManager::changeBlockedStatus(const QString &name) {
-    Note* n= getNote(name);
-    if(n->isBlocked())
-        n->changeBlocked(false);
-    else
-        n->changeBlocked(true);
+void NoteManager::changeBlockedStatus(const QString& name) {
+    Note* selected= getNote(name);
+    if(selected->isBlocked()){ //Se la nota è bloccata
+        selected->changeBlocked(false);//Rimuovila dai bloccata
+        list<Note*>::iterator it;
+        for(it=blockednotes.begin();it !=blockednotes.end();it++){
+            if((*it)->getName()==selected->getName()){
+                blockednotes.erase(it);//Rimuovila dalla lista di bloccata
+                break;
+            }
+        }
+    }
+    else{
+        selected->changeBlocked(true);//Altrimenti rendila bloccata
+        blockednotes.push_back(selected);//Inseriscila nella lista dei bloccati
+    }
+
 }
 
 bool NoteManager::isNameUsed(const QString &name) {
@@ -121,7 +142,7 @@ void NoteManager::createNoteFile(Note *n) {
     else
         notefile<<"false\n";
     notefile<<"locked=";
-    if(n->isLocked())
+    if(n->isBlocked())
         notefile<<"true\n";
     else
         notefile<<"false\n";

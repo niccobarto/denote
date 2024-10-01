@@ -156,7 +156,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <rect>
        <x>160</x>
        <y>30</y>
-       <width>231</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
@@ -165,6 +165,56 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
      <property name="readOnly">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="showblocked">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>30</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="text">
+      <string>BLOCKED</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="showfavourite">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>30</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="text">
+      <string>FAVOURITE</string>
      </property>
     </widget>
    </widget>
@@ -354,7 +404,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <string>Filtra note bloccate</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="lockbutton">
+   <widget class="QPushButton" name="blockbutton">
     <property name="geometry">
      <rect>
       <x>410</x>

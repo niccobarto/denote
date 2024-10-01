@@ -12,6 +12,8 @@ BaseWindow::BaseWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->noteeditor->setDisabled(true);
     ui->sizechanger->setDisabled(true);
+    ui->showblocked->setVisible(false);
+    ui->showfavourite->setVisible(false);
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
     ui->sizechanger->setValue(ui->noteeditor->currentFont().pointSize());//Il valore iniziale in sizechanger è il font-size di noteeditor
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);//associa il segnale clicked di newnotebutton allo slot newNoteClicked()
@@ -22,6 +24,8 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize); //associa il segnale valueChanged allo slot changeSelectedTextSize()
     connect(ui->loadnotebutton,&QPushButton::clicked,this, &BaseWindow::loadNoteClicked); //associa il segnale clicked di uploadnotebutton allo slot loadNoteClicked()
     connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
+    connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
+    connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
 }
 
 BaseWindow::~BaseWindow() {
@@ -74,9 +78,12 @@ void BaseWindow::deleteNote() {
 
 void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
     current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
-    ui->noteeditor->setDisabled(false);
     ui->currentnotetext->setText(current->getName());
+    ui->noteeditor->setDisabled(false);
     ui->noteeditor->setText(current->getText());
+    ui->showblocked->setVisible(current->isBlocked());
+    ui->showfavourite->setVisible(current->isFavourite());
+    ui->noteeditor->setReadOnly(current->isBlocked());
 }
 
 void BaseWindow::renameNoteClicked() {
@@ -121,6 +128,22 @@ void BaseWindow::loadNoteClicked() {
     }
 }
 
+void BaseWindow::favouriteClicked() {
+    if(current!=nullptr){
+        manager->changeFavouriteStatus(current->getName()); //Alterna nota preferita/nota non preferita
+        ui->showfavourite->setVisible(current->isFavourite()); //Mostra la label se è preferita
+    }
+}
+
+
+void BaseWindow::blockedClicked() {
+    if(current!=nullptr){
+        manager->changeBlockedStatus(current->getName()); //Alterna nota preferita/nota non preferita
+        ui->showblocked->setVisible(current->isBlocked()); //Mostra la label se è bloccata
+        ui->noteeditor->setReadOnly(current->isBlocked()); //Blocca l'editor in caso di nota bloccata
+    }
+}
+
 void BaseWindow::saveChanges() {
     if(current!= nullptr){
         manager->saveNote(current->getName(),ui->noteeditor->toHtml());
@@ -159,7 +182,6 @@ void BaseWindow::changeSelectedTextSize() {
     saveChanges();
 }
 
-
 //metodi per TestBaseWindow
 list<QString> BaseWindow::getListWidgetNames() {
     list<QString> names;
@@ -189,6 +211,3 @@ QString BaseWindow::getCurrentNoteLabelText() {
 void BaseWindow::setTextForTest(const QString& name,const QString& text) {
     manager->saveNote(name, text);
 }
-
-
-
