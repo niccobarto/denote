@@ -20,7 +20,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->namelistwidget, &QListWidget::itemDoubleClicked, this, &BaseWindow::openNote);
     connect(ui->noteeditor,&QTextEdit::textChanged,this, &BaseWindow::saveChanges);//associa il segnale di modifica del testo della nota allo slot saveChanges()
     connect(ui->deletenotebutton,&QPushButton::clicked,this, &BaseWindow::deleteNoteClicked);
-    connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::isTextSelected); //associa il segnale selectionChanged allo slot isTextSelected
+    connect(ui->noteeditor,&QTextEdit::selectionChanged,this,&BaseWindow::inTextSelectedCase); //associa il segnale selectionChanged allo slot inTextSelectedCase
     connect(ui->sizechanger,&QSpinBox::valueChanged,this,&BaseWindow::changeSelectedTextSize); //associa il segnale valueChanged allo slot changeSelectedTextSize()
     connect(ui->loadnotebutton,&QPushButton::clicked,this, &BaseWindow::loadNoteClicked); //associa il segnale clicked di uploadnotebutton allo slot loadNoteClicked()
     connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
@@ -70,9 +70,7 @@ void BaseWindow::deleteNote() {
         delete notedeleted;
         //Deseleziona la nota
         current= nullptr;
-        ui->noteeditor->clear();
-        ui->noteeditor->setDisabled(true);
-        ui->currentnotetext->setText("Nessuna nota aperta");
+        setDefault();
     }
 }
 
@@ -88,20 +86,20 @@ void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa c
 
 void BaseWindow::renameNoteClicked() {
     if(current!= nullptr){
-        renamedialog=new RenameNoteDialog(current->getName(),this);
-        connect(renamedialog, &RenameNoteDialog::newNameInsert, this, &BaseWindow::renameNote);
-        renamedialog->exec();
+        renamedialog=new RenameNoteDialog(current->getName(),this); //Crea una nuova finestra di ridenominazione
+        connect(renamedialog, &RenameNoteDialog::newNameInsert, this, &BaseWindow::renameNote); //Associa il segnale newNameInsert allo slot renameNote
+        renamedialog->exec(); //Esegue la finestra renamedialog
     }
 }
 
 void BaseWindow::renameNote(const QString &oldname,const QString &newname) {
-    bool result=manager->renameNote(oldname, newname);
-    if(result){
+    bool result=manager->renameNote(oldname, newname); //result=true implica nome non in uso (e la modifica del nome in NoteManager è già avvenuta)
+    if(result){ //Se il nome non è in uso
         QListWidgetItem* noterenamed=ui->namelistwidget->findItems(oldname, Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per rinominarlo nella QListWidget
-        noterenamed->setText(newname);
+        noterenamed->setText(newname); //Rinomina il QListWidgetItem
         ui->currentnotetext->setText(newname);
     }
-    emit renameConfirm(result);
+    emit renameConfirm(result);//Invia un segnale con l'esito dell'operazione per dire al RenameNoteDialog cosa fare
 }
 
 void BaseWindow::loadNoteClicked() {
@@ -155,7 +153,7 @@ void BaseWindow::saveChanges() {
  * testo nella posizione del cursore) o estrarre informazioni da esso (per esempio il font della carattere alla sinistra
  * del cursore).
 */
- void BaseWindow::isTextSelected() {
+ void BaseWindow::inTextSelectedCase() {
     ui->sizechanger->blockSignals(true);
      /*
     Dato che sia in if che in esle settiamo un vuovo valore alla QSpinBox sizechanger,
@@ -211,3 +209,8 @@ QString BaseWindow::getCurrentNoteLabelText() {
 void BaseWindow::setTextForTest(const QString& name,const QString& text) {
     manager->saveNote(name, text);
 }
+
+void BaseWindow::setDefault() { //Resetta il noteeditor
+    ui->noteeditor->clear();
+    ui->noteeditor->setDisabled(true);
+    ui->currentnotetext->setText("Nessuna nota aperta");}

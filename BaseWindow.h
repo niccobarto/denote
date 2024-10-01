@@ -46,7 +46,7 @@
         void favouriteClicked();
         void blockedClicked();
         void saveChanges();
-        void isTextSelected();
+        void inTextSelectedCase();
         void changeSelectedTextSize();
     private:
 
@@ -57,6 +57,7 @@
         DeleteNoteDialog* deletedialog;
         RenameNoteDialog* renamedialog;
 
+        void setDefault();
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);

@@ -133,6 +133,10 @@ Note* NoteManager::getNote(const QString& name) {
 NoteManager::~NoteManager() {
     for(Note* n:notelist)
         delete n;
+    for(Note* n:favouritenotes)
+        delete n;
+    for(Note* n:blockednotes)
+        delete n;
 }
 
 void NoteManager::createNoteFile(Note *n) {
