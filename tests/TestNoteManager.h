@@ -5,7 +5,7 @@
 #ifndef DENOTE_TESTNOTEMANAGER_H
 #define DENOTE_TESTNOTEMANAGER_H
 #include <QtTest/QTest>
-#include "NoteManager.h"
+#include "../NoteManager.h"
 
 class TestNoteManager:public QObject {
     Q_OBJECT

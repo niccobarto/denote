@@ -27,6 +27,9 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
     connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
+    createdialog = nullptr;
+    deletedialog = nullptr;
+    renamedialog = nullptr;
 }
 
 BaseWindow::~BaseWindow() {
@@ -198,8 +201,12 @@ bool BaseWindow::isInNameListWidget(const QString& name) {
 }
 
 QString BaseWindow::getTextNoteSelected() {
-    if(current!= nullptr)
-        return current->getText();
+    if(current!= nullptr){
+        QTextDocument doc;
+        doc.setHtml(current->getText()); //In questo modo doc può tradurre il codice html che rappresenta il testo
+        QString d=doc.toPlainText();
+        return d;
+    }
     return nullptr;
 }
 

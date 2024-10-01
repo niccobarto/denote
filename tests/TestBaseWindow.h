@@ -5,7 +5,7 @@
 #ifndef DENOTE_TESTBASEWINDOW_H
 #define DENOTE_TESTBASEWINDOW_H
 #include <QtTest/QTest>
-#include "BaseWindow.h"
+#include "../BaseWindow.h"
 class TestBaseWindow:public QObject {
     Q_OBJECT
 private slots:
@@ -17,7 +17,6 @@ private slots:
 private:
     BaseWindow* base;
     QListWidgetItem* nameselected;
-
 };
 
 

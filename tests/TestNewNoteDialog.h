@@ -5,8 +5,8 @@
 #ifndef DENOTE_TESTNEWNOTEDIALOG_H
 #define DENOTE_TESTNEWNOTEDIALOG_H
 #include <QtTest/QTest>
-#include "NewNoteDialog.h"
-#include "BaseWindow.h"
+#include "../NewNoteDialog.h"
+#include "../BaseWindow.h"
 
 class TestNewNoteDialog:public QObject {
     Q_OBJECT

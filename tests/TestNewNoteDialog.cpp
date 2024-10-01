@@ -19,12 +19,11 @@ void TestNewNoteDialog::testInvalidNameInsert() {
     QCOMPARE(dialog->getErrorCreationLabel()->text(),"ERRORE: Devi inserire un nome");
 
     //Testiamo il caso di nome inserito già presente
-
     QString name="nota1";
     father->createNote(name); //Creo una prima nota con questo nome senza l'utilizzo di NewNoteDialog, come se fosse già stata creata
     (dialog->getNoteTitleBox())->setText(name);
     dialog->noteCreationButtonClicked(); //Simulo il click del pulsante notecreationbutton
-    QCOMPARE(dialog->getErrorCreationLabel()->text(),"ERRORE: Nome già usato");
+    QCOMPARE(dialog->getErrorCreationLabel()->text(),"ERRORE: Questo nome è già in uso");
 }
 
 void TestNewNoteDialog::testValidNameInsert() {
@@ -38,6 +37,5 @@ void TestNewNoteDialog::testValidNameInsert() {
 }
 
 void TestNewNoteDialog::cleanupTestCase() {
- delete dialog;
  delete father;
 }

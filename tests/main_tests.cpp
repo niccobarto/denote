@@ -3,7 +3,7 @@
 //
 #include <QApplication>
 #include <QPushButton>
-#include "BaseWindow.h"
+#include "../BaseWindow.h"
 #include "TestNoteManager.h"
 #include "TestBaseWindow.h"
 #include "TestNewNoteDialog.h"

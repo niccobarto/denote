@@ -14,13 +14,13 @@ void TestBaseWindow::testCreateNote() {
     QSignalSpy spy(base, &BaseWindow::creationConfirm); //raccogli il segnale creationConfirm emesso da createNote()
     base->createNote(name);
     QList<QVariant> confirmsignal=spy.takeFirst(); //preleva il primo (e l'unico) segnale emesso da createNote
-    QVERIFY(!confirmsignal.at(0).value<bool>());//Mi aspetto che il valore passato come parametro dal segnale creationConfirm sia false
+    QVERIFY(confirmsignal.at(0).value<bool>());//Mi aspetto che il valore passato come parametro dal segnale creationConfirm sia true
     QVERIFY(base->isInNameListWidget(name));//Mi aspetto che base abbia aggiunto un nuovo nome alla namelistwidget
 
     //Testiamo il caso di nome già presente
     base->createNote(name);
     confirmsignal=spy.takeFirst();
-    QVERIFY(confirmsignal.at(0).value<bool>());//Ora mi aspetto che il parametro sia true
+    QVERIFY(!confirmsignal.at(0).value<bool>());//Ora mi aspetto che il parametro sia false
     QVERIFY(base->isInNameListWidget(name));//Mi aspetto che ci sia un nome nota1 nella nemelistwidget
 }
 
