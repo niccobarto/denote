@@ -82,7 +82,7 @@ void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa c
     current=manager->getNote(n->text()); //con n->text() si indica il nome (in notelistwidget ogni colonna rappresenta il nome di una nota)
     ui->currentnotetext->setText(current->getName());
     ui->noteeditor->setDisabled(false);
-    ui->noteeditor->setText(current->getText());
+    ui->noteeditor->setHtml(current->getText()); //setHtml() e non setText() perché in questo modo il codice Html viene convertito in testo salvaguardando le modifiche grafiche del testo
     ui->showblocked->setVisible(current->isBlocked());
     ui->showfavourite->setVisible(current->isFavourite());
     ui->noteeditor->setReadOnly(current->isBlocked());
@@ -235,3 +235,4 @@ void BaseWindow::changedSearchBar() {
         ui->namelistwidget->addItems(similarnotesname);
     }
 }
+
