@@ -26,24 +26,13 @@ void NoteManager::deleteNote(const QString &name) {
 
 void NoteManager::saveNote(const QString& name, const QString& text) {
     Note* selected=getNote(name);
-    if(selected!=nullptr)
+    if(selected!=nullptr){
         selected->setText(text);
-    ofstream notefile(path/(name.toStdString()+".txt"));
-    notefile<<text.toStdString();
-    string favourite,locked;
-    std::ifstream file_lettura(path);
-    std::getline(file_lettura, favourite);
-    std::getline(file_lettura, locked);
-    file_lettura.close();  // Chiudi il file dopo aver letto i parametri
-    // Ora riapri il file in modalità scrittura per aggiornare solo il testo della nota
-    std::ofstream file_scrittura(path);
-    // Riscrivi i parametri
-    file_scrittura << favourite << "\n";
-    file_scrittura << locked << "\n";
-    // Scrivi il nuovo testo della nota
-    file_scrittura << "\"" << text.toStdString() << "\"\n";
-    file_scrittura.close();  // Chiudi il file dopo la scrittura
-    std::cout << "Nota aggiornata con successo in: " << path << std::endl;
+        ofstream notefile(path/(name.toStdString()+".txt"));
+        notefile << "favourite = " << (selected->isFavourite() ? "true" : "false") << "\n";
+        notefile << "blocked = " << (selected->isBlocked() ? "true" : "false") << "\n";
+        notefile << text.toStdString() << "\n";
+    }
 
 }
 
@@ -154,16 +143,8 @@ NoteManager::~NoteManager() {
 
 void NoteManager::createNoteFile(Note *n) {
     ofstream notefile(path/(n->getName().toStdString()+".txt"));
-    notefile<<"favourite=";
-    if(n->isFavourite())
-        notefile<<"true\n";
-    else
-        notefile<<"false\n";
-    notefile<<"locked=";
-    if(n->isBlocked())
-        notefile<<"true\n";
-    else
-        notefile<<"false\n";
+    notefile << "favourite = " << (n->isFavourite() ? "true" : "false") << "\n";
+    notefile << "blocked = " << (n->isBlocked() ? "true" : "false") << "\n";
     notefile<<n->getText().toStdString();
 }
 
