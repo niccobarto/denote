@@ -50,7 +50,8 @@
         void changeSelectedTextSize();
         void changedSearchBar();
     private:
-
+        void initializeGui();
+        void connectSignalsToSlots();
         Ui::BaseWindow *ui;
         NoteManager* manager=new NoteManager();
         Note* current=nullptr;
@@ -70,6 +71,7 @@
         NewNoteDialog* getCreateDialog(){
             return createdialog;
         }
+
     };
 
 

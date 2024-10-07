@@ -10,10 +10,20 @@
 BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
     ui->setupUi(this);
+    manager->initializeNotes();
+    initializeGui();
+    createdialog = nullptr;
+    deletedialog = nullptr;
+    renamedialog = nullptr;
+}
+void BaseWindow::initializeGui() {
     ui->noteeditor->setDisabled(true);
     ui->sizechanger->setDisabled(true);
     ui->showblocked->setVisible(false);
     ui->showfavourite->setVisible(false);
+    connectSignalsToSlots();
+}
+void BaseWindow::connectSignalsToSlots() {
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
     ui->sizechanger->setValue(ui->noteeditor->currentFont().pointSize());//Il valore iniziale in sizechanger è il font-size di noteeditor
     connect(ui->newnotebutton,&QPushButton::clicked,this,&BaseWindow::newNoteClicked);//associa il segnale clicked di newnotebutton allo slot newNoteClicked()
@@ -27,9 +37,6 @@ BaseWindow::BaseWindow(QWidget *parent) :
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
     connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
-    createdialog = nullptr;
-    deletedialog = nullptr;
-    renamedialog = nullptr;
 }
 
 BaseWindow::~BaseWindow() {
@@ -235,4 +242,6 @@ void BaseWindow::changedSearchBar() {
         ui->namelistwidget->addItems(similarnotesname);
     }
 }
+
+
 
