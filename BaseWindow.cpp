@@ -10,7 +10,7 @@
 BaseWindow::BaseWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
     ui->setupUi(this);
-    manager->initializeNotes();
+    manager=new NoteManager();
     initializeGui();
     createdialog = nullptr;
     deletedialog = nullptr;
@@ -21,6 +21,7 @@ void BaseWindow::initializeGui() {
     ui->sizechanger->setDisabled(true);
     ui->showblocked->setVisible(false);
     ui->showfavourite->setVisible(false);
+    ui->namelistwidget->addItems(manager->getDefaultNoteList());
     connectSignalsToSlots();
 }
 void BaseWindow::connectSignalsToSlots() {

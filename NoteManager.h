@@ -16,6 +16,7 @@ using namespace std;
 class NoteManager {
 
 public:
+    NoteManager();
     bool createNewNote(const QString& name);
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
@@ -33,8 +34,10 @@ private:
     list<Note*> notelist;
     list<Note*> favouritenotes;
     list<Note*> blockednotes;
-    filesystem::path path="../notes";
+    filesystem::path directorypath="../notes";
     void createNoteFile(Note* n);
+    bool initializeSingularNote(const QString& name, const bool& fav, const bool& block,const QString& text);
+    void initializeNotes();
 };
 
 

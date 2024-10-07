@@ -53,7 +53,7 @@
         void initializeGui();
         void connectSignalsToSlots();
         Ui::BaseWindow *ui;
-        NoteManager* manager=new NoteManager();
+        NoteManager* manager;
         Note* current=nullptr;
         NewNoteDialog* createdialog;
         DeleteNoteDialog* deletedialog;

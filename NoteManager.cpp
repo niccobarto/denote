@@ -4,6 +4,11 @@
 
 #include <qfileinfo.h>
 #include "NoteManager.h"
+#include <filesystem>
+
+NoteManager::NoteManager() {
+    initializeNotes();
+}
 bool NoteManager::createNewNote(const QString &name) {
     bool found= isNameUsed(name);
     if(!found){
@@ -13,7 +18,18 @@ bool NoteManager::createNewNote(const QString &name) {
     }
     return !found;
 }
-
+bool NoteManager::initializeSingularNote(const QString& name, const bool& fav, const bool& block,const QString& text ) {
+    bool found= isNameUsed(name);
+    if(!found){
+        Note* n=new Note(name,fav,block,text); //se non esiste già una nota con questo nome, crea una nuova nota
+        notelist.push_back(n);
+        if(fav)
+            favouritenotes.push_back(n);
+        if(block)
+            blockednotes.push_back(n);
+    }
+    return !found;
+}
 void NoteManager::deleteNote(const QString &name) {
     list<Note*>::iterator it;
     for(it=notelist.begin();it !=notelist.end();it++){
@@ -28,20 +44,22 @@ void NoteManager::saveNote(const QString& name, const QString& text) {
     Note* selected=getNote(name);
     if(selected!=nullptr){
         selected->setText(text);
-        ofstream notefile(path/(name.toStdString()+".txt"));
-        notefile << "favourite = " << (selected->isFavourite() ? "true" : "false") << "\n";
-        notefile << "blocked = " << (selected->isBlocked() ? "true" : "false") << "\n";
+        ofstream notefile(directorypath / (name.toStdString() + ".txt"));
+        notefile << (selected->isFavourite() ? "true" : "false") << ",";
+        notefile << (selected->isBlocked() ? "true" : "false") << "\n";
         notefile << text.toStdString() << "\n";
     }
 
 }
 
 QString NoteManager::loadNote(const QString& filepath) {
-    QFile file(filepath); //creo un QFile associandolo dando il path del file
+    QFile file(filepath); //creo un QFile associandolo dando il directorypath del file
     file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
     QTextStream reader(&file); //con QTextStream posso leggere il contenuto
-    QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la path completa
+    QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la directorypath completa
     QString name=f.fileName(); //Leggo il nome del file
+    if(name.endsWith(".txt"))
+        name = name.replace(".txt", "");
     QString text=reader.readAll(); //Leggo il file selezionato
     file.close(); //chiudo il file
     bool result=createNewNote(name);
@@ -142,9 +160,9 @@ NoteManager::~NoteManager() {
 }
 
 void NoteManager::createNoteFile(Note *n) {
-    ofstream notefile(path/(n->getName().toStdString()+".txt"));
-    notefile << "favourite = " << (n->isFavourite() ? "true" : "false") << "\n";
-    notefile << "blocked = " << (n->isBlocked() ? "true" : "false") << "\n";
+    ofstream notefile(directorypath / (n->getName().toStdString() + ".txt"));
+    notefile << (n->isFavourite() ? "true" : "false") << ",";
+    notefile << (n->isBlocked() ? "true" : "false") << "\n";
     notefile<<n->getText().toStdString();
 }
 
