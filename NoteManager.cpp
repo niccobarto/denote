@@ -31,11 +31,28 @@ bool NoteManager::initializeSingularNote(const QString& name, const bool& fav, c
     return !found;
 }
 void NoteManager::deleteNote(const QString &name) {
+    Note* n= getNote(name);
     list<Note*>::iterator it;
     for(it=notelist.begin();it !=notelist.end();it++){
         if((*it)->getName()==name){
             notelist.erase(it);
             break;
+        }
+    }
+    if(n->isFavourite()){
+        for(it=favouritenotes.begin();it !=favouritenotes.end();it++){
+            if((*it)->getName()==name){
+                favouritenotes.erase(it);
+                break;
+            }
+        }
+    }
+    if(n->isBlocked()){
+        for(it=blockednotes.begin();it !=blockednotes.end();it++){
+            if((*it)->getName()==name){
+                blockednotes.erase(it);
+                break;
+            }
         }
     }
 }
