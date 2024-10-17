@@ -16,11 +16,9 @@ using namespace std;
 
 class NoteManager {
 
-friend FileManager;
-
 public:
     NoteManager();
-    bool createNewNote(const QString& name);
+    bool createNewNote(const QString& name,const QString& text="");
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
     QString loadNote(const QString& filepath);
@@ -31,7 +29,7 @@ public:
     QStringList getSimilarNotes(const QString& searchtext);
     QStringList getDefaultNoteList();
     Note* getNote(const QString& name);
-    bool initializeSingularNote(const QString& name, const bool& fav, const bool& block,const QString& text);
+    bool initializeSingularNote(QString& name, bool fav, bool block, QString& text);
     ~NoteManager();
 private:
     list<Note*> notelist;

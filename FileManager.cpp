@@ -10,7 +10,6 @@ QStringList FileManager::getFileContent(int filenumber) {
     QStringList content;
     int i=0;
     for (const auto& entry : filesystem::directory_iterator(directorypath)) {
-        i++;
         if(filenumber==i){
             QFile file(entry.path());
             file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
@@ -30,6 +29,7 @@ QStringList FileManager::getFileContent(int filenumber) {
             file.close();
             return content;
         }
+        i++;
     }
     throw out_of_range("Errore nel numero di file fornito");
 }
@@ -41,16 +41,27 @@ void FileManager::createNoteFile(const Note* n) {
     notefile<<n->getText().toStdString();
 }
 
-void FileManager::saveFile(const QString &name, const QString &text, bool fav, bool blo) {
-
+void FileManager::saveFile(const Note* selected) {
+    ofstream notefile(directorypath / (selected->getName().toStdString() + ".txt"));
+    notefile << (selected->isFavourite() ? "true" : "false") << ",";
+    notefile << (selected->isBlocked() ? "true" : "false") << "|";
+    notefile << selected->getText().toStdString() << "\n";
 }
 
-void FileManager::saveFile(const QString &name, bool f, bool b) {
-
-}
-
-void FileManager::loadNote(const QString& filepath) {
-
+QStringList FileManager::readFileLoaded(const QString& filepath) {
+    QStringList content;
+    QFile file(filepath); //creo un QFile associandolo dando il directorypath del file
+    file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
+    QTextStream reader(&file); //con QTextStream posso leggere il contenuto
+    QFileInfo f(file); //Con QFileInfo posso ottenere il nome del singolo file e non la directorypath completa
+    QString name=f.fileName(); //Leggo il nome del file
+    if(name.endsWith(".txt"))
+        name.replace(".txt", "");
+    QString text=reader.readAll(); //Leggo il file selezionato
+    content.push_back(name);
+    content.push_back(text);
+    file.close(); //chiudo il file
+    return content;
 }
 
 void FileManager::renameFile(const QString &name) {

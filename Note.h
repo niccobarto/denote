@@ -9,9 +9,10 @@ using namespace std;
 
 class Note {
 public:
-    Note(QString n):name(n){};
-    Note(QString n, bool f, bool b,QString text):name(n),favourite(f),blocked(b),text(text){}
-    const QString & getName() const {
+    Note(QString n,QString text=""):name(n),text(text){}
+    Note(QString& n, bool f, bool b,QString& text):name(n),favourite(f),blocked(b),text(text){}
+
+    const QString getName() const {
         return name;
     }
     const QString & getText() const {
