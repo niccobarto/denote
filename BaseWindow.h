@@ -49,6 +49,8 @@
         void inTextSelectedCase();
         void changeSelectedTextSize();
         void changedSearchBar();
+        void favouriteFilterChanged();
+        void blockedFilterChanged();
     private:
         void initializeGui();
         void connectSignalsToSlots();

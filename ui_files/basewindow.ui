@@ -371,7 +371,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <string>Filtra note preferite</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="lockedfilter">
+   <widget class="QCheckBox" name="blockedfilter">
     <property name="geometry">
      <rect>
       <x>410</x>

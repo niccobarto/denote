@@ -38,6 +38,8 @@ void BaseWindow::connectSignalsToSlots() {
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
     connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
+    connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::favouriteFilterChanged);
+    connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::blockedFilterChanged);
 }
 
 BaseWindow::~BaseWindow() {
@@ -244,6 +246,14 @@ void BaseWindow::changedSearchBar() {
         QStringList similarnotesname=manager->getSimilarNotes(searchtext);
         ui->namelistwidget->addItems(similarnotesname);
     }
+}
+
+void BaseWindow::favouriteFilterChanged() {
+    //Todo modificare la QListWidget con le note preferite
+}
+
+void BaseWindow::blockedFilterChanged() {
+//Todo modificare la QListWidget con le note bloccate
 }
 
 
