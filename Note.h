@@ -9,12 +9,13 @@ using namespace std;
 
 class Note {
 public:
-    Note(QString n):name(n){};
-    Note(QString n, bool f, bool b,QString text):name(n),favourite(f),blocked(b),text(text){}
-    QString& getName() {
+    Note(QString n,QString text=""):name(n),text(text){}
+    Note(QString& n, bool f, bool b,QString& text):name(n),favourite(f),blocked(b),text(text){}
+
+    const QString getName() const {
         return name;
     }
-    QString& getText() {
+    const QString & getText() const {
         return text;
     }
     void changeFavourite(bool newstatus){ favourite=newstatus; }

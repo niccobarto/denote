@@ -6,7 +6,7 @@
 #include "ui_files/ui_RenameNoteDialog.h"
 #include "BaseWindow.h"
 
-RenameNoteDialog::RenameNoteDialog(QString& name,QWidget *parent):
+RenameNoteDialog::RenameNoteDialog(const QString& name,QWidget *parent):
     QDialog(parent), ui(new Ui::RenameNoteDialog) {
     ui->setupUi(this);
     ui->currentnotetext->setText(name);
