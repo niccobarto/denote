@@ -99,6 +99,7 @@ void NoteManager::changeFavouriteStatus(const QString& name) {
         selected->changeFavourite(true); //Altrimenti rendila preferita
         favouritenotes.push_back(selected); //Inseriscila nella lista dei preferiti
     }
+    fmanager->saveFile(selected);
 }
 
 void NoteManager::changeBlockedStatus(const QString& name) {
@@ -117,7 +118,7 @@ void NoteManager::changeBlockedStatus(const QString& name) {
         selected->changeBlocked(true);//Altrimenti rendila bloccata
         blockednotes.push_back(selected);//Inseriscila nella lista dei bloccati
     }
-
+    fmanager->saveFile(selected);
 }
 
 bool NoteManager::isNameUsed(const QString &name) {
