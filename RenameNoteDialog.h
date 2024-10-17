@@ -15,7 +15,7 @@ QT_END_NAMESPACE
 class RenameNoteDialog : public QDialog {
 Q_OBJECT
 public:
-     explicit RenameNoteDialog(QString& name,QWidget *parent = nullptr);
+     explicit RenameNoteDialog(const QString& name,QWidget *parent = nullptr);
     ~RenameNoteDialog();
 
     signals:
