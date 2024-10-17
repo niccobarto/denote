@@ -56,6 +56,7 @@ void NoteManager::deleteNote(const QString &name) {
             }
         }
     }
+    fmanager->deleteNoteFile(name);
 }
 
 void NoteManager::saveNote(const QString& name, const QString& text) {
@@ -79,6 +80,7 @@ bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
     if(!found){
         Note* n= getNote(oldname);
         n->setName(newname);
+        fmanager->renameFile(oldname,newname);
     }
     return !found;
 }

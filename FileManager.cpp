@@ -64,12 +64,12 @@ QStringList FileManager::readFileLoaded(const QString& filepath) {
     return content;
 }
 
-void FileManager::renameFile(const QString &name) {
-
+void FileManager::renameFile(const QString& oldname,const QString& newname) {
+    filesystem::rename(directorypath/(oldname.toStdString()+".txt"),directorypath/(newname.toStdString()+".txt"));
 }
 
 void FileManager::deleteNoteFile(const QString &name) {
-
+    filesystem::remove(directorypath/(name.toStdString()+".txt"));
 }
 
 int FileManager::getFileNumber() {
