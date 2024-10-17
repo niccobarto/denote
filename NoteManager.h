@@ -11,9 +11,12 @@
 #include <QFile>
 #include <fstream>
 #include <iostream>
+#include "FileManager.h"
 using namespace std;
 
 class NoteManager {
+
+friend FileManager;
 
 public:
     NoteManager();
@@ -28,15 +31,13 @@ public:
     QStringList getSimilarNotes(const QString& searchtext);
     QStringList getDefaultNoteList();
     Note* getNote(const QString& name);
-
+    bool initializeSingularNote(const QString& name, const bool& fav, const bool& block,const QString& text);
     ~NoteManager();
 private:
     list<Note*> notelist;
     list<Note*> favouritenotes;
     list<Note*> blockednotes;
-    filesystem::path directorypath="../notes";
-    void createNoteFile(Note* n);
-    bool initializeSingularNote(const QString& name, const bool& fav, const bool& block,const QString& text);
+    FileManager* fmanager;
     void initializeNotes();
 };
 
