@@ -249,11 +249,39 @@ void BaseWindow::changedSearchBar() {
 }
 
 void BaseWindow::favouriteFilterChanged() {
-    //Todo modificare la QListWidget con le note preferite
+    QStringList names;
+    if(ui->favouritefilter->isChecked()){
+        if(ui->blockedfilter->isChecked())
+            names=manager->getFavBlockNotes();
+        else
+            names=manager->getFavouriteNotes();
+    }
+    else{
+        if(ui->blockedfilter->isChecked())
+            names=manager->getBlockedNotes();
+        else
+            names=manager->getDefaultNoteList();
+    }
+    ui->namelistwidget->clear();
+    ui->namelistwidget->addItems(names);
 }
 
 void BaseWindow::blockedFilterChanged() {
-//Todo modificare la QListWidget con le note bloccate
+    QStringList names;
+    if(ui->blockedfilter->isChecked()){
+        if(ui->favouritefilter->isChecked())
+            names=manager->getFavBlockNotes();
+        else
+            names=manager->getBlockedNotes();
+    }
+    else{
+        if(ui->favouritefilter->isChecked())
+            names=manager->getFavouriteNotes();
+        else
+            names=manager->getDefaultNoteList();
+    }
+    ui->namelistwidget->clear();
+    ui->namelistwidget->addItems(names);
 }
 
 

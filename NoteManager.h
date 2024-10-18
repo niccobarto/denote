@@ -31,6 +31,9 @@ public:
     Note* getNote(const QString& name);
     bool initializeSingularNote(QString& name, bool fav, bool block, QString& text);
     ~NoteManager();
+    QStringList getFavouriteNotes();
+    QStringList getBlockedNotes();
+    QStringList getFavBlockNotes();
 private:
     list<Note*> notelist;
     list<Note*> favouritenotes;

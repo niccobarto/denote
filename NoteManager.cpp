@@ -178,6 +178,28 @@ void NoteManager::initializeNotes() {
     }
 }
 
+QStringList NoteManager::getFavouriteNotes() {
+    QStringList names;
+    for(Note* n:favouritenotes)
+        names.push_back(n->getName());
+    return names;
+}
+
+QStringList NoteManager::getBlockedNotes() {
+    QStringList names;
+    for(Note* n:blockednotes)
+        names.push_back(n->getName());
+    return names;
+}
+
+QStringList NoteManager::getFavBlockNotes() {
+    QStringList names;
+    for(Note* n:favouritenotes)
+        if(n->isBlocked())
+            names.push_back(n->getName());
+    return names;
+}
+
 
 
 
