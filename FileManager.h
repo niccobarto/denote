@@ -18,8 +18,8 @@ public:
     QStringList getFileContent(int i);
     void createNoteFile(const Note* n);
     void saveFile(const Note* selected);
-    QStringList readFileLoaded(const QString& filepath);
-    void renameFile(const QString& oldname,const QString& newname);
+    QStringList readFileLoaded(QString& filepath);
+    void renameFile(QString& oldname,const QString& newname);
     void deleteNoteFile(const QString& name);
     int getFileNumber();
 private:

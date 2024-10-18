@@ -21,8 +21,8 @@ public:
     bool createNewNote(const QString& name,const QString& text="");
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
-    QString loadNote(const QString& filepath);
-    bool renameNote(const QString& oldname,const QString &newname);
+    QString loadNote(QString& filepath);
+    bool renameNote(QString& oldname,const QString &newname);
     void changeFavouriteStatus(const QString& name);
     void changeBlockedStatus(const QString& name);
     bool isNameUsed(const QString& name);

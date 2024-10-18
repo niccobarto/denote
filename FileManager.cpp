@@ -48,7 +48,7 @@ void FileManager::saveFile(const Note* selected) {
     notefile << selected->getText().toStdString() << "\n";
 }
 
-QStringList FileManager::readFileLoaded(const QString& filepath) {
+QStringList FileManager::readFileLoaded(QString& filepath) {
     QStringList content;
     QFile file(filepath); //creo un QFile associandolo dando il directorypath del file
     file.open(QIODevice::ReadOnly); //apro il file in modalità lettura
@@ -64,7 +64,7 @@ QStringList FileManager::readFileLoaded(const QString& filepath) {
     return content;
 }
 
-void FileManager::renameFile(const QString& oldname,const QString& newname) {
+void FileManager::renameFile(QString& oldname,const QString& newname) {
     filesystem::rename(directorypath/(oldname.toStdString()+".txt"),directorypath/(newname.toStdString()+".txt"));
 }
 

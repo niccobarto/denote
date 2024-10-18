@@ -67,7 +67,7 @@ void NoteManager::saveNote(const QString& name, const QString& text) {
     }
 }
 
-QString NoteManager::loadNote(const QString& filepath) {
+QString NoteManager::loadNote(QString& filepath) {
    QStringList content=fmanager->readFileLoaded(filepath); //Leggo il contenuto del file
     bool result=createNewNote(content[0],content[1]); //creo la nota inserendo anche il testo caricato
     if(result) //in caso esista una nota con lo stesso nome (result==false) il caricamento non avviene
@@ -75,7 +75,7 @@ QString NoteManager::loadNote(const QString& filepath) {
     return ""; //restituisco "" invece del nome della nota
 }
 
-bool NoteManager::renameNote(const QString &oldname,const QString &newname) {
+bool NoteManager::renameNote(QString &oldname,const QString &newname) {
     bool found= isNameUsed(newname);
     if(!found){
         Note* n= getNote(oldname);

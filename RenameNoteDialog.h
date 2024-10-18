@@ -19,7 +19,7 @@ public:
     ~RenameNoteDialog();
 
     signals:
-    void newNameInsert(const QString oldname,const QString &newname);
+    void newNameInsert(QString& oldname,const QString& newname);
 
 private slots:
     void confirmRenameButtonClicked();

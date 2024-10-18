@@ -41,7 +41,7 @@
         void deleteNote();
         void openNote(QListWidgetItem* n);
         void renameNoteClicked();
-        void renameNote(const QString& name,const QString &newname);
+        void renameNote(QString& oldname,const QString &newname);
         void loadNoteClicked();
         void favouriteClicked();
         void blockedClicked();
@@ -73,7 +73,6 @@
         NewNoteDialog* getCreateDialog(){
             return createdialog;
         }
-
     };
 
 

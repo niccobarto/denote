@@ -106,7 +106,7 @@ void BaseWindow::renameNoteClicked() {
     }
 }
 
-void BaseWindow::renameNote(const QString &oldname,const QString &newname) {
+void BaseWindow::renameNote(QString &oldname,const QString &newname) {
     bool result=manager->renameNote(oldname, newname); //result=true implica nome non in uso (e la modifica del nome in NoteManager è già avvenuta)
     if(result){ //Se il nome non è in uso
         QListWidgetItem* noterenamed=ui->namelistwidget->findItems(oldname, Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per rinominarlo nella QListWidget
@@ -144,6 +144,7 @@ void BaseWindow::favouriteClicked() {
     if(current!=nullptr){
         manager->changeFavouriteStatus(current->getName()); //Alterna nota preferita/nota non preferita
         ui->showfavourite->setVisible(current->isFavourite()); //Mostra la label se è preferita
+        favouriteFilterChanged();
     }
 }
 
@@ -153,6 +154,7 @@ void BaseWindow::blockedClicked() {
         manager->changeBlockedStatus(current->getName()); //Alterna nota preferita/nota non preferita
         ui->showblocked->setVisible(current->isBlocked()); //Mostra la label se è bloccata
         ui->noteeditor->setReadOnly(current->isBlocked()); //Blocca l'editor in caso di nota bloccata
+        blockedFilterChanged();
     }
 }
 

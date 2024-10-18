@@ -6,16 +6,17 @@
 #define DENOTE_NOTE_H
 using namespace std;
 #include <Qstring>
+#include <utility>
 
 class Note {
 public:
-    Note(QString n,QString text=""):name(n),text(text){}
+    Note(QString n,QString text):name(std::move(n)),text(std::move(text)){}
     Note(QString& n, bool f, bool b,QString& text):name(n),favourite(f),blocked(b),text(text){}
 
-    const QString getName() const {
+    QString getName() const {
         return name;
     }
-    const QString & getText() const {
+    QString getText() const {
         return text;
     }
     void changeFavourite(bool newstatus){ favourite=newstatus; }
