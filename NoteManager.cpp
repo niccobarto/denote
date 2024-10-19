@@ -10,6 +10,11 @@ NoteManager::NoteManager() {
     fmanager=new FileManager();
     initializeNotes();
 }
+NoteManager::NoteManager(filesystem::path directorypath) {
+    fmanager=new FileManager(directorypath);
+    initializeNotes();
+}
+
 bool NoteManager::createNewNote(const QString &name, const QString& text) {
     bool found= isNameUsed(name);
     if(!found){
@@ -140,7 +145,7 @@ QStringList NoteManager::getSimilarNotes(const QString &searchtext) {
     return similarnotes;
 }
 
-QStringList NoteManager::getDefaultNoteList() {
+QStringList NoteManager::getAllNotesName() {
     QStringList notenames;
     for(Note* n:notelist){
         notenames.push_back(n->getName());

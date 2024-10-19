@@ -15,6 +15,7 @@
 using namespace std;
 class FileManager {
 public:
+    FileManager(filesystem::path path="../notes"):directorypath(path){}
     QStringList getFileContent(int i);
     void createNoteFile(const Note* n);
     void saveFile(const Note* selected);
@@ -23,7 +24,7 @@ public:
     void deleteNoteFile(const QString& name);
     int getFileNumber();
 private:
-    filesystem::path directorypath="../notes";
+    filesystem::path directorypath;
 };
 
 

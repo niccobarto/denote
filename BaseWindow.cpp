@@ -21,7 +21,7 @@ void BaseWindow::initializeGui() {
     ui->sizechanger->setDisabled(true);
     ui->showblocked->setVisible(false);
     ui->showfavourite->setVisible(false);
-    ui->namelistwidget->addItems(manager->getDefaultNoteList());
+    ui->namelistwidget->addItems(manager->getAllNotesName());
     connectSignalsToSlots();
 }
 void BaseWindow::connectSignalsToSlots() {
@@ -239,7 +239,7 @@ void BaseWindow::changedSearchBar() {
     QString searchtext=ui->searchbar->text();
     ui->namelistwidget->clear();
     if(searchtext==""){
-        QStringList notenames=manager->getDefaultNoteList();
+        QStringList notenames= manager->getAllNotesName();
         ui->namelistwidget->addItems(notenames);
     }
     else{
@@ -260,7 +260,7 @@ void BaseWindow::favouriteFilterChanged() {
         if(ui->blockedfilter->isChecked())
             names=manager->getBlockedNotes();
         else
-            names=manager->getDefaultNoteList();
+            names= manager->getAllNotesName();
     }
     ui->namelistwidget->clear();
     ui->namelistwidget->addItems(names);
@@ -278,7 +278,7 @@ void BaseWindow::blockedFilterChanged() {
         if(ui->favouritefilter->isChecked())
             names=manager->getFavouriteNotes();
         else
-            names=manager->getDefaultNoteList();
+            names= manager->getAllNotesName();
     }
     ui->namelistwidget->clear();
     ui->namelistwidget->addItems(names);

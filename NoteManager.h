@@ -18,6 +18,7 @@ class NoteManager {
 
 public:
     NoteManager();
+    NoteManager(filesystem::path directorypath);
     bool createNewNote(const QString& name,const QString& text="");
     void deleteNote(const QString& name);
     void saveNote(const QString& name,const QString& text);
@@ -27,7 +28,7 @@ public:
     void changeBlockedStatus(const QString& name);
     bool isNameUsed(const QString& name);
     QStringList getSimilarNotes(const QString& searchtext);
-    QStringList getDefaultNoteList();
+    QStringList getAllNotesName();
     Note* getNote(const QString& name);
     bool initializeSingularNote(QString& name, bool fav, bool block, QString& text);
     ~NoteManager();

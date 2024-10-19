@@ -13,7 +13,11 @@ private slots:
     void initTestCase();
     void testCreateNote();
     void testDeleteNote();
+    void testNotExistingNote();
     void testSaveNote();
+    void testChangeFavouriteStatus();
+    void testChangeBlockedStatus();
+    void testRenameNote();
     void cleanupTestCase();
 private:
     NoteManager* manager;
