@@ -39,9 +39,9 @@ void BaseWindow::connectSignalsToSlots() {
     connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
-    connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
-    connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::favouriteFilterChanged);
-    connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::blockedFilterChanged);
+    connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::updateNameListWidget);
+    connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
+    connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
 }
 
 BaseWindow::~BaseWindow() {
@@ -235,18 +235,7 @@ void BaseWindow::setTextForTest(const QString& name,const QString& text) {
 void BaseWindow::setDefault() { //Resetta il noteeditor
     ui->noteeditor->clear();
     ui->noteeditor->setDisabled(true);
-    ui->currentnotetext->setText("Nessuna nota aperta");}
-
-void BaseWindow::changedSearchBar() {
-    updateNameListWidget();
-}
-
-void BaseWindow::favouriteFilterChanged() {
-    updateNameListWidget();
-}
-
-void BaseWindow::blockedFilterChanged() {
-    updateNameListWidget();
+    ui->currentnotetext->setText("Nessuna nota aperta");
 }
 
 void BaseWindow::addToNameListWidget(const QString &name) { //Per ogni nome da inserire nella namelistwidget crea l'appropriato QListWidgetItem

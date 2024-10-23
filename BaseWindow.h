@@ -49,9 +49,6 @@
         void saveChanges();
         void inTextSelectedCase();
         void changeSelectedTextSize();
-        void changedSearchBar();
-        void favouriteFilterChanged();
-        void blockedFilterChanged();
     private:
         void initializeGui();
         void connectSignalsToSlots();
@@ -67,6 +64,7 @@
         void updateNameListWidget();
         QStringList getFilteredNameList();
         void setNameListWidget(QStringList& names);
+
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);
