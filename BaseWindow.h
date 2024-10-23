@@ -17,6 +17,7 @@
     #include <QTextStream>
     #include <QMessageBox>
     #include <QPushButton>
+    #include <QIcon>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
@@ -62,6 +63,10 @@
         RenameNoteDialog* renamedialog;
 
         void setDefault();
+        void addToNameListWidget(const QString& name);
+        void updateNameListWidget();
+        QStringList getFilteredNameList();
+        void setNameListWidget(QStringList& names);
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);
