@@ -78,15 +78,11 @@ void BaseWindow::deleteNoteClicked() {
 }
 
 void BaseWindow::deleteNote() {
-    QListWidgetItem* notedeleted=ui->namelistwidget->findItems(current->getName(), Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per eliminarlo poi dalla QListWidget
-    if(notedeleted){
-        manager->deleteNote(current->getName()); //Elimina la nota utilizzando il nome del selezionato
-        ui->namelistwidget->takeItem(ui->namelistwidget->row(notedeleted)); //Elimina la nota dal QListWidget
-        delete notedeleted;
-        //Deseleziona la nota
-        current= nullptr;
-        setDefault();
-    }
+    manager->deleteNote(current->getName()); //Elimina la nota utilizzando il nome del selezionato
+    updateNameListWidget();
+    //Deseleziona la nota
+    current= nullptr;
+    setDefault();
 }
 
 void BaseWindow::openNote(QListWidgetItem* n) { //il segnale QListWidget passa come parametro il puntatore al QListWidgetItem selezionato
@@ -110,8 +106,7 @@ void BaseWindow::renameNoteClicked() {
 void BaseWindow::renameNote(QString &oldname,const QString &newname) {
     bool result=manager->renameNote(oldname, newname); //result=true implica nome non in uso (e la modifica del nome in NoteManager è già avvenuta)
     if(result){ //Se il nome non è in uso
-        QListWidgetItem* noterenamed=ui->namelistwidget->findItems(oldname, Qt::MatchExactly).value(0); //Ottieni il QListWidgetItem per rinominarlo nella QListWidget
-        noterenamed->setText(newname); //Rinomina il QListWidgetItem
+        updateNameListWidget();
         ui->currentnotetext->setText(newname);
     }
     emit renameConfirm(result);//Invia un segnale con l'esito dell'operazione per dire al RenameNoteDialog cosa fare
