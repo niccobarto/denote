@@ -12,6 +12,7 @@ BaseWindow::BaseWindow(QWidget *parent) :
     ui->setupUi(this);
     manager=new NoteManager();
     initializeGui();
+    connectSignalsToSlots();
     createdialog = nullptr;
     deletedialog = nullptr;
     renamedialog = nullptr;
@@ -65,7 +66,6 @@ void BaseWindow::createNote(const QString& name) {
      if(result) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
          ui->namelistwidget->addItem(name);
      emit creationConfirm(result); //invia segnale di creationConfirm con il risultato dell'operazione
-
 }
 
 void BaseWindow::deleteNoteClicked() {

@@ -52,8 +52,6 @@
         void favouriteFilterChanged();
         void blockedFilterChanged();
     private:
-        void initializeGui();
-        void connectSignalsToSlots();
         Ui::BaseWindow *ui;
         NoteManager* manager;
         Note* current=nullptr;
@@ -61,6 +59,8 @@
         DeleteNoteDialog* deletedialog;
         RenameNoteDialog* renamedialog;
 
+        void initializeGui();
+        void connectSignalsToSlots();
         void setDefault();
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
