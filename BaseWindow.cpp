@@ -25,7 +25,6 @@ void BaseWindow::initializeGui() {
     QStringList names=manager->getAllNotesName();
     for(QString name:names)
         addToNameListWidget(name);
-    connectSignalsToSlots();
 }
 void BaseWindow::connectSignalsToSlots() {
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
