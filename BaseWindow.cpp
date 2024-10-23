@@ -22,7 +22,9 @@ void BaseWindow::initializeGui() {
     ui->sizechanger->setDisabled(true);
     ui->showblocked->setVisible(false);
     ui->showfavourite->setVisible(false);
-    ui->namelistwidget->addItems(manager->getAllNotesName());
+    QStringList names=manager->getAllNotesName();
+    for(QString name:names)
+        addToNameListWidget(name);
     connectSignalsToSlots();
 }
 void BaseWindow::connectSignalsToSlots() {
@@ -38,9 +40,9 @@ void BaseWindow::connectSignalsToSlots() {
     connect(ui->renamebutton,&QPushButton::clicked,this,&BaseWindow::renameNoteClicked);
     connect(ui->favouritebutton,&QPushButton::clicked,this,&BaseWindow::favouriteClicked);
     connect(ui->blockbutton,&QPushButton::clicked,this,&BaseWindow::blockedClicked);
-    connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::changedSearchBar);
-    connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::favouriteFilterChanged);
-    connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::blockedFilterChanged);
+    connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::updateNameListWidget);
+    connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
+    connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
 }
 
 BaseWindow::~BaseWindow() {
@@ -64,7 +66,7 @@ void BaseWindow::newNoteClicked() {
 void BaseWindow::createNote(const QString& name) {
     bool result=manager->createNewNote(name);
      if(result) //se non esiste già una nota con lo stesso nome aggiungi il nome della nota al namelistwidget
-         ui->namelistwidget->addItem(name);
+         updateNameListWidget();
      emit creationConfirm(result); //invia segnale di creationConfirm con il risultato dell'operazione
 }
 
@@ -144,7 +146,7 @@ void BaseWindow::favouriteClicked() {
     if(current!=nullptr){
         manager->changeFavouriteStatus(current->getName()); //Alterna nota preferita/nota non preferita
         ui->showfavourite->setVisible(current->isFavourite()); //Mostra la label se è preferita
-        favouriteFilterChanged();
+        updateNameListWidget();
     }
 }
 
@@ -154,7 +156,7 @@ void BaseWindow::blockedClicked() {
         manager->changeBlockedStatus(current->getName()); //Alterna nota preferita/nota non preferita
         ui->showblocked->setVisible(current->isBlocked()); //Mostra la label se è bloccata
         ui->noteeditor->setReadOnly(current->isBlocked()); //Blocca l'editor in caso di nota bloccata
-        blockedFilterChanged();
+        updateNameListWidget();
     }
 }
 
@@ -233,55 +235,49 @@ void BaseWindow::setTextForTest(const QString& name,const QString& text) {
 void BaseWindow::setDefault() { //Resetta il noteeditor
     ui->noteeditor->clear();
     ui->noteeditor->setDisabled(true);
-    ui->currentnotetext->setText("Nessuna nota aperta");}
-
-void BaseWindow::changedSearchBar() {
-    QString searchtext=ui->searchbar->text();
-    ui->namelistwidget->clear();
-    if(searchtext==""){
-        QStringList notenames= manager->getAllNotesName();
-        ui->namelistwidget->addItems(notenames);
-    }
-    else{
-        QStringList similarnotesname=manager->getSimilarNotes(searchtext);
-        ui->namelistwidget->addItems(similarnotesname);
-    }
+    ui->currentnotetext->setText("Nessuna nota aperta");
 }
 
-void BaseWindow::favouriteFilterChanged() {
-    QStringList names;
-    if(ui->favouritefilter->isChecked()){
-        if(ui->blockedfilter->isChecked())
-            names=manager->getFavBlockNotes();
-        else
-            names=manager->getFavouriteNotes();
+void BaseWindow::addToNameListWidget(const QString &name) { //Per ogni nome da inserire nella namelistwidget crea l'appropriato QListWidgetItem
+    QListWidgetItem* item=new QListWidgetItem(name);
+    if(manager->getNote(name)->isBlocked())
+        item->setForeground(QBrush(QColor(Qt::blue)));
+    if(manager->getNote(name)->isFavourite()){
+        item->setIcon(QIcon::fromTheme("emblem-favorite"));
+        ui->namelistwidget->insertItem(0,item);
     }
-    else{
-        if(ui->blockedfilter->isChecked())
-            names=manager->getBlockedNotes();
-        else
-            names= manager->getAllNotesName();
-    }
-    ui->namelistwidget->clear();
-    ui->namelistwidget->addItems(names);
+    else
+        ui->namelistwidget->addItem(item);
 }
 
-void BaseWindow::blockedFilterChanged() {
-    QStringList names;
-    if(ui->blockedfilter->isChecked()){
-        if(ui->favouritefilter->isChecked())
-            names=manager->getFavBlockNotes();
-        else
-            names=manager->getBlockedNotes();
-    }
-    else{
-        if(ui->favouritefilter->isChecked())
-            names=manager->getFavouriteNotes();
-        else
-            names= manager->getAllNotesName();
-    }
+void BaseWindow::updateNameListWidget() {
+    QStringList namesbyfilter=getFilteredNameList();
     ui->namelistwidget->clear();
-    ui->namelistwidget->addItems(names);
+    setNameListWidget(namesbyfilter);
+}
+
+QStringList BaseWindow::getFilteredNameList() { //restituisce la lista di nomi adeguati ai filtri scelti
+    if(ui->favouritefilter->isChecked() && ui->blockedfilter->isChecked())
+        return manager->getFavBlockNotes();
+    else if(ui->favouritefilter->isChecked())
+        return manager->getFavouriteNotes();
+        else if(ui->blockedfilter->isChecked())
+            return manager->getBlockedNotes();
+        else
+            return manager->getAllNotesName();
+}
+
+void BaseWindow::setNameListWidget(QStringList &names) { //Aggiorna la namelistwidget con i nomi che rispettano tutti i filtri, sia in base al nome che alle preferenze
+     if(ui->searchbar->text().isEmpty()){
+         for(QString name: names)
+             addToNameListWidget(name);
+     }
+     else{
+         for(QString name: names){
+             if(name.contains(ui->searchbar->text()))
+                 addToNameListWidget(name);
+         }
+     }
 }
 
 

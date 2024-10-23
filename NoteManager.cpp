@@ -136,14 +136,6 @@ bool NoteManager::isNameUsed(const QString &name) {
     return false;
 }
 
-QStringList NoteManager::getSimilarNotes(const QString &searchtext) {
-    QStringList similarnotes;
-    for(Note* n:notelist){
-        if(n->getName().contains(searchtext))
-            similarnotes.push_back(n->getName());
-    }
-    return similarnotes;
-}
 
 QStringList NoteManager::getAllNotesName() {
     QStringList notenames;
