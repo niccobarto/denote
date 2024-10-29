@@ -89,14 +89,14 @@ void TestNoteManager::testRenameNote() {
     }
 }
 
+void TestNoteManager::testGetNote(){
+    QString name="testgetnote";
+    manager->createNewNote(name);
+    QCOMPARE(manager->getNote(name)->getName(),name);
+}
+
 void TestNoteManager::cleanupTestCase() {
     for(QString name:manager->getAllNotesName())
         manager->deleteNote(name);
     delete manager;
 }
-
-
-
-
-
-

@@ -18,6 +18,7 @@ private slots:
     void testChangeFavouriteStatus();
     void testChangeBlockedStatus();
     void testRenameNote();
+    void testGetNote();
     void cleanupTestCase();
 private:
     NoteManager* manager;

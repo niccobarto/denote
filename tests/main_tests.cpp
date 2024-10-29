@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     TestBaseWindow tbasewindow;
     TestNewNoteDialog tnewnotedialog;
     QTest::qExec(&tnotemanager,argc,argv);
-    QTest::qExec(&tbasewindow,argc,argv);
     QTest::qExec(&tnewnotedialog,argc,argv);
+    QTest::qExec(&tbasewindow,argc,argv);
+
 }

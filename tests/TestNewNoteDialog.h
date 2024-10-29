@@ -17,6 +17,7 @@ private slots:
     void cleanupTestCase();
 private:
     NewNoteDialog* dialog;
+    NoteManager* manager;
     BaseWindow* father;
 };
 

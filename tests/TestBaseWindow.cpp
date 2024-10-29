@@ -5,7 +5,9 @@
 #include "TestBaseWindow.h"
 #include <QSignalSpy>
 void TestBaseWindow::initTestCase() {
-base=new BaseWindow();
+    manager=new NoteManager("../tests/testsnotes");
+    qDebug()<<"Costruttore di BaseWindow chiamato";
+    base=new BaseWindow(manager);
 }
 
 void TestBaseWindow::testCreateNote() {
@@ -49,10 +51,12 @@ void TestBaseWindow::testDeleteNoteClicked() {
     base->deleteNote();
     QVERIFY(!base->isInNameListWidget(name));//Mi aspetto che questo nome non ci sia nel namelistwidget
     QCOMPARE(base->getCurrentNoteLabelText(),"Nessuna nota aperta");
-
 }
 
 void TestBaseWindow::cleanupTestCase() {
     delete base;
     delete nameselected;
+    for(QString name:manager->getAllNotesName())
+        manager->deleteNote(name);
+    delete manager;
 }

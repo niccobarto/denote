@@ -5,7 +5,8 @@
 #include "TestNewNoteDialog.h"
 
 void TestNewNoteDialog::initTestCase() {
-    father=new BaseWindow();
+    manager=new NoteManager("../tests/testsnotes");
+    father=new BaseWindow(manager);
     dialog=new NewNoteDialog(father);
     //Simuliamo BaseWindow::newNoteClicked() poiché non vogliamo aprire la dialog
 }
@@ -37,5 +38,8 @@ void TestNewNoteDialog::testValidNameInsert() {
 }
 
 void TestNewNoteDialog::cleanupTestCase() {
- delete father;
+    delete father;
+    for(QString name:manager->getAllNotesName())
+        manager->deleteNote(name);
+    delete manager;
 }
