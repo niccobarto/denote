@@ -7,10 +7,10 @@
 #include "BaseWindow.h"
 #include "ui_files/ui_BaseWindow.h"
 
-BaseWindow::BaseWindow(QWidget *parent) :
+BaseWindow::BaseWindow(NoteManager* n,QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
     ui->setupUi(this);
-    manager=new NoteManager();
+    manager=n;
     initializeGui();
     connectSignalsToSlots();
     createdialog = nullptr;
@@ -52,7 +52,6 @@ BaseWindow::~BaseWindow() {
     delete deletedialog;
     delete renamedialog;
 }
-
 
 //SLOTS
 void BaseWindow::newNoteClicked() {
@@ -273,6 +272,8 @@ void BaseWindow::setNameListWidget(QStringList &names) { //Aggiorna la namelistw
          }
      }
 }
+
+
 
 
 

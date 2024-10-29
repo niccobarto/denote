@@ -28,7 +28,7 @@
     friend class TestBaseWindow;
     friend class TestNewNoteDialog;
     public:
-        explicit BaseWindow(QWidget *parent = nullptr);
+        explicit BaseWindow(NoteManager* n,QWidget *parent = nullptr);
         ~BaseWindow() override;
      signals:
         void creationConfirm(bool result);
@@ -56,7 +56,6 @@
         NewNoteDialog* createdialog;
         DeleteNoteDialog* deletedialog;
         RenameNoteDialog* renamedialog;
-
         void initializeGui();
         void connectSignalsToSlots();
         void setDefault();
@@ -64,7 +63,7 @@
         void updateNameListWidget();
         QStringList getFilteredNameList();
         void setNameListWidget(QStringList& names);
-
+        
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();
         bool isInNameListWidget(const QString& name);
