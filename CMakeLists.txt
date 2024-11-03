@@ -44,8 +44,10 @@ add_executable(denoteTests
         tests/TestNoteManager.cpp
         tests/TestBaseWindow.cpp
         tests/TestNewNoteDialog.cpp
+        tests/TestFileManager.cpp
         RenameNoteDialog.cpp
         FileManager.cpp
+
 )
 
 target_link_libraries(denoteTests

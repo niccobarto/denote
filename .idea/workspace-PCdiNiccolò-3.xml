@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="denote" targetName="denote" />
+      <config projectName="denote" targetName="denoteTests" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=D:\Qt\6.7.0\mingw_64\lib\cmake" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88eef41d-c897-4ea6-98d3-09fd5aa4473b" name="Changes" comment="Ora renameNote e deleteNote eseguono le loro funzioni indipendentemente dal filtraggio" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="change_namelistwidget_manage" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Nikender7&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Nikender7/denote",
+    "accountId": "96fa58ae-bd2f-4ca8-8fb8-0d7e56908e62"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1.1" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2gHBjFs8i5mKyZfY9bngV39v5SK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Application.denote.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.denoteTests.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.denote_tests.executor&quot;: &quot;Run&quot;,
+    &quot;CTest Application.All CTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;ctest.advertisement.all.test.configuration.is.created&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/UNIFI/Lab. Programmazione/denote/ui_files&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive\UNIFI\Lab. Programmazione\denote\ui_files" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nicco\OneDrive\UNIFI\Lab. Programmazione\denote\tests" />
+      <recent name="D:\OneDrive\UNIFI\Lab. Programmazione\denote\file_h" />
+      <recent name="D:\OneDrive\UNIFI\Lab. Programmazione\denote" />
+      <recent name="D:\OneDrive\UNIFI\Lab. Programmazione\denote\cmake-build-debug\denote_autogen\include\ui_files" />
+      <recent name="D:\OneDrive\UNIFI\Lab. Programmazione\denote\ui_files" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.denote">
+    <configuration name="denote" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="denote" TARGET_NAME="denote" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="denote" RUN_TARGET_NAME="denote">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="denoteTests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="denote" TARGET_NAME="denoteTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="denote" RUN_TARGET_NAME="denoteTests">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All CTest" type="CTestRunConfiguration" factoryName="CTestRun" PROGRAM_PARAMS="--extra-verbose" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentLocalGenerationDir$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$CTestCurrentExecutableName$" EXPLICIT_BUILD_TARGET_NAME="all" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.denoteTests" />
+      <item itemvalue="CMake Application.denote" />
+      <item itemvalue="CTest Application.All CTest" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88eef41d-c897-4ea6-98d3-09fd5aa4473b" name="Changes" comment="" />
+      <created>1715344757431</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715344757431</updated>
+      <workItem from="1715344759493" duration="23000" />
+      <workItem from="1715344955588" duration="2148000" />
+      <workItem from="1715347549978" duration="58000" />
+      <workItem from="1715374720821" duration="2161000" />
+      <workItem from="1715508998297" duration="861000" />
+      <workItem from="1716315666523" duration="116000" />
+      <workItem from="1716551297245" duration="3111000" />
+      <workItem from="1717930062941" duration="59000" />
+      <workItem from="1722421272705" duration="6147000" />
+      <workItem from="1722430144002" duration="4379000" />
+      <workItem from="1722851768075" duration="2919000" />
+      <workItem from="1722857757508" duration="14541000" />
+      <workItem from="1722941215377" duration="8652000" />
+      <workItem from="1723048806499" duration="215000" />
+      <workItem from="1723049045003" duration="3232000" />
+      <workItem from="1723058567789" duration="3191000" />
+      <workItem from="1723221122322" duration="1078000" />
+      <workItem from="1723386440146" duration="137000" />
+      <workItem from="1724780549869" duration="3591000" />
+      <workItem from="1725187895502" duration="1327000" />
+      <workItem from="1725193348348" duration="6997000" />
+      <workItem from="1725201469233" duration="177000" />
+      <workItem from="1725277650293" duration="1963000" />
+      <workItem from="1725279666072" duration="10157000" />
+      <workItem from="1725356296858" duration="13520000" />
+      <workItem from="1725445496583" duration="9962000" />
+      <workItem from="1725458139750" duration="291000" />
+      <workItem from="1725458503746" duration="187000" />
+      <workItem from="1725535597800" duration="220000" />
+      <workItem from="1725535845969" duration="263000" />
+      <workItem from="1725536123476" duration="11654000" />
+      <workItem from="1725618261048" duration="11600000" />
+      <workItem from="1725639390388" duration="71000" />
+      <workItem from="1725639475314" duration="2625000" />
+      <workItem from="1727169587686" duration="3798000" />
+      <workItem from="1727182140768" duration="1996000" />
+      <workItem from="1727184180962" duration="6813000" />
+      <workItem from="1727258243203" duration="12769000" />
+      <workItem from="1727339740689" duration="289000" />
+      <workItem from="1727340065878" duration="28000" />
+      <workItem from="1727340112342" duration="40000" />
+      <workItem from="1727340339259" duration="1408000" />
+      <workItem from="1727354061149" duration="9782000" />
+      <workItem from="1727439332709" duration="3632000" />
+      <workItem from="1727531815868" duration="4643000" />
+      <workItem from="1727626792226" duration="165000" />
+      <workItem from="1727626969145" duration="889000" />
+      <workItem from="1727635424545" duration="4683000" />
+      <workItem from="1727698870390" duration="893000" />
+      <workItem from="1727781943412" duration="17759000" />
+      <workItem from="1727811329759" duration="55000" />
+      <workItem from="1727862118637" duration="5078000" />
+      <workItem from="1728210557781" duration="7772000" />
+      <workItem from="1728293529652" duration="3686000" />
+      <workItem from="1728302300120" duration="1160000" />
+      <workItem from="1728319520372" duration="13000" />
+      <workItem from="1728319833560" duration="685000" />
+      <workItem from="1728339318538" duration="1869000" />
+      <workItem from="1728392711069" duration="56000" />
+      <workItem from="1728392781363" duration="274000" />
+      <workItem from="1728486102989" duration="1628000" />
+      <workItem from="1728739386081" duration="5437000" />
+      <workItem from="1728896070456" duration="705000" />
+      <workItem from="1729166585988" duration="12574000" />
+      <workItem from="1729243835619" duration="6842000" />
+      <workItem from="1729281669497" duration="443000" />
+      <workItem from="1729326715018" duration="5541000" />
+      <workItem from="1729337395312" duration="2865000" />
+      <workItem from="1729511103447" duration="233000" />
+      <workItem from="1729672125470" duration="10171000" />
+      <workItem from="1729686463025" duration="3961000" />
+      <workItem from="1729850002673" duration="56000" />
+      <workItem from="1729850080556" duration="913000" />
+      <workItem from="1730072105933" duration="115000" />
+      <workItem from="1730072244138" duration="312000" />
+      <workItem from="1730124197466" duration="1193000" />
+      <workItem from="1730215106975" duration="71000" />
+      <workItem from="1730215251719" duration="19000" />
+      <workItem from="1730215347422" duration="63000" />
+      <workItem from="1730215747538" duration="4000" />
+    </task>
+    <task id="LOCAL-00048" summary="Modificato BaseWindow::loadNoteClicked e NoteManager::loadNote">
+      <option name="closed" value="true" />
+      <created>1727190462325</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1727190462325</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Modificato BaseWindow::loadNoteClicked e NoteManager::loadNote">
+      <option name="closed" value="true" />
+      <created>1727190696095</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1727190696095</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Cambiato il sistema si salvataggio. Ora la nota viene salvata automaticamente appena viene modificata&#10;Modificata la GUI di basewindow per implementazioni future">
+      <option name="closed" value="true" />
+      <created>1727291868185</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1727291868186</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Aggiornata Note.h per implementazioni future.&#10;Nota favorita, nota bloccata e rinominazione nota">
+      <option name="closed" value="true" />
+      <created>1727440498348</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1727440498349</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Aggiunta la funzione di ridenominazione della nota. Creata la classe RenameNoteDialog che ne gestisce il funzionamento">
+      <option name="closed" value="true" />
+      <created>1727467841655</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1727467841655</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Implementata la creazione di un file txt per ogni nota creata">
+      <option name="closed" value="true" />
+      <created>1727467974903</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1727467974903</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Ridenominato valore booleano da found a result, quindi ho opposto la logica.&#10;Cabiato il currentnotetext da QTextEdit a QLineEdit&#10;Nel commit è presente anche una riga di saveChanges che doveva essere committed precedentemente">
+      <option name="closed" value="true" />
+      <created>1727468453418</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1727468453419</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Adesso in basewindow sono presenti 2 puntatori a RenameNoteDialog e DeleteNoteDialog">
+      <option name="closed" value="true" />
+      <created>1727537267142</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537267142</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Adesso in basewindow sono presenti 2 puntatori a RenameNoteDialog e DeleteNoteDialog">
+      <option name="closed" value="true" />
+      <created>1727537453393</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537453393</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Modificata la struttura e posizione dei metodi, nessun cambiamento funzionale">
+      <option name="closed" value="true" />
+      <created>1727537497440</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537497440</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Modificata la struttura e posizione dei metodi, nessun cambiamento funzionale">
+      <option name="closed" value="true" />
+      <created>1727537505721</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537505721</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Modificata la struttura e posizione dei metodi, nessun cambiamento funzionale">
+      <option name="closed" value="true" />
+      <created>1727537571905</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537571905</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Aggiunto 2 liste che conterranno le note bloccate e preferite. Dichiarato 2 metodi che cambieranno la preferenza e la bloccabilità&#10;Esempio: se viene chiamato il metodo changeBlocked() e passata una nota bloccata, verrà sbloccata. Se viene passata una nota sbloccata verrà bloccata">
+      <option name="closed" value="true" />
+      <created>1727537688328</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1727537688328</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Definiti i metodi changeFavouriteStatus e changeBlockedStatus in NoteManager.&#10;Aggiunti due metodi in Note per cambiare lo stato di blocked e favourite">
+      <option name="closed" value="true" />
+      <created>1727627844341</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1727627844342</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Implementata per intero la funzionalità di blockbutton. Ora se una nota è bloccata non è possibile modificarne il testo.&#10;Parziale implementazione della nota preferita">
+      <option name="closed" value="true" />
+      <created>1727784257145</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1727784257146</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Implementata per intero la funzionalità di blockbutton. Ora se una nota è bloccata non è possibile modificarne il testo.&#10;Parziale implementazione della nota preferita">
+      <option name="closed" value="true" />
+      <created>1727785267784</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1727785267784</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Corretto bug nel caricamento di una nota estera. Ora il testo non viene cambiato in caso di note della nota già in uso">
+      <option name="closed" value="true" />
+      <created>1727787846527</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1727787846527</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Corretto bug nel caricamento di una nota estera. Ora il testo non viene cambiato in caso di note della nota già in uso">
+      <option name="closed" value="true" />
+      <created>1727787926740</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1727787926740</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Piccole modifiche al codice, esempio al distruttore di NoteManager. Inseriti commenti di spiegazione">
+      <option name="closed" value="true" />
+      <created>1727787976249</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1727787976249</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Creato il puntatore alla nota selezionata. Si vuole modificare le interazioni dell'utente con i vari pulsanti sia per la nota aperta che per la nota selezionata">
+      <option name="closed" value="true" />
+      <created>1727789240656</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1727789240656</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Implementata la possibilità di ricercare una nota namelistwidget. Quando si comincia a scrivere la lista cambia in base a quali nomi di note contengono quella parola. Si tenga conto che i metodi saranno sicuramente modificati in futuro">
+      <option name="closed" value="true" />
+      <created>1727799468996</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1727799468996</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Corretto alcune problematiche che si erano create sostituendo gli objects presenti nei test in dynamic objects. Risolto anche un problema di traduzione del codice html in modo da avere solo il testo della nota e non tutto il codice html">
+      <option name="closed" value="true" />
+      <created>1727804552043</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1727804552043</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Modificato il metodo con cui inserisco il testo della nota aperta. Ora se ho del testo modificato graficamente (quindi la nota contiene nel testo del codice html) le caratteristiche grafiche vengono salvaguardate e appare il testo nel modo corretto">
+      <option name="closed" value="true" />
+      <created>1727805233050</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1727805233050</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Modificato il metodo di salvataggio nota nel suo file txt. Semplificata la scelta delle impostazioni sulla nota durante la creazione">
+      <option name="closed" value="true" />
+      <created>1728213725618</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1728213725618</updated>
+    </task>
+    <task id="LOCAL-00072" summary="creato dei metodi privati in basewindow per migliorare la leggibilità">
+      <option name="closed" value="true" />
+      <created>1728293750070</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1728293750070</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Aggiunto in Note un costruttore che prende come parametri anche il testo e le impostazioni della nota">
+      <option name="closed" value="true" />
+      <created>1728296529573</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1728296529573</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Definito i metodi per inizializzare le note presenti nella cartella in NoteManager e viene inserito il metodo initializeNotes nel costruttore del NoteManager. &#10;Inoltre al momento della costruzione di BaseWindow la notelistwidget caricherà i nomi delle note già esistenti">
+      <option name="closed" value="true" />
+      <created>1728296873996</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1728296873996</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Corretto bug sulla modifica di preferenza o bloccaggio. Questa non veniva salvata subito ma solo se poi si interagiva con l'editor">
+      <option name="closed" value="true" />
+      <created>1728296924380</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1728296924380</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Implementato il metodo per inizializzare le note in base ai file txt presenti nella cartella notes dentro il progetto">
+      <option name="closed" value="true" />
+      <created>1728340586968</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1728340586968</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Quando una nota viene eliminata, lo è da tutte le liste (nel caso di nota preferita o bloccata)">
+      <option name="closed" value="true" />
+      <created>1728739556631</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1728739556631</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Creato la classe FileManager che ottiene tutte le responsabilità della gestione dei file di testo. Questo implica che una serie di parti di codice che prima erano in NoteManager ora andrà in queste classi">
+      <option name="closed" value="true" />
+      <created>1729173660923</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173660924</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Creato la classe FileManager che ottiene tutte le responsabilità della gestione dei file di testo. Questo implica che una serie di parti di codice che prima erano in NoteManager ora andrà in queste classi">
+      <option name="closed" value="true" />
+      <created>1729173814392</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173814392</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Implementate le prime due funzioni di FileManager, ovvero come avviene l'inizializzazione dei file e la creazione del file quando si crea una nuova nota">
+      <option name="closed" value="true" />
+      <created>1729173827082</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173827082</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Implementate le prime due funzioni di FileManager, ovvero come avviene l'inizializzazione dei file e la creazione del file quando si crea una nuova nota">
+      <option name="closed" value="true" />
+      <created>1729173843434</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173843434</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Risolot problema di costruttore di RenameNoteClicked in seguito a modifiche precedenti sulla const di getName() nella classe Note">
+      <option name="closed" value="true" />
+      <created>1729173940138</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173940138</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Aggiunto gli slot connessi al segnale delle QCheckBox per i filtri di note solo bloccate e note solo preferite">
+      <option name="closed" value="true" />
+      <created>1729174192970</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1729174192971</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Aggiornati i metodi di loadNote e saveNote, apportando mofiche sia a NoteManager che a FileManager">
+      <option name="closed" value="true" />
+      <created>1729177903534</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1729177903534</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Modificato il salvataggio degli stati di favourite e blocked">
+      <option name="closed" value="true" />
+      <created>1729177962577</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1729177962577</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Implementato la ridenominazione del file e la sua cancellazione.&#10;Con questo (salvo possibili aggiornamenti futuri del codice) si conclude il branch che riguarda la gestione delle responsabilità tra FileManager e NoteManager">
+      <option name="closed" value="true" />
+      <created>1729182304131</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1729182304131</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Modificato le firme di alcuni metodi. Modifiche riguardante la costanza di parametri">
+      <option name="closed" value="true" />
+      <created>1729250462912</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1729250462912</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Implementazione del filtraggio della lista di note in base a note bloccate o favorite (o entrambi)">
+      <option name="closed" value="true" />
+      <created>1729250546553</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1729250546553</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Modifiche e aggiunte alla classe TestNoteManager. Ridenominazione di un metodo in NoteManager e aggiunta di un cosruttore per cambiare cartella di salvataggio dei file txt nel caso di testing">
+      <option name="closed" value="true" />
+      <created>1729332735817</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1729332735817</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Modifiche in seguito ad aggiornamento sistema">
+      <option name="closed" value="true" />
+      <created>1729332871767</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1729332871767</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Modifiche di firma o posizione di alcuni metodi">
+      <option name="closed" value="true" />
+      <created>1729674863261</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1729674863262</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Aggiornato completamente il metodo di filtraggio in base a nome, preferenza e bloccaggio. La gestione della visualizzazione è responsabilità della BaseWindow e non del NoteManager">
+      <option name="closed" value="true" />
+      <created>1729684997317</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1729684997317</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Aggiornato completamente il metodo di filtraggio in base a nome, preferenza e bloccaggio. La gestione della visualizzazione è responsabilità della BaseWindow e non del NoteManager">
+      <option name="closed" value="true" />
+      <created>1729685010712</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1729685010712</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Eliminato alcuni slots futili dopo le modifiche effettuate nel precedente commit">
+      <option name="closed" value="true" />
+      <created>1729685693134</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1729685693134</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Risolto bug di connessione segnali, connectSignalsToSlots() veniva chiamata due volte a seguito del merge precedente">
+      <option name="closed" value="true" />
+      <created>1729688880333</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1729688880333</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Ora renameNote e deleteNote eseguono le loro funzioni indipendentemente dal filtraggio">
+      <option name="closed" value="true" />
+      <created>1729689496018</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1729689496018</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="creating-FileManager" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="insert-selecteditem" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="-1" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="-1" />
+                  <entry key="Table.GitHub.CommitStatus.ColumnIdWidth" value="93" />
+                </map>
+              </option>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Corretto alcune problematiche che si erano create sostituendo gli objects presenti nei test in dynamic objects. Risolto anche un problema di traduzione del codice html in modo da avere solo il testo della nota e non tutto il codice html" />
+    <MESSAGE value="Modificato il metodo con cui inserisco il testo della nota aperta. Ora se ho del testo modificato graficamente (quindi la nota contiene nel testo del codice html) le caratteristiche grafiche vengono salvaguardate e appare il testo nel modo corretto" />
+    <MESSAGE value="Modificato il metodo di salvataggio nota nel suo file txt. Semplificata la scelta delle impostazioni sulla nota durante la creazione" />
+    <MESSAGE value="creato dei metodi privati in basewindow per migliorare la leggibilità" />
+    <MESSAGE value="Aggiunto in Note un costruttore che prende come parametri anche il testo e le impostazioni della nota" />
+    <MESSAGE value="Definito i metodi per inizializzare le note presenti nella cartella in NoteManager e viene inserito il metodo initializeNotes nel costruttore del NoteManager. &#10;Inoltre al momento della costruzione di BaseWindow la notelistwidget caricherà i nomi delle note già esistenti" />
+    <MESSAGE value="Corretto bug sulla modifica di preferenza o bloccaggio. Questa non veniva salvata subito ma solo se poi si interagiva con l'editor" />
+    <MESSAGE value="Implementato il metodo per inizializzare le note in base ai file txt presenti nella cartella notes dentro il progetto" />
+    <MESSAGE value="Quando una nota viene eliminata, lo è da tutte le liste (nel caso di nota preferita o bloccata)" />
+    <MESSAGE value="Creato la classe FileManager che ottiene tutte le responsabilità della gestione dei file di testo. Questo implica che una serie di parti di codice che prima erano in NoteManager ora andrà in queste classi" />
+    <MESSAGE value="Implementate le prime due funzioni di FileManager, ovvero come avviene l'inizializzazione dei file e la creazione del file quando si crea una nuova nota" />
+    <MESSAGE value="Risolot problema di costruttore di RenameNoteClicked in seguito a modifiche precedenti sulla const di getName() nella classe Note" />
+    <MESSAGE value="Aggiunto gli slot connessi al segnale delle QCheckBox per i filtri di note solo bloccate e note solo preferite" />
+    <MESSAGE value="Aggiornati i metodi di loadNote e saveNote, apportando mofiche sia a NoteManager che a FileManager" />
+    <MESSAGE value="Modificato il salvataggio degli stati di favourite e blocked" />
+    <MESSAGE value="Implementato la ridenominazione del file e la sua cancellazione.&#10;Con questo (salvo possibili aggiornamenti futuri del codice) si conclude il branch che riguarda la gestione delle responsabilità tra FileManager e NoteManager" />
+    <MESSAGE value="Modificato le firme di alcuni metodi. Modifiche riguardante la costanza di parametri" />
+    <MESSAGE value="Implementazione del filtraggio della lista di note in base a note bloccate o favorite (o entrambi)" />
+    <MESSAGE value="Modifiche e aggiunte alla classe TestNoteManager. Ridenominazione di un metodo in NoteManager e aggiunta di un cosruttore per cambiare cartella di salvataggio dei file txt nel caso di testing" />
+    <MESSAGE value="Modifiche in seguito ad aggiornamento sistema" />
+    <MESSAGE value="Modifiche di firma o posizione di alcuni metodi" />
+    <MESSAGE value="Aggiornato completamente il metodo di filtraggio in base a nome, preferenza e bloccaggio. La gestione della visualizzazione è responsabilità della BaseWindow e non del NoteManager" />
+    <MESSAGE value="Eliminato alcuni slots futili dopo le modifiche effettuate nel precedente commit" />
+    <MESSAGE value="Risolto bug di connessione segnali, connectSignalsToSlots() veniva chiamata due volte a seguito del merge precedente" />
+    <MESSAGE value="Ora renameNote e deleteNote eseguono le loro funzioni indipendentemente dal filtraggio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ora renameNote e deleteNote eseguono le loro funzioni indipendentemente dal filtraggio" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
