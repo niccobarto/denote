@@ -12,9 +12,10 @@
 #include <fstream>
 #include <iostream>
 #include "FileManager.h"
+#include "Observable.h"
 using namespace std;
 
-class NoteManager {
+class NoteManager : public Observable {
 
 public:
     NoteManager();
@@ -34,6 +35,11 @@ public:
     QStringList getFavouriteNotes();
     QStringList getBlockedNotes();
     QStringList getFavBlockNotes();
+    int getTotalNumer();
+    int getFavNumber();
+    int getBlockNumber();
+    void addObserver(Observer* o) override;
+    void removeObserver(Observer* o) override;
 private:
     list<Note*> notelist;
     list<Note*> favouritenotes;

@@ -11,6 +11,8 @@ BaseWindow::BaseWindow(NoteManager* n,QWidget *parent) :
         QMainWindow(parent), ui(new Ui::BaseWindow) {
     ui->setupUi(this);
     manager=n;
+    manager->addObserver(this);
+    update();
     initializeGui();
     connectSignalsToSlots();
     createdialog = nullptr;
@@ -45,6 +47,7 @@ void BaseWindow::connectSignalsToSlots() {
 }
 
 BaseWindow::~BaseWindow() {
+    manager->removeObserver(this);
     delete ui;
     delete current;
     delete createdialog;
@@ -271,6 +274,12 @@ void BaseWindow::setNameListWidget(QStringList &names) { //Aggiorna la namelistw
                  addToNameListWidget(name);
          }
      }
+}
+
+void BaseWindow::update() {
+    ui->ntotal->setText(QString::number(manager->getTotalNumer()));
+    ui->nfavourite->setText(QString::number(manager->getFavNumber()));
+    ui->nblocked->setText(QString::number(manager->getBlockNumber()));
 }
 
 

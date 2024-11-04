@@ -21,6 +21,7 @@ bool NoteManager::createNewNote(const QString &name, const QString& text) {
         Note* n=new Note(name,text); //se non esiste già una nota con questo nome, crea una nuova nota
         notelist.push_back(n);
         fmanager->createNoteFile(n);
+        notify();
     }
     return !found;
 }
@@ -62,6 +63,7 @@ void NoteManager::deleteNote(const QString &name) {
         }
     }
     fmanager->deleteNoteFile(name);
+    notify();
 }
 
 void NoteManager::saveNote(const QString& name, const QString& text) {
@@ -107,6 +109,7 @@ void NoteManager::changeFavouriteStatus(const QString& name) {
         favouritenotes.push_back(selected); //Inseriscila nella lista dei preferiti
     }
     fmanager->saveFile(selected);
+    notify();
 }
 
 void NoteManager::changeBlockedStatus(const QString& name) {
@@ -126,6 +129,7 @@ void NoteManager::changeBlockedStatus(const QString& name) {
         blockednotes.push_back(selected);//Inseriscila nella lista dei bloccati
     }
     fmanager->saveFile(selected);
+    notify();
 }
 
 bool NoteManager::isNameUsed(const QString &name) {
@@ -170,9 +174,9 @@ void NoteManager::initializeNotes() {
             initializeSingularNote(filecontent[0],filecontent[1]=="true",filecontent[2]=="true",filecontent[3]);
         }
         catch(out_of_range e){
-
         }
     }
+    notify();
 }
 
 QStringList NoteManager::getFavouriteNotes() {
@@ -195,6 +199,26 @@ QStringList NoteManager::getFavBlockNotes() {
         if(n->isBlocked())
             names.push_back(n->getName());
     return names;
+}
+
+void NoteManager::addObserver(Observer *o) {
+    observers.push_back(o);
+}
+
+void NoteManager::removeObserver(Observer *o) {
+    observers.remove(o);
+}
+
+int NoteManager::getTotalNumer() {
+    return notelist.size();
+}
+
+int NoteManager::getFavNumber() {
+    return favouritenotes.size();
+}
+
+int NoteManager::getBlockNumber() {
+    return blockednotes.size();
 }
 
 

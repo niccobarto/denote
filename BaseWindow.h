@@ -23,12 +23,13 @@
     namespace Ui { class BaseWindow; }
     QT_END_NAMESPACE
 
-    class BaseWindow : public QMainWindow {
+class BaseWindow : public QMainWindow , public Observer{
     Q_OBJECT
     friend class TestBaseWindow;
     friend class TestNewNoteDialog;
     public:
         explicit BaseWindow(NoteManager* n,QWidget *parent = nullptr);
+        void update() override;
         ~BaseWindow() override;
      signals:
         void creationConfirm(bool result);
