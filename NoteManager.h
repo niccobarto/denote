@@ -32,19 +32,27 @@ public:
     bool isNameUsed(const QString& name);
     QStringList getAllNotesName();
     Note* getNote(const QString& name);
-    QStringList getFavouriteNotes();
-    QStringList getBlockedNotes();
-    QStringList getFavBlockNotes();
-    int getTotalNumer();
-    int getFavNumber();
-    int getBlockNumber();
+    QStringList getFavouriteNotes()const;
+    QStringList getBlockedNotes()const;
+    QStringList getFavBlockNotes()const;
+    int getTotalNumber()const ;
+    int getFavNumber()const;
+    int getBlockNumber()const;
     void addObserver(Observer* o) override;
     void removeObserver(Observer* o) override;
+
+    //Getter per test
+    int getNoteListSize()const;
+    int getFavouriteListSize()const;
+    int getBlockedListSize()const;
 private:
     list<Note*> notelist;
     list<Note*> favouritenotes;
     list<Note*> blockednotes;
     FileManager* fmanager;
+    int totalnumber=0;
+    int favnumber=0;
+    int blocknumber=0;
     void initializeNotes();
     bool initializeSingularNote(QString& name, bool fav, bool block, QString& text);
 };

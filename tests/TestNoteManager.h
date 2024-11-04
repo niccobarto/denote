@@ -19,6 +19,7 @@ private slots:
     void testChangeBlockedStatus();
     void testRenameNote();
     void testGetNote();
+    void testGetNumberOfNotes();
     void cleanupTestCase();
 private:
     NoteManager* manager;

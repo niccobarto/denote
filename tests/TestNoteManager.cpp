@@ -15,6 +15,28 @@ void TestNoteManager::testCreateNote() {
     QCOMPARE(manager->getNote(name)->getName(),name);
 }
 
+void TestNoteManager::testGetNumberOfNotes() {
+    QString name="testnumbercount";
+    manager->createNewNote(name);
+
+    QString name1="testfavouritecount";
+    manager->createNewNote(name1);
+    manager->changeFavouriteStatus(name1);
+
+    QString name2="testblockedcount";
+    manager->createNewNote(name2);
+    manager->changeBlockedStatus(name2);
+
+    QString name3="testfavouriteblockedcount";
+    manager->createNewNote(name3);
+    manager->changeBlockedStatus(name3);
+
+
+    QCOMPARE(manager->getTotalNumber(),manager->getNoteListSize()); //Mi aspetto che il numero totale di note sia pari alla dimensione della lista di note
+    QCOMPARE(manager->getFavNumber(),manager->getFavouriteListSize()); //Mi aspetto che il numero di note preferite sia pari alla dimensione della lista di note preferite
+    QCOMPARE(manager->getBlockNumber(),manager->getBlockedListSize()); //Mi aspetto che il numero di note bloccate sia pari alla dimensione della lista di note bloccate
+}
+
 void TestNoteManager::testDeleteNote() {
     QString name="testdelete";
     manager->createNewNote(name);
@@ -100,3 +122,5 @@ void TestNoteManager::cleanupTestCase() {
         manager->deleteNote(name);
     delete manager;
 }
+
+

@@ -21,6 +21,7 @@ bool NoteManager::createNewNote(const QString &name, const QString& text) {
         Note* n=new Note(name,text); //se non esiste già una nota con questo nome, crea una nuova nota
         notelist.push_back(n);
         fmanager->createNoteFile(n);
+        totalnumber++;
         notify();
     }
     return !found;
@@ -30,10 +31,16 @@ bool NoteManager::initializeSingularNote(QString& name, bool fav, bool block, QS
     if(!found){
         Note* n=new Note(name,fav,block,text); //se non esiste già una nota con questo nome, crea una nuova nota
         notelist.push_back(n);
-        if(fav)
+        totalnumber++;
+        if(fav){
             favouritenotes.push_back(n);
-        if(block)
+            favnumber++;
+        }
+        if(block){
             blockednotes.push_back(n);
+            blocknumber++;
+        }
+
     }
     return !found;
 }
@@ -43,6 +50,7 @@ void NoteManager::deleteNote(const QString &name) {
     for(it=notelist.begin();it !=notelist.end();it++){
         if((*it)->getName()==name){
             notelist.erase(it);
+            totalnumber--;
             break;
         }
     }
@@ -50,6 +58,7 @@ void NoteManager::deleteNote(const QString &name) {
         for(it=favouritenotes.begin();it !=favouritenotes.end();it++){
             if((*it)->getName()==name){
                 favouritenotes.erase(it);
+                favnumber--;
                 break;
             }
         }
@@ -58,6 +67,7 @@ void NoteManager::deleteNote(const QString &name) {
         for(it=blockednotes.begin();it !=blockednotes.end();it++){
             if((*it)->getName()==name){
                 blockednotes.erase(it);
+                blocknumber--;
                 break;
             }
         }
@@ -100,6 +110,7 @@ void NoteManager::changeFavouriteStatus(const QString& name) {
         for(it=favouritenotes.begin();it !=favouritenotes.end();it++){
             if((*it)->getName()==selected->getName()){
                 favouritenotes.erase(it); //Rimuovila dalla lista di preferiti
+                favnumber--;
                 break;
             }
         }
@@ -107,6 +118,7 @@ void NoteManager::changeFavouriteStatus(const QString& name) {
     else{
         selected->changeFavourite(true); //Altrimenti rendila preferita
         favouritenotes.push_back(selected); //Inseriscila nella lista dei preferiti
+        favnumber++;
     }
     fmanager->saveFile(selected);
     notify();
@@ -120,6 +132,7 @@ void NoteManager::changeBlockedStatus(const QString& name) {
         for(it=blockednotes.begin();it !=blockednotes.end();it++){
             if((*it)->getName()==selected->getName()){
                 blockednotes.erase(it);//Rimuovila dalla lista di bloccata
+                blocknumber--;
                 break;
             }
         }
@@ -127,6 +140,7 @@ void NoteManager::changeBlockedStatus(const QString& name) {
     else{
         selected->changeBlocked(true);//Altrimenti rendila bloccata
         blockednotes.push_back(selected);//Inseriscila nella lista dei bloccati
+        blocknumber++;
     }
     fmanager->saveFile(selected);
     notify();
@@ -176,24 +190,23 @@ void NoteManager::initializeNotes() {
         catch(out_of_range e){
         }
     }
-    notify();
 }
 
-QStringList NoteManager::getFavouriteNotes() {
+QStringList NoteManager::getFavouriteNotes()const {
     QStringList names;
     for(Note* n:favouritenotes)
         names.push_back(n->getName());
     return names;
 }
 
-QStringList NoteManager::getBlockedNotes() {
+QStringList NoteManager::getBlockedNotes()const {
     QStringList names;
     for(Note* n:blockednotes)
         names.push_back(n->getName());
     return names;
 }
 
-QStringList NoteManager::getFavBlockNotes() {
+QStringList NoteManager::getFavBlockNotes()const {
     QStringList names;
     for(Note* n:favouritenotes)
         if(n->isBlocked())
@@ -209,15 +222,27 @@ void NoteManager::removeObserver(Observer *o) {
     observers.remove(o);
 }
 
-int NoteManager::getTotalNumer() {
+int NoteManager::getTotalNumber()const {
+    return totalnumber;
+}
+
+int NoteManager::getFavNumber()const {
+    return favnumber;
+}
+
+int NoteManager::getBlockNumber()const {
+    return blocknumber;
+}
+
+int NoteManager::getNoteListSize() const {
     return notelist.size();
 }
 
-int NoteManager::getFavNumber() {
+int NoteManager::getFavouriteListSize() const {
     return favouritenotes.size();
 }
 
-int NoteManager::getBlockNumber() {
+int NoteManager::getBlockedListSize() const {
     return blockednotes.size();
 }
 

@@ -277,7 +277,7 @@ void BaseWindow::setNameListWidget(QStringList &names) { //Aggiorna la namelistw
 }
 
 void BaseWindow::update() {
-    ui->ntotal->setText(QString::number(manager->getTotalNumer()));
+    ui->ntotal->setText(QString::number(manager->getTotalNumber()));
     ui->nfavourite->setText(QString::number(manager->getFavNumber()));
     ui->nblocked->setText(QString::number(manager->getBlockNumber()));
 }
