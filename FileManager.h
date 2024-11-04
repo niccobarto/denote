@@ -17,14 +17,16 @@ class FileManager {
 public:
     FileManager(filesystem::path path="../notes"):directorypath(path){}
     QStringList getFileContent(int i);
+    QStringList getFileContent(QString& name);
     void createNoteFile(const Note* n);
     void saveFile(const Note* selected);
-    QStringList readFileLoaded(QString& filepath);
+    QStringList readExternalFile(QString& filepath);
     void renameFile(QString& oldname,const QString& newname);
     void deleteNoteFile(const QString& name);
     int getFileNumber();
 private:
     filesystem::path directorypath;
+    QStringList readFile(QFile& file);
 };
 
 
