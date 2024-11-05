@@ -13,6 +13,7 @@ RenameNoteDialog::RenameNoteDialog(const QString& name,QWidget *parent):
     oldname=ui->currentnotetext->text();
     connect(ui->confirm,&QPushButton::clicked,this,&RenameNoteDialog::confirmRenameButtonClicked);
     connect(ui->cancel,&QPushButton::clicked,this,&RenameNoteDialog::cancelClicked);
+    QWidget::setWindowTitle("Finestra di rinomina");
 }
 RenameNoteDialog::~RenameNoteDialog() {
     delete ui;

@@ -12,6 +12,7 @@ BaseWindow::BaseWindow(NoteManager* n,QWidget *parent) :
     ui->setupUi(this);
     manager=n;
     manager->addObserver(this);
+    colordialog=new QColorDialog(this);
     update();
     initializeGui();
     connectSignalsToSlots();
@@ -27,7 +28,8 @@ void BaseWindow::initializeGui() {
     QStringList names=manager->getAllNotesName();
     for(QString name:names)
         addToNameListWidget(name);
-    colordialog=new QColorDialog(this);
+    move(screen()->geometry().center() - frameGeometry().center());
+    QWidget::setWindowTitle("Denote");
 }
 void BaseWindow::connectSignalsToSlots() {
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked

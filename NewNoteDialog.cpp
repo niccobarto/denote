@@ -13,6 +13,7 @@ NewNoteDialog::NewNoteDialog(QWidget *parent) :
     ui->setupUi(this);
     //metodo che connette il pulsante di conferma di creazione con il suo metodo associato
     connect(ui->notecreationbutton,&QPushButton::clicked,this,&NewNoteDialog::noteCreationButtonClicked);
+    QWidget::setWindowTitle("Finestra di creazione");
 }
 
 NewNoteDialog::~NewNoteDialog() {

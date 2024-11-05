@@ -13,6 +13,7 @@ DeleteNoteDialog::DeleteNoteDialog(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->confirm,&QPushButton::clicked,this,&DeleteNoteDialog::confirmClicked);
     connect(ui->cancel,&QPushButton::clicked,this,&DeleteNoteDialog::cancelClicked);
+    QWidget::setWindowTitle("Finestra di conferma eliminazione");
 }
 
 DeleteNoteDialog::~DeleteNoteDialog() {

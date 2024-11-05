@@ -19,6 +19,7 @@
     #include <QPushButton>
     #include <QIcon>
     #include <QColorDialog>
+    #include <QScreen>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
