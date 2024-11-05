@@ -20,7 +20,7 @@ bool NoteManager::createNewNote(const QString &name, const QString& text) {
     if(!found){
         Note* n=new Note(name,text); //se non esiste già una nota con questo nome, crea una nuova nota
         notelist.push_back(n);
-        fmanager->createNoteFile(n);
+        fmanager->createFile(n);
         totalnumber++;
         notify();
     }
@@ -72,7 +72,7 @@ void NoteManager::deleteNote(const QString &name) {
             }
         }
     }
-    fmanager->deleteNoteFile(name);
+    fmanager->deleteFile(name);
     notify();
 }
 

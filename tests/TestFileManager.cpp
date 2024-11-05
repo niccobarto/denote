@@ -8,7 +8,7 @@ void TestFileManager::initTestCase() {
 void TestFileManager::testGetFileContent() {
     QString name="testfilecontent";
     QString text="La lista della spesa: carote,cipolle,pasta";
-    manager->createNoteFile(new Note(name,text)); //Crea una nuova nota
+    manager->createFile(new Note(name, text)); //Crea una nuova nota
     QStringList content=manager->getFileContent(name); //Ottieni il contenuto dell'ultima nota creata
     QCOMPARE(content[0],name); //Il nome della nota deve essere pari a "testfilecontent"
     QCOMPARE(content[3],text); //Il testo della nota deve essere pari a "La lista della spesa: carote,cipolle,pasta"
@@ -16,7 +16,7 @@ void TestFileManager::testGetFileContent() {
 
 void TestFileManager::testCreateNoteFile() {
     QString name="testcreatenote";
-    manager->createNoteFile(new Note(name,"elenco"));
+    manager->createFile(new Note(name, "elenco"));
     QCOMPARE(manager->getFileContent(name)[0],name); //Il nome dell'ultima nota creata deve essere pari a "testcreatenote"
 }
 
@@ -24,7 +24,7 @@ void TestFileManager::testSaveFile() {
     QString name="testsavefile";
     QString text="La lista della spesa: carote,cipolle,pasta";
     Note* n=new Note(name,text); //Crea una nuova nota
-    manager->createNoteFile(n); //Crea il file della nota
+    manager->createFile(n); //Crea il file della nota
     QString changedtext="La lista della spesa: carote,cipolle,pasta,pane";
     n->setText(changedtext); //Modifica manualmente il testo della nota
     manager->saveFile(n);
@@ -41,7 +41,7 @@ void TestFileManager::testReadFileLoaded() {
     file.close();
     QStringList content= manager->readExternalFile(filepath); //Carica il file
     Note* n=new Note(content[0],false,false,content[1]);
-    manager->createNoteFile(n); //Crea la nota
+    manager->createFile(n); //Crea la nota
     content[0].replace(".txt", ""); //Elimino l'estensione .txt
     QCOMPARE(manager->getFileContent(content[0])[0],"testloadexternfile"); //Il nome della nota deve essere pari a "testloadexternfile"
     QCOMPARE(manager->getFileContent(content[0])[3],text); //Il testo della nota deve essere pari a "testo di prova per il caricamento di una nota tramite filesystem"
@@ -52,7 +52,7 @@ void TestFileManager::cleanupTestCase() {
     for (int i = 0; i < manager->getFileNumber(); ++i)
         names.push_back(manager->getFileContent(i)[0]);//Elimina tutte le note create
     for(QString name:names)
-        manager->deleteNoteFile(name);
+        manager->deleteFile(name);
     delete manager;
 
 }

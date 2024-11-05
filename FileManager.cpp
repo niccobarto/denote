@@ -43,7 +43,7 @@ QStringList FileManager::readFile(QFile& file) {
     file.close();
     return content;
 }
-void FileManager::createNoteFile(const Note* n) {
+void FileManager::createFile(const Note* n) {
     ofstream notefile(directorypath / (n->getName().toStdString() + ".txt"));
     notefile << (n->isFavourite() ? "true" : "false") << ",";
     notefile << (n->isBlocked() ? "true" : "false") << "|";
@@ -77,7 +77,7 @@ void FileManager::renameFile(QString& oldname,const QString& newname) {
     filesystem::rename(directorypath/(oldname.toStdString()+".txt"),directorypath/(newname.toStdString()+".txt"));
 }
 
-void FileManager::deleteNoteFile(const QString &name) {
+void FileManager::deleteFile(const QString &name) {
     filesystem::remove(directorypath/(name.toStdString()+".txt"));
 }
 
