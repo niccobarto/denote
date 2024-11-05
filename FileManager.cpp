@@ -34,7 +34,7 @@ QStringList FileManager::readFile(QFile& file) {
         name.replace(".txt", "");
     //Splitta il testo in base a dei criteri
     QString allfiletext=reader.readAll();//Leggi tutto il testo
-    QStringList splitter=allfiletext.split('|',Qt::SkipEmptyParts); //Splittalo in base a |
+    QStringList splitter=allfiletext.split('|',Qt::KeepEmptyParts); //Splittalo in base a |
     QStringList notesettings=splitter[0].split(',',Qt::SkipEmptyParts); //splitta splitter[0] per avere i valori di favourite e blocked
     content.push_back(name.trimmed()); //Aggiungi il nome alla lista
     content.push_back(notesettings[0].trimmed()); //Aggiungi favourite
