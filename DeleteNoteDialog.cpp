@@ -8,12 +8,13 @@
 #include "ui_files/ui_DeleteNoteDialog.h"
 
 
-DeleteNoteDialog::DeleteNoteDialog(QWidget *parent) :
+DeleteNoteDialog::DeleteNoteDialog(const QString& notenameselected,QWidget *parent) :
         QDialog(parent), ui(new Ui::DeleteNoteDialog) {
     ui->setupUi(this);
     connect(ui->confirm,&QPushButton::clicked,this,&DeleteNoteDialog::confirmClicked);
     connect(ui->cancel,&QPushButton::clicked,this,&DeleteNoteDialog::cancelClicked);
     QWidget::setWindowTitle("Finestra di conferma eliminazione");
+    ui->noteselectedlabel->setText(notenameselected);
 }
 
 DeleteNoteDialog::~DeleteNoteDialog() {

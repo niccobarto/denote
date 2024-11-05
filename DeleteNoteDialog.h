@@ -17,7 +17,7 @@ class DeleteNoteDialog : public QDialog {
 Q_OBJECT
 
 public:
-    explicit DeleteNoteDialog(QWidget *parent = nullptr);
+    explicit DeleteNoteDialog(const QString& notenameselected,QWidget *parent = nullptr);
 
     ~DeleteNoteDialog() override;
     signals:

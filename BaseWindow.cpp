@@ -77,7 +77,7 @@ void BaseWindow::createNote(const QString& name) {
 
 void BaseWindow::deleteNoteClicked() {
     if(current!= nullptr){ //Cancella solo se è selezionata una nota
-        deletedialog=new DeleteNoteDialog(this); //Apri la finestra di dialogo per la conferma dell'eliminazione
+        deletedialog=new DeleteNoteDialog(current->getName(),this); //Apri la finestra di dialogo per la conferma dell'eliminazione
         connect(deletedialog,&DeleteNoteDialog::confirmDelete,this,&BaseWindow::deleteNote);//Associa lo slot deleteNote() al segnale confirmDelete
         deletedialog->exec();
     }
