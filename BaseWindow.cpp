@@ -27,6 +27,7 @@ void BaseWindow::initializeGui() {
     QStringList names=manager->getAllNotesName();
     for(QString name:names)
         addToNameListWidget(name);
+    colordialog=new QColorDialog(this);
 }
 void BaseWindow::connectSignalsToSlots() {
     //collega l'evento di cliccaggio del pulsante "newnotebutton" al metodo che ho creato negli slot privati chiamato newNoteClicked
@@ -44,6 +45,7 @@ void BaseWindow::connectSignalsToSlots() {
     connect(ui->searchbar,&QLineEdit::textChanged,this, &BaseWindow::updateNameListWidget);
     connect(ui->favouritefilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
     connect(ui->blockedfilter,&QCheckBox::clicked,this,&BaseWindow::updateNameListWidget);
+    connect(ui->colorbutton,&QPushButton::clicked,this,&BaseWindow::changeColorClicked);
 }
 
 BaseWindow::~BaseWindow() {
@@ -191,6 +193,15 @@ void BaseWindow::changeSelectedTextSize() {
     QTextCharFormat format; //creo un nuovo formato
     format.setFontPointSize(ui->sizechanger->value()); //imposto il pointsize del nuovo formato
     ui->noteeditor->textCursor().mergeCharFormat(format); //Applico il nuovo formato al testo selezionato
+    saveChanges();
+}
+
+void BaseWindow::changeColorClicked() {
+    colordialog->exec();
+    QColor color=colordialog->currentColor(); //Ottengo il colore selezionato
+    QTextCharFormat format;
+    format.setForeground(QBrush(color)); //Imposto il colore del testo
+    ui->noteeditor->textCursor().mergeCharFormat(format); //Applico il colore al testo selezionato
     saveChanges();
 }
 

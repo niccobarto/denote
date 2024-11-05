@@ -30,6 +30,9 @@ public:
     void changeFavouriteStatus(const QString& name);
     void changeBlockedStatus(const QString& name);
     bool isNameUsed(const QString& name);
+    void addObserver(Observer* o) override;
+    void removeObserver(Observer* o) override;
+
     QStringList getAllNotesName();
     Note* getNote(const QString& name);
     QStringList getFavouriteNotes()const;
@@ -38,9 +41,6 @@ public:
     int getTotalNumber()const ;
     int getFavNumber()const;
     int getBlockNumber()const;
-    void addObserver(Observer* o) override;
-    void removeObserver(Observer* o) override;
-
     //Getter per test
     int getNoteListSize()const;
     int getFavouriteListSize()const;

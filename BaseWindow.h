@@ -18,6 +18,7 @@
     #include <QMessageBox>
     #include <QPushButton>
     #include <QIcon>
+    #include <QColorDialog>
 
     QT_BEGIN_NAMESPACE
     namespace Ui { class BaseWindow; }
@@ -50,6 +51,7 @@ class BaseWindow : public QMainWindow , public Observer{
         void saveChanges();
         void inTextSelectedCase();
         void changeSelectedTextSize();
+        void changeColorClicked();
     private:
         Ui::BaseWindow *ui;
         NoteManager* manager;
@@ -57,6 +59,7 @@ class BaseWindow : public QMainWindow , public Observer{
         NewNoteDialog* createdialog;
         DeleteNoteDialog* deletedialog;
         RenameNoteDialog* renamedialog;
+        QColorDialog* colordialog;
         void initializeGui();
         void connectSignalsToSlots();
         void setDefault();
