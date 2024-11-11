@@ -66,8 +66,6 @@ class BaseWindow : public QMainWindow , public Observer{
         void setDefault();
         void addToNameListWidget(const QString& name);
         void updateNameListWidget();
-        QStringList getFilteredNameList();
-        void setNameListWidget(QStringList& names);
         
         //metodi per TestBaseWindow
         list<QString> getListWidgetNames();

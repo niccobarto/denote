@@ -41,6 +41,7 @@ public:
     int getTotalNumber()const ;
     int getFavNumber()const;
     int getBlockNumber()const;
+    QStringList getFilteredNameList(bool favchecked, bool blockchecked, const QString& searchbar);
     //Getter per test
     int getNoteListSize()const;
     int getFavouriteListSize()const;

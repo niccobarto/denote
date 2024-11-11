@@ -260,34 +260,12 @@ void BaseWindow::addToNameListWidget(const QString &name) { //Per ogni nome da i
 }
 
 void BaseWindow::updateNameListWidget() {
-    QStringList namesbyfilter=getFilteredNameList();
+    QStringList namesbyfilter=manager->getFilteredNameList(ui->favouritefilter->isChecked(),ui->blockedfilter->isChecked(),ui->searchbar->text());
     ui->namelistwidget->clear();
-    setNameListWidget(namesbyfilter);
+    for(QString name:namesbyfilter)
+        addToNameListWidget(name);
 }
 
-QStringList BaseWindow::getFilteredNameList() { //restituisce la lista di nomi adeguati ai filtri scelti
-    if(ui->favouritefilter->isChecked() && ui->blockedfilter->isChecked())
-        return manager->getFavBlockNotes();
-    else if(ui->favouritefilter->isChecked())
-        return manager->getFavouriteNotes();
-        else if(ui->blockedfilter->isChecked())
-            return manager->getBlockedNotes();
-        else
-            return manager->getAllNotesName();
-}
-
-void BaseWindow::setNameListWidget(QStringList &names) { //Aggiorna la namelistwidget con i nomi che rispettano tutti i filtri, sia in base al nome che alle preferenze
-     if(ui->searchbar->text().isEmpty()){
-         for(QString name: names)
-             addToNameListWidget(name);
-     }
-     else{
-         for(QString name: names){
-             if(name.contains(ui->searchbar->text()))
-                 addToNameListWidget(name);
-         }
-     }
-}
 
 void BaseWindow::update() {
     ui->ntotal->setText(QString::number(manager->getTotalNumber()));

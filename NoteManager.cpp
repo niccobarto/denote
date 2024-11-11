@@ -214,6 +214,30 @@ QStringList NoteManager::getFavBlockNotes()const {
     return names;
 }
 
+QStringList NoteManager::getFilteredNameList(bool favchecked, bool blockchecked,const QString& searchbar) {
+    QStringList firststepfilternames; //restituisce la lista di nomi adeguati ai filtri scelti (favourite e blocked)
+    if(favchecked && blockchecked)
+        firststepfilternames=getFavBlockNotes();
+    else if(favchecked)
+        firststepfilternames=getFavouriteNotes();
+    else if(blockchecked)
+        firststepfilternames=getBlockedNotes();
+    else
+        firststepfilternames=getAllNotesName();
+    QStringList filterednames;  //Aggiorna la namelistwidget con i nomi che rispettano tutti i filtri, sia in base al nome che alle preferenze
+    if(searchbar.isEmpty()){
+        for(QString name: firststepfilternames)
+            filterednames.push_back(name);
+    }
+    else{
+        for(QString name: firststepfilternames){
+            if(name.contains(searchbar))
+                filterednames.push_back(name);
+        }
+    }
+    return filterednames;
+}
+
 void NoteManager::addObserver(Observer *o) {
     observers.push_back(o);
 }
