@@ -11,8 +11,12 @@ void TestNoteManager::initTestCase() {
 
 void TestNoteManager::testCreateNote() {
     QString name="testcreate";
-    manager->createNewNote(name);
+    bool result=manager->createNewNote(name);
+    QVERIFY(result); //Mi aspetto un true perché il nome non è già usato
     QCOMPARE(manager->getNote(name)->getName(),name);
+    //Caso negativo
+    result=manager->createNewNote(name);
+    QVERIFY(!result); //Mi aspetto un false perché il nome è già usato
 }
 
 void TestNoteManager::testGetNumberOfNotes() {
@@ -41,10 +45,14 @@ void TestNoteManager::testDeleteNote() {
     QString name="testdelete";
     manager->createNewNote(name);
     QCOMPARE(manager->getNote(name)->getName(),name);
-    if(manager->isNameUsed(name)){
-        manager->deleteNote(name);
-        QVERIFY(!manager->isNameUsed(name)); //Mi aspetto un false perché non deve essere usato
-    }
+    bool result=manager->deleteNote(name);
+    QVERIFY(!manager->isNameUsed(name)); //Mi aspetto un false perché non deve essere usato
+    QVERIFY(result); //Mi aspetto un true perché la nota è stata cancellata
+    //Caso negativo
+    result=manager->deleteNote(name);
+    QVERIFY(!result); //Mi aspetto un false perché la nota non esiste
+
+
 }
 
 void TestNoteManager::testNotExistingNote() {
@@ -53,8 +61,8 @@ void TestNoteManager::testNotExistingNote() {
     QCOMPARE(manager->getNote(name)->getName(),name);
     if(manager->isNameUsed(name)){
         QString rename="testexistingABCABC";
-        manager->renameNote(name,rename);
-        if(manager->isNameUsed(rename)){ //In questo modo so che non esiste nessun nota con il nome "testexisting"
+        manager->renameNote(name,rename); //In questo modo so che non esiste nessun nota con il nome "testexisting"
+        if(manager->isNameUsed(rename)){
             QCOMPARE(manager->getNote(name),nullptr);
         }
     }
@@ -65,10 +73,15 @@ void TestNoteManager::testSaveNote() {
     manager->createNewNote(name);
     QCOMPARE(manager->getNote(name)->getName(),name);
     QString text="La lista della spesa: carote,cipolle,pasta";
-    if(manager->isNameUsed(name)) {
-        manager->saveNote(name, text);
-        QCOMPARE(manager->getNote(name)->getText(), text);
-    }
+    bool result=manager->saveNote(name, text);
+    QVERIFY(result); //Mi aspetto un true perché il nome è usato
+    QCOMPARE(manager->getNote(name)->getText(), text);
+    //Caso negativo
+    QString fakename="testsaveABABAB";
+    QString faketext="Testo falso";
+    result=manager->saveNote(fakename,faketext);
+    QVERIFY(!result); //Mi aspetto un false perché il nome non è usato
+
 }
 void TestNoteManager::testChangeFavouriteStatus() {
     QString name="testfavourite";
@@ -109,6 +122,10 @@ void TestNoteManager::testRenameNote() {
         manager->renameNote(oldname,rename);
         QCOMPARE(n->getName(),rename);
     }
+    //Caso negativo
+    //Ora so che nessuna nota si chiama "testrename"
+    bool wrongrenameresult=manager->renameNote(oldname,"testrename2");
+    QVERIFY(!wrongrenameresult);//Mi aspetto un false perché l'operazione non deve essere andata a buon fine
 }
 
 void TestNoteManager::testGetNote(){

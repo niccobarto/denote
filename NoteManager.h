@@ -23,8 +23,8 @@ public:
     ~NoteManager();
 
     bool createNewNote(const QString& name,const QString& text="");
-    void deleteNote(const QString& name);
-    void saveNote(const QString& name,const QString& text);
+    bool deleteNote(const QString& name);
+    bool saveNote(const QString& name,const QString& text);
     QString loadNote(QString& filepath);
     bool renameNote(QString& oldname,const QString &newname);
     void changeFavouriteStatus(const QString& name);

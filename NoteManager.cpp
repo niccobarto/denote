@@ -44,7 +44,9 @@ bool NoteManager::initializeSingularNote(QString& name, bool fav, bool block, QS
     }
     return !found;
 }
-void NoteManager::deleteNote(const QString &name) {
+bool NoteManager::deleteNote(const QString &name) {
+    if(!isNameUsed(name))
+        return false;
     Note* n= getNote(name);
     list<Note*>::iterator it;
     for(it=notelist.begin();it !=notelist.end();it++){
@@ -74,14 +76,19 @@ void NoteManager::deleteNote(const QString &name) {
     }
     fmanager->deleteFile(name);
     notify();
+    return true;
 }
 
-void NoteManager::saveNote(const QString& name, const QString& text) {
+bool NoteManager::saveNote(const QString& name, const QString& text) {
+    if(!isNameUsed(name))
+        return false;
     Note* selected=getNote(name);
     if(selected!=nullptr){
         selected->setText(text); //salvo il nuovo text della nota
         fmanager->saveFile(selected); //Salvo i cambiamenti nel file tramite FileManager
+        return true;
     }
+    return false;
 }
 
 QString NoteManager::loadNote(QString& filepath) {
@@ -93,13 +100,17 @@ QString NoteManager::loadNote(QString& filepath) {
 }
 
 bool NoteManager::renameNote(QString &oldname,const QString &newname) {
-    bool found= isNameUsed(newname);
-    if(!found){
-        Note* n= getNote(oldname);
-        n->setName(newname);
-        fmanager->renameFile(oldname,newname);
+    if(isNameUsed(oldname)){
+        bool found= isNameUsed(newname);
+        if(!found){
+            Note* n= getNote(oldname);
+            n->setName(newname);
+            fmanager->renameFile(oldname,newname);
+        }
+        return !found;
     }
-    return !found;
+    else return false;
+
 }
 
 void NoteManager::changeFavouriteStatus(const QString& name) {
