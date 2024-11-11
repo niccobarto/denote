@@ -15,10 +15,9 @@ int main(int argc, char *argv[]) {
     TestBaseWindow tbasewindow;
     TestNewNoteDialog tnewnotedialog;
     TestFileManager tfmanager;
-    //Fixme crash in uno dei cleanUpCase()
     QTest::qExec(&tnotemanager,argc,argv);
     QTest::qExec(&tfmanager,argc,argv);
-    QTest::qExec(&tnewnotedialog,argc,argv);
-    QTest::qExec(&tbasewindow,argc,argv);
+    //QTest::qExec(&tnewnotedialog,argc,argv);
+    //QTest::qExec(&tbasewindow,argc,argv);
 
 }

@@ -13,7 +13,7 @@ BaseWindow::BaseWindow(NoteManager* n,QWidget *parent) :
     manager=n;
     manager->addObserver(this);
     colordialog=new QColorDialog(this);
-    update();
+    BaseWindow::update();
     initializeGui();
     connectSignalsToSlots();
     createdialog = nullptr;
