@@ -294,8 +294,7 @@ void BaseWindow::update() {
     ui->nfavourite->setText(QString::number(manager->getFavNumber()));
     ui->nblocked->setText(QString::number(manager->getBlockNumber()));
 }
-
-
+Observer::~Observer()=default;
 
 
 

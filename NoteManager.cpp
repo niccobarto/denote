@@ -246,6 +246,7 @@ int NoteManager::getBlockedListSize() const {
     return blockednotes.size();
 }
 
+Observable::~Observable()=default;
 
 
 

@@ -17,6 +17,7 @@ public:
             o->update();
         }
     }
+    virtual ~Observable()=0;
 protected:
     list<Observer*> observers;
 };
