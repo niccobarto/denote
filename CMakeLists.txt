@@ -8,9 +8,9 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Test)
 # Imposta le opzioni per C++ e i moduli di Qt
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
-
 # Aggiungi l'eseguibile principale
 add_executable(denote
+        resources.rc
         main.cpp
         BaseWindow.cpp
         NewNoteDialog.cpp
@@ -23,7 +23,7 @@ add_executable(denote
         Observer.h
         Observable.h
 )
-
+set_target_properties(denote PROPERTIES WIN32_EXECUTABLE ON)
 # Link dei moduli Qt
 target_link_libraries(denote
         Qt::Core
@@ -52,7 +52,7 @@ add_executable(denoteTests
         FileManager.cpp
         FileManager.h
 )
-
+set_target_properties(denoteTests PROPERTIES WIN32_EXECUTABLE OFF)
 # Abilita AUTOMOC per il target denoteTests
 set_target_properties(denoteTests PROPERTIES AUTOMOC ON)
 
